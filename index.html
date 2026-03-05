@@ -94,7 +94,7 @@
                 <!-- MODULE 1: KIẾN TRÚC -->
                 <!-- ========================================== -->
                 <div id="p1-1" class="page-content active">
-                    <h3 class="text-4xl font-extrabold text-primary mb-8 border-l-8 border-accent pl-4">Vai Trò & Cấu Trúc 4 Lớp</h3>
+                    <h3 class="text-4xl font-extrabold text-primary mb-8 border-l-8 border-accent pl-4">Vai Trò & Cấu Trúc 3 Lớp</h3>
                     
                     <div class="grid grid-cols-2 gap-8 mb-10">
                         <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200">
@@ -115,22 +115,18 @@
                     </div>
 
                     <div class="space-y-4 bg-white p-8 rounded-2xl shadow-sm border border-slate-200">
-                        <h4 class="font-bold text-xl text-slate-500 uppercase tracking-wider mb-4">Cấu trúc phân lớp</h4>
+                        <h4 class="font-bold text-xl text-slate-500 uppercase tracking-wider mb-4">Cấu trúc phân lớp (Hiện đại)</h4>
                         <div class="flex items-center gap-6 p-4 bg-slate-50 rounded-lg">
                             <div class="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center text-2xl font-bold shrink-0 shadow-lg">1</div>
                             <div><h4 class="text-2xl font-bold text-primary">Lớp Quản lý (Server)</h4><p class="text-lg text-slate-600">Giao diện đồ họa, Database. Lỗi hay gặp: Đầy ổ cứng, sập nguồn UPS.</p></div>
                         </div>
                         <div class="flex items-center gap-6 p-4 bg-slate-50 rounded-lg">
-                            <div class="w-16 h-16 bg-secondary text-white rounded-full flex items-center justify-center text-2xl font-bold shrink-0 shadow-lg">2</div>
-                            <div><h4 class="text-2xl font-bold text-secondary">Lớp Mạng (Gateway/Switch)</h4><p class="text-lg text-slate-600">Dịch ngôn ngữ truyền thông. Lỗi hay gặp: Treo Switch do nóng, loop mạng.</p></div>
+                            <div class="w-16 h-16 bg-accent text-primary rounded-full flex items-center justify-center text-2xl font-bold shrink-0 shadow-lg">2</div>
+                            <div><h4 class="text-2xl font-bold text-amber-600">Lớp Tự động hóa (Automation / DDC)</h4><p class="text-lg text-slate-600">Chạy logic tự động (Stand-alone). Lỗi hay gặp: Hết pin CMOS mất code, cháy bo mạch.</p></div>
                         </div>
                         <div class="flex items-center gap-6 p-4 bg-slate-50 rounded-lg">
-                            <div class="w-16 h-16 bg-accent text-primary rounded-full flex items-center justify-center text-2xl font-bold shrink-0 shadow-lg">3</div>
-                            <div><h4 class="text-2xl font-bold text-amber-600">Lớp Điều khiển (DDC)</h4><p class="text-lg text-slate-600">Chạy logic tự động (Stand-alone). Lỗi hay gặp: Hết pin CMOS mất code, cháy bo mạch.</p></div>
-                        </div>
-                        <div class="flex items-center gap-6 p-4 bg-slate-50 rounded-lg">
-                            <div class="w-16 h-16 bg-slate-400 text-white rounded-full flex items-center justify-center text-2xl font-bold shrink-0 shadow-lg">4</div>
-                            <div><h4 class="text-2xl font-bold text-slate-700">Thiết bị trường (I/O)</h4><p class="text-lg text-slate-600">Cảm biến, Van. Lỗi hay gặp: 90% sự cố (đứt dây, kẹt cơ, hỏng motor).</p></div>
+                            <div class="w-16 h-16 bg-slate-400 text-white rounded-full flex items-center justify-center text-2xl font-bold shrink-0 shadow-lg">3</div>
+                            <div><h4 class="text-2xl font-bold text-slate-700">Lớp Thiết bị trường (I/O)</h4><p class="text-lg text-slate-600">Cảm biến, Van, Relay. Lỗi hay gặp: 90% sự cố (đứt dây, kẹt cơ, hỏng motor).</p></div>
                         </div>
                     </div>
                 </div>
@@ -139,7 +135,7 @@
                     <div class="img-placeholder-large">
                         <span class="text-6xl mb-4">🖼️</span>
                         <span class="text-3xl font-black"></span>
-                        <span class="text-xl mt-4 font-normal text-sky-700 max-w-2xl">Ghi chú cho Giảng viên: Chèn sơ đồ Network Architecture thực tế của dự án vào đây. Yêu cầu thiết kế tối giản, màu sắc tươi sáng, chỉ rõ ranh giới các tủ điều khiển.</span>
+                        <span class="text-xl mt-4 font-normal text-sky-700 max-w-2xl">Ghi chú cho Giảng viên: Chèn sơ đồ Network Architecture 3 Lớp thực tế của dự án vào đây. Yêu cầu thiết kế tối giản, màu sắc tươi sáng, hiển thị rõ máy chủ nối thẳng xuống tủ DDC Automation.</span>
                     </div>
                 </div>
 
@@ -155,10 +151,10 @@
 
                         <!-- Easy -->
                         <div id="m1-easy" class="quiz-pane active p-8">
-                            <p class="text-2xl font-bold text-slate-800 mb-6 leading-relaxed">❓ Chức năng "Stand-alone" (Độc lập) của tủ DDC nghĩa là gì trong vận hành thực tế?</p>
+                            <p class="text-2xl font-bold text-slate-800 mb-6 leading-relaxed">❓ Chức năng "Stand-alone" (Độc lập) của tủ DDC thuộc Lớp Tự động hóa có nghĩa là gì trong vận hành thực tế?</p>
                             <div class="space-y-4" id="m1-easy-opts">
                                 <button onclick="handleAnswer('m1-easy', false, this)" class="w-full text-left p-5 text-xl bg-slate-50 hover:bg-blue-50 border border-slate-300 rounded-xl transition">A. Tủ DDC tự phát ra điện để chạy khi mất điện lưới.</button>
-                                <button onclick="handleAnswer('m1-easy', true, this)" class="w-full text-left p-5 text-xl bg-slate-50 hover:bg-blue-50 border border-slate-300 rounded-xl transition">B. Khi cáp mạng đứt, mất kết nối với máy chủ Server, DDC vẫn tự động điều khiển thiết bị theo logic đã lập trình sẵn bên trong.</button>
+                                <button onclick="handleAnswer('m1-easy', true, this)" class="w-full text-left p-5 text-xl bg-slate-50 hover:bg-blue-50 border border-slate-300 rounded-xl transition">B. Khi cáp mạng đứt, mất kết nối với máy chủ Server (Lớp quản lý), DDC vẫn tự động điều khiển thiết bị hiện trường theo logic đã lập trình sẵn bên trong.</button>
                                 <button onclick="handleAnswer('m1-easy', false, this)" class="w-full text-left p-5 text-xl bg-slate-50 hover:bg-blue-50 border border-slate-300 rounded-xl transition">C. Tủ DDC chỉ nhận lệnh thủ công từ kỹ thuật viên nhấn nút trên mặt tủ.</button>
                             </div>
                             <div id="m1-easy-res" class="hidden mt-6"></div>
@@ -166,11 +162,11 @@
 
                         <!-- Medium -->
                         <div id="m1-med" class="quiz-pane p-8">
-                            <p class="text-2xl font-bold text-slate-800 mb-6 leading-relaxed">❓ Khi màn hình BMS hiển thị dấu [? Hỏi chấm đỏ] hoặc [Offline] toàn bộ hệ thống Chiller Plant, thiết bị phân lớp nào có khả năng cao nhất đang gặp sự cố?</p>
+                            <p class="text-2xl font-bold text-slate-800 mb-6 leading-relaxed">❓ Khi màn hình BMS hiển thị [Offline] hoặc [Mất kết nối] toàn bộ các tủ DDC thuộc hệ thống Chiller Plant ở tầng hầm, nguyên nhân có khả năng cao nhất là gì?</p>
                             <div class="space-y-4" id="m1-med-opts">
-                                <button onclick="handleAnswer('m1-med', false, this)" class="w-full text-left p-5 text-xl bg-slate-50 hover:bg-blue-50 border border-slate-300 rounded-xl transition">A. Hỏng cảm biến nhiệt độ cấp nước lạnh của Chiller.</button>
-                                <button onclick="handleAnswer('m1-med', false, this)" class="w-full text-left p-5 text-xl bg-slate-50 hover:bg-blue-50 border border-slate-300 rounded-xl transition">B. Lỗi phần mềm Windows của máy chủ.</button>
-                                <button onclick="handleAnswer('m1-med', true, this)" class="w-full text-left p-5 text-xl bg-slate-50 hover:bg-blue-50 border border-slate-300 rounded-xl transition">C. Lỗi Lớp Mạng (Gateway / Switch trung tâm bị treo hoặc mất nguồn).</button>
+                                <button onclick="handleAnswer('m1-med', false, this)" class="w-full text-left p-5 text-xl bg-slate-50 hover:bg-blue-50 border border-slate-300 rounded-xl transition">A. Hỏng 1 cảm biến nhiệt độ cấp nước lạnh của Chiller dưới hiện trường.</button>
+                                <button onclick="handleAnswer('m1-med', false, this)" class="w-full text-left p-5 text-xl bg-slate-50 hover:bg-blue-50 border border-slate-300 rounded-xl transition">B. Lỗi phần mềm đồ họa trên Server.</button>
+                                <button onclick="handleAnswer('m1-med', true, this)" class="w-full text-left p-5 text-xl bg-slate-50 hover:bg-blue-50 border border-slate-300 rounded-xl transition">C. Lỗi trục cáp mạng truyền thông (đứt cáp quang) nối các tủ DDC, hoặc thiết bị Switch mạng nội bộ của cụm DDC này bị mất nguồn/treo.</button>
                             </div>
                             <div id="m1-med-res" class="hidden mt-6"></div>
                         </div>
@@ -280,25 +276,38 @@
                             <ul class="text-lg space-y-3 text-slate-700 bg-sky-50 p-4 rounded-lg border border-sky-100">
                                 <li>👉 <strong>Loại cáp:</strong> Cáp điều khiển (Control Cable / CVV). Không bắt buộc bọc nhiễu.</li>
                                 <li>👉 <strong>Kích thước:</strong> Cáp đa lõi (Multi-core) ví dụ 4x1.0mm², 8x1.5mm².</li>
-                                <li>👉 <strong>Lưu ý:</strong> Nên dùng cáp có đánh số thứ tự trên lõi (Marking) để thợ thi công không đấu nhầm khi kéo số lượng lớn từ tủ điện MCC.</li>
+                                <li>👉 <strong>Lưu ý:</strong> Nên dùng cáp có đánh số thứ tự trên lõi (Marking) để thợ thi công không đấu nhầm khi kéo số lượng lớn.</li>
                             </ul>
                         </div>
                     </div>
 
                     <div class="bg-slate-800 p-8 rounded-2xl shadow-md text-slate-200">
-                        <h4 class="font-black text-2xl text-accent mb-4 uppercase tracking-wider">🧮 Công thức tính (Bóc tách) Khối lượng cáp</h4>
-                        <p class="text-lg mb-4">Để lên dự toán vật tư cáp không bị thiếu hụt khi thi công, cần tính toán theo công thức chiều dài phân đoạn:</p>
+                        <h4 class="font-black text-2xl text-accent mb-6 uppercase tracking-wider">🧮 Bóc Tách Khối Lượng Cáp (Dự Toán & Thi Công)</h4>
                         
-                        <div class="bg-slate-900 p-6 rounded-xl border border-slate-600 mb-4">
-                            <p class="text-2xl font-mono text-green-400 text-center">Tổng L = (L_trục + L_nhánh + L_thả) x 1.1</p>
+                        <div class="grid md:grid-cols-2 gap-6 mb-6">
+                            <div class="bg-slate-900 p-6 rounded-xl border border-slate-600">
+                                <p class="font-bold text-sky-400 mb-3 text-xl">1. Công thức chi tiết (Thi công):</p>
+                                <p class="text-2xl font-mono text-green-400 mb-3 text-center">L = (L_trục + L_nhánh + L_thả) x 1.1</p>
+                                <ul class="text-base space-y-2 text-slate-400">
+                                    <li>- <strong>L_thả:</strong> +2-3m chờ tại thiết bị, +1.5-2m tại tủ DDC.</li>
+                                    <li>- <strong>Hao phí:</strong> Nhân 1.1 (10%) bù độ võng, cắt đầu cáp.</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="bg-slate-900 p-6 rounded-xl border border-slate-600">
+                                <p class="font-bold text-accent mb-3 text-xl">2. Tính nhanh (Dự toán 20m/tín hiệu):</p>
+                                <p class="text-2xl font-mono text-yellow-400 mb-3 text-center">Tổng cáp = Số điểm I/O × 20m</p>
+                                <ul class="text-base space-y-2 text-slate-400">
+                                    <li>- <strong>Cáp chống nhiễu:</strong> (Tổng AI + AO) × 20m.</li>
+                                    <li>- <strong>Cáp ĐK 1.5mm²:</strong> (Tổng DI + DO) × 20m.</li>
+                                </ul>
+                            </div>
                         </div>
-                        
-                        <ul class="text-lg space-y-3 text-slate-300">
-                            <li><span class="text-accent font-bold">L_trục (Đoạn đi thẳng):</span> Chiều dài cáp chạy dọc trên máng cáp (Cable Tray) chính.</li>
-                            <li><span class="text-accent font-bold">L_nhánh (Đoạn rẽ):</span> Từ máng chính rẽ vào tủ điện hoặc rẽ ra khu vực gắn thiết bị.</li>
-                            <li><span class="text-accent font-bold">L_thả (Dây chờ/Dây thò lò):</span> Bắt buộc cộng thêm <strong>2m - 3m</strong> cáp thả từ trần xuống cảm biến, và <strong>1.5m - 2m</strong> cáp dư bên trong tủ DDC để đấu nối vào Terminal.</li>
-                            <li><span class="text-danger font-bold">x 1.1 (Hao phí 10%):</span> Bù trừ độ võng của cáp trên máng, đoạn cắt bỏ đầu dây, và sai số bản vẽ.</li>
-                        </ul>
+
+                        <div class="bg-red-900/40 p-5 rounded-lg border-l-4 border-danger">
+                            <p class="text-red-400 font-bold mb-2 uppercase tracking-wide text-lg flex items-center gap-2"><span class="text-2xl">⚠</span> Lỗi tử huyệt: Bóc thiếu cáp nguồn</p>
+                            <p class="text-slate-300 text-lg leading-relaxed">Đối với các cảm biến Active (CO2, Nhiệt ẩm) hoặc Van tuyến tính, thiết bị cần nguồn nuôi 24V. Ngoài cáp tín hiệu, <strong>bắt buộc phải bóc thêm 1 tuyến dây nguồn 2x1.5mm² (hoặc 2 sợi cáp đơn 1.5mm)</strong> chạy song song. Rất nhiều nhà thầu bóc dự toán bị âm tiền vì quên loại cáp này!</p>
+                        </div>
                     </div>
                 </div>
 
@@ -828,7 +837,7 @@
     <script>
         // Data Structure for LMS Navigation
         const courseData = [
-            { id: 'p1-1', title: '1.1 Vai Trò & Cấu Trúc 4 Lớp', module: '1. Kiến Trúc Hệ Thống' },
+            { id: 'p1-1', title: '1.1 Vai Trò & Cấu Trúc 3 Lớp', module: '1. Kiến Trúc Hệ Thống' },
             { id: 'p1-2', title: '1.2 Hình Ảnh: Sơ đồ Kiến trúc', module: '1. Kiến Trúc Hệ Thống' },
             { id: 'p1-3', title: '1.3 Thực hành: Kiến trúc', module: '1. Kiến Trúc Hệ Thống' },
             
@@ -998,7 +1007,7 @@
             // Answers Data Dictionary
             const feedbackData = {
                 'm1-easy': "✅ <strong>Chính xác!</strong> Tính độc lập là cực kỳ quan trọng. DDC phải giữ được chương trình logic để thiết bị tự hoạt động bảo vệ tòa nhà ngay cả khi Server máy tính bị hỏng hoặc dây cáp mạng bị đứt chuột cắn.",
-                'm1-med': "✅ <strong>Đúng!</strong> Rớt 1 cụm hệ thống (nhiều tủ) cùng lúc thường do Gateway hoặc Switch mạng tầng đó gặp sự cố. Lỗi cảm biến hay lỗi 1 tủ DDC thì không thể làm rớt chùm như vậy được.",
+                'm1-med': "✅ <strong>Đúng!</strong> Rớt 1 cụm hệ thống (nhiều tủ) cùng lúc thường do đứt trục cáp truyền thông mạng kết nối giữa các tủ thuộc Lớp Tự động hóa, hoặc switch mạng bị mất nguồn. Lỗi cảm biến hay lỗi 1 tủ DDC thì không thể làm rớt chùm như vậy được.",
                 'm1-hard': "✅ <strong>Chính xác tuyệt đối!</strong> Tắt điện đột ngột là 'kẻ thù số 1' của Server hệ điều hành Windows và SQL Database. Nếu UPS hỏng, Database file sẽ bị Corrupt, bạn sẽ mất hoàn toàn lịch sử và giao diện đồ họa. Phải định kỳ xả và đo bình ắc-quy UPS.",
                 
                 'm2-easy': "✅ <strong>Đúng!</strong> Tiếp điểm khô (Dry contact) của báo lỗi hoặc trạng thái chỉ có Bật/Tắt (thông mạch hoặc đứt mạch). Dùng thang đo Ohm hoặc tiếng kêu beep (thông mạch) trên VOM là phương pháp đo nhanh và chuẩn nhất.",
