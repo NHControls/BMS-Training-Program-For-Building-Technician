@@ -50,6 +50,14 @@
         .ai-output-content h3 { font-size: 1.25rem; font-weight: bold; color: #1e3a8a; margin-top: 1rem; margin-bottom: 0.5rem; }
         .ai-output-content strong { color: #0f172a; }
         .ai-output-content p { margin-bottom: 0.75rem; }
+        
+        /* Sidebar Responsive Classes */
+        #sidebar { display: flex; }
+        @media (max-width: 767px) {
+            #sidebar { display: none; }
+        }
+        #sidebar.force-show { display: flex !important; }
+        #sidebar.force-hide { display: none !important; }
     </style>
     <script>
         tailwind.config = {
@@ -76,7 +84,7 @@
     <div id="sidebar-overlay" onclick="toggleMenu()" class="fixed inset-0 bg-slate-900/50 z-40 hidden md:hidden"></div>
 
     <!-- Sidebar LMS Menu -->
-    <aside id="sidebar" class="w-80 bg-dark text-slate-300 flex-col h-full shrink-0 shadow-2xl z-50 absolute md:relative hidden md:flex transition-all duration-300">
+    <aside id="sidebar" class="w-80 bg-dark text-slate-300 flex-col h-full shrink-0 shadow-2xl z-50 absolute md:relative transition-all duration-300">
         <div class="p-5 border-b border-slate-700 bg-primary flex justify-between items-center">
             <div>
                 <h1 class="font-black text-2xl text-white tracking-tight flex items-center gap-2">
@@ -1130,14 +1138,16 @@
             const sidebar = document.getElementById('sidebar');
             const overlay = document.getElementById('sidebar-overlay');
             
-            if (sidebar.classList.contains('hidden')) {
-                sidebar.classList.remove('hidden');
-                sidebar.classList.add('flex');
-                if (window.innerWidth < 768) overlay.classList.remove('hidden');
-            } else {
-                sidebar.classList.add('hidden');
-                sidebar.classList.remove('flex');
+            const isVisible = window.getComputedStyle(sidebar).display !== 'none';
+            
+            if (isVisible) {
+                sidebar.classList.remove('force-show');
+                sidebar.classList.add('force-hide');
                 overlay.classList.add('hidden');
+            } else {
+                sidebar.classList.remove('force-hide');
+                sidebar.classList.add('force-show');
+                if (window.innerWidth < 768) overlay.classList.remove('hidden');
             }
         }
 
@@ -1154,9 +1164,9 @@
             if (window.innerWidth < 768) {
                 const sidebar = document.getElementById('sidebar');
                 const overlay = document.getElementById('sidebar-overlay');
-                sidebar.classList.add('hidden');
-                sidebar.classList.remove('flex');
-                overlay.classList.add('hidden');
+                sidebar.classList.remove('force-show');
+                sidebar.classList.add('force-hide');
+                if(overlay) overlay.classList.add('hidden');
             }
         }
 
@@ -1434,15 +1444,6 @@ Sử dụng các thẻ HTML cơ bản (<h3>, <strong>, <ul>, <li>, <br>) để t
             renderMenu();
             updateUI();
             setTimeout(initChart, 200);
-            
-            // Auto hide sidebar on mobile at startup
-            if (window.innerWidth < 768) {
-                const sidebar = document.getElementById('sidebar');
-                const overlay = document.getElementById('sidebar-overlay');
-                sidebar.classList.add('hidden');
-                sidebar.classList.remove('flex');
-                if(overlay) overlay.classList.add('hidden');
-            }
         }
     </script>
 </body>
