@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Đào Tạo BMS Kỹ Thuật Bảo Trì | Hệ Thống Huấn Luyện</title>
-    <meta name="description" content="Hệ thống đào tạo BMS chuyên sâu cho bảo trì tòa nhà.">
+    <title>Đào Tạo BMS Kỹ Thuật Bảo Trì | Hệ Thống Huấn Luyện Tích Hợp AI</title>
+    <meta name="description" content="Hệ thống đào tạo BMS chuyên sâu cho bảo trì tòa nhà có tích hợp Trợ lý AI.">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
@@ -12,8 +12,10 @@
         
         /* Animations */
         @keyframes fadeIn { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes spin { to { transform: rotate(360deg); } }
         .page-content { display: none; animation: fadeIn 0.4s ease-out forwards; padding-bottom: 100px; height: 100%; }
         .page-content.active { display: block; }
+        .loading-spinner { border: 4px solid rgba(255, 255, 255, 0.3); border-radius: 50%; border-top: 4px solid #ffffff; width: 24px; height: 24px; animation: spin 1s linear infinite; display: inline-block; vertical-align: middle; }
 
         /* Custom Scrollbar for Lean look */
         ::-webkit-scrollbar { width: 8px; }
@@ -42,6 +44,12 @@
         
         details > summary { list-style: none; }
         details > summary::-webkit-details-marker { display: none; }
+        
+        /* AI output formatting */
+        .ai-output-content ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1rem; }
+        .ai-output-content h3 { font-size: 1.25rem; font-weight: bold; color: #1e3a8a; margin-top: 1rem; margin-bottom: 0.5rem; }
+        .ai-output-content strong { color: #0f172a; }
+        .ai-output-content p { margin-bottom: 0.75rem; }
     </style>
     <script>
         tailwind.config = {
@@ -64,13 +72,19 @@
 </head>
 <body class="flex h-screen text-slate-800">
 
+    <!-- Overlay for mobile -->
+    <div id="sidebar-overlay" onclick="toggleMenu()" class="fixed inset-0 bg-slate-900/50 z-40 hidden md:hidden"></div>
+
     <!-- Sidebar LMS Menu -->
-    <aside class="w-80 bg-dark text-slate-300 flex flex-col h-full shrink-0 shadow-2xl z-20">
-        <div class="p-5 border-b border-slate-700 bg-primary">
-            <h1 class="font-black text-2xl text-white tracking-tight flex items-center gap-2">
-                <span class="bg-accent text-primary px-2 rounded">BMS</span> TRAINING
-            </h1>
-            <p class="text-xs text-sky-200 mt-2">Dành cho Kỹ thuật Bảo trì & Vận hành</p>
+    <aside id="sidebar" class="w-80 bg-dark text-slate-300 flex-col h-full shrink-0 shadow-2xl z-50 absolute md:relative hidden md:flex transition-all duration-300">
+        <div class="p-5 border-b border-slate-700 bg-primary flex justify-between items-center">
+            <div>
+                <h1 class="font-black text-2xl text-white tracking-tight flex items-center gap-2">
+                    <span class="bg-accent text-primary px-2 rounded">BMS</span> TRAINING
+                </h1>
+                <p class="text-xs text-sky-200 mt-2">Dành cho Kỹ thuật Bảo trì & Vận hành</p>
+            </div>
+            <button onclick="toggleMenu()" class="text-slate-400 hover:text-white text-4xl focus:outline-none transition-colors">&times;</button>
         </div>
 
         <nav class="flex-1 overflow-y-auto py-4" id="lms-menu">
@@ -79,11 +93,14 @@
     </aside>
 
     <!-- Main Workspace -->
-    <main class="flex-1 flex flex-col h-full relative">
+    <main class="flex-1 flex flex-col h-full relative overflow-hidden">
         
         <!-- HeaderBar -->
         <header class="h-16 bg-white shadow-sm flex items-center justify-between px-8 shrink-0 z-10 border-b border-slate-200">
-            <h2 id="header-title" class="text-2xl font-black text-primary uppercase tracking-wide truncate pr-4">Đang tải...</h2>
+            <div class="flex items-center gap-4 truncate">
+                <button onclick="toggleMenu()" class="text-3xl text-slate-600 hover:text-primary transition-colors focus:outline-none transform hover:scale-110" title="Ẩn/Hiện Danh Mục">☰</button>
+                <h2 id="header-title" class="text-2xl font-black text-primary uppercase tracking-wide truncate pr-4">Đang tải...</h2>
+            </div>
             
             <div class="flex items-center gap-3 shrink-0">
                 <div class="flex items-end gap-[3px] h-10 pb-1">
@@ -102,7 +119,7 @@
         </header>
 
         <!-- Content Area -->
-        <div class="flex-1 overflow-y-auto p-8 lg:p-12 scroll-smooth bg-slate-50" id="main-scroll-area">
+        <div class="flex-1 overflow-y-auto p-6 lg:p-12 scroll-smooth bg-slate-50" id="main-scroll-area">
             <div class="max-w-6xl mx-auto h-full">
 
                 <!-- ========================================== -->
@@ -111,7 +128,7 @@
                 <div id="p1-1" class="page-content active">
                     <h3 class="text-4xl font-extrabold text-primary mb-8 border-l-8 border-accent pl-4">Vai Trò & Cấu Trúc 3 Lớp</h3>
                     
-                    <div class="grid grid-cols-2 gap-8 mb-10">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
                         <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200">
                             <h4 class="font-bold text-2xl mb-4 text-primary">Nhiệm vụ cốt lõi (Uptime 99.9%)</h4>
                             <ul class="text-xl space-y-4 text-slate-700">
@@ -156,14 +173,14 @@
                     <h3 class="text-4xl font-extrabold text-primary mb-8 border-l-8 border-accent pl-4">Thực Hành: Kiến Trúc BMS</h3>
                     
                     <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
-                        <div class="flex border-b border-slate-200 bg-slate-100">
-                            <button class="quiz-tab active flex-1 py-4 text-xl transition" onclick="switchQuizTab('m1', 'easy', this)">Mức độ: Dễ</button>
-                            <button class="quiz-tab flex-1 py-4 text-xl transition" onclick="switchQuizTab('m1', 'med', this)">Mức độ: Trung Bình</button>
-                            <button class="quiz-tab flex-1 py-4 text-xl transition" onclick="switchQuizTab('m1', 'hard', this)">Mức độ: Khó</button>
+                        <div class="flex border-b border-slate-200 bg-slate-100 flex-wrap">
+                            <button class="quiz-tab active flex-1 py-4 px-2 text-lg md:text-xl transition" onclick="switchQuizTab('m1', 'easy', this)">Mức độ: Dễ</button>
+                            <button class="quiz-tab flex-1 py-4 px-2 text-lg md:text-xl transition" onclick="switchQuizTab('m1', 'med', this)">Mức độ: Trung Bình</button>
+                            <button class="quiz-tab flex-1 py-4 px-2 text-lg md:text-xl transition" onclick="switchQuizTab('m1', 'hard', this)">Mức độ: Khó</button>
                         </div>
 
                         <!-- Easy -->
-                        <div id="m1-easy" class="quiz-pane active p-8">
+                        <div id="m1-easy" class="quiz-pane active p-6 md:p-8">
                             <p class="text-2xl font-bold text-slate-800 mb-6 leading-relaxed">❓ Chức năng "Stand-alone" (Độc lập) của tủ DDC thuộc Lớp Tự động hóa có nghĩa là gì trong vận hành thực tế?</p>
                             <div class="space-y-4" id="m1-easy-opts">
                                 <button onclick="handleAnswer('m1-easy', false, this)" class="w-full text-left p-5 text-xl bg-slate-50 hover:bg-blue-50 border border-slate-300 rounded-xl transition">A. Tủ DDC tự phát ra điện để chạy khi mất điện lưới.</button>
@@ -174,7 +191,7 @@
                         </div>
 
                         <!-- Medium -->
-                        <div id="m1-med" class="quiz-pane p-8">
+                        <div id="m1-med" class="quiz-pane p-6 md:p-8">
                             <p class="text-2xl font-bold text-slate-800 mb-6 leading-relaxed">❓ Khi màn hình BMS hiển thị [Offline] hoặc [Mất kết nối] toàn bộ các tủ DDC thuộc hệ thống Chiller Plant ở tầng hầm, nguyên nhân có khả năng cao nhất là gì?</p>
                             <div class="space-y-4" id="m1-med-opts">
                                 <button onclick="handleAnswer('m1-med', false, this)" class="w-full text-left p-5 text-xl bg-slate-50 hover:bg-blue-50 border border-slate-300 rounded-xl transition">A. Hỏng 1 cảm biến nhiệt độ cấp nước lạnh của Chiller dưới hiện trường.</button>
@@ -185,7 +202,7 @@
                         </div>
 
                         <!-- Hard -->
-                        <div id="m1-hard" class="quiz-pane p-8">
+                        <div id="m1-hard" class="quiz-pane p-6 md:p-8">
                             <p class="text-2xl font-bold text-slate-800 mb-6 leading-relaxed">❓ Sự cố mất điện tòa nhà xảy ra. Máy phát điện đã chạy lại. Tuy nhiên, toàn bộ DDC vẫn mất kết nối và Server không thể truy cập Database. Nguyên nhân cốt lõi do công tác bảo trì nào bị thiếu sót?</p>
                             <div class="space-y-4" id="m1-hard-opts">
                                 <button onclick="handleAnswer('m1-hard', true, this)" class="w-full text-left p-5 text-xl bg-slate-50 hover:bg-blue-50 border border-slate-300 rounded-xl transition">A. Không bảo trì ắc-quy cho UPS của Server BMS. Khi mất điện đột ngột, Server sập tức thì làm hỏng (corrupt) file SQL Database.</button>
@@ -203,7 +220,7 @@
                 <div id="p2-1" class="page-content">
                     <h3 class="text-4xl font-extrabold text-primary mb-8 border-l-8 border-accent pl-4">Bản Chất Tín Hiệu Số (Digital)</h3>
                     
-                    <div class="grid grid-cols-2 gap-10">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
                         <div class="bg-white p-8 rounded-2xl shadow-sm border-t-8 border-primary">
                             <h4 class="font-bold text-3xl mb-4 text-slate-800">DO (Lệnh Điều Khiển)</h4>
                             <p class="text-xl text-slate-600 mb-6 h-20">Lệnh xuất từ DDC để đóng/cắt khởi động từ, rơ le.</p>
@@ -238,14 +255,14 @@
                     <h3 class="text-4xl font-extrabold text-primary mb-8 border-l-8 border-accent pl-4">Bản Chất Tín Hiệu Tương Tự (Analog)</h3>
                     
                     <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 mb-10">
-                        <div class="flex justify-between items-center mb-8">
-                            <h4 class="font-bold text-2xl text-primary">Giả lập: DDC xuất lệnh 0-10V điều khiển Van / Biến tần</h4>
-                            <span id="val-ao" class="font-black text-3xl text-accent bg-primary px-6 py-3 rounded-lg shadow">50% (5.0V)</span>
+                        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8 gap-4">
+                            <h4 class="font-bold text-2xl text-primary">Giả lập: DDC xuất lệnh 0-10V điều khiển Van</h4>
+                            <span id="val-ao" class="font-black text-3xl text-accent bg-primary px-6 py-3 rounded-lg shadow whitespace-nowrap">50% (5.0V)</span>
                         </div>
                         
                         <div class="mb-10">
                             <input type="range" min="0" max="100" value="50" class="w-full h-4 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-accent" oninput="updateAnalog(this.value)">
-                            <div class="flex justify-between mt-2 text-slate-500 font-bold">
+                            <div class="flex justify-between mt-2 text-slate-500 font-bold text-sm sm:text-base">
                                 <span>0% (Đóng hoàn toàn)</span>
                                 <span>100% (Mở tối đa)</span>
                             </div>
@@ -257,7 +274,7 @@
                         </div>
                     </div>
 
-                    <div class="grid grid-cols-2 gap-8">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                         <div class="bg-amber-50 p-6 rounded-xl border-l-4 border-accent">
                             <h4 class="font-bold text-amber-800 text-xl mb-3">⚠️ Lưu ý thay cảm biến (AI)</h4>
                             <p class="text-lg text-slate-700">Phải mua khớp <strong>Dải đo (Range)</strong> và <strong>Hệ số điện trở</strong>. DDC khai báo PT1000 mà lắp NTC10K thì nhiệt độ sẽ báo âm (-50°C).</p>
@@ -343,10 +360,10 @@
                     <div class="bg-slate-800 p-8 rounded-2xl shadow-md text-slate-200">
                         <h4 class="font-black text-2xl text-accent mb-6 uppercase tracking-wider">🧮 Bóc Tách Khối Lượng Cáp (Dự Toán & Thi Công)</h4>
                         
-                        <div class="grid md:grid-cols-2 gap-6 mb-6">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                             <div class="bg-slate-900 p-6 rounded-xl border border-slate-600">
                                 <p class="font-bold text-sky-400 mb-3 text-xl">1. Công thức chi tiết (Thi công):</p>
-                                <p class="text-2xl font-mono text-green-400 mb-3 text-center">L = (L_trục + L_nhánh + L_thả) x 1.1</p>
+                                <p class="text-2xl font-mono text-green-400 mb-3 text-center break-words">L = (L_trục + L_nhánh + L_thả) x 1.1</p>
                                 <ul class="text-base space-y-2 text-slate-400">
                                     <li>- <strong>L_thả:</strong> +2-3m chờ tại thiết bị, +1.5-2m tại tủ DDC.</li>
                                     <li>- <strong>Hao phí:</strong> Nhân 1.1 (10%) bù độ võng, cắt đầu cáp.</li>
@@ -355,7 +372,7 @@
                             
                             <div class="bg-slate-900 p-6 rounded-xl border border-slate-600">
                                 <p class="font-bold text-accent mb-3 text-xl">2. Tính nhanh (Dự toán 20m/tín hiệu):</p>
-                                <p class="text-2xl font-mono text-yellow-400 mb-3 text-center">Tổng cáp = Số điểm I/O × 20m</p>
+                                <p class="text-2xl font-mono text-yellow-400 mb-3 text-center break-words">Tổng cáp = Số điểm I/O × 20m</p>
                                 <ul class="text-base space-y-2 text-slate-400">
                                     <li>- <strong>Cáp chống nhiễu:</strong> (Tổng AI + AO) × 20m.</li>
                                     <li>- <strong>Cáp ĐK 1.5mm²:</strong> (Tổng DI + DO) × 20m.</li>
@@ -374,14 +391,14 @@
                     <h3 class="text-4xl font-extrabold text-primary mb-8 border-l-8 border-accent pl-4">Thực Hành: Tín Hiệu & Cáp I/O</h3>
                     
                     <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
-                        <div class="flex border-b border-slate-200 bg-slate-100">
-                            <button class="quiz-tab active flex-1 py-4 text-xl transition" onclick="switchQuizTab('m2', 'easy', this)">Mức độ: Dễ</button>
-                            <button class="quiz-tab flex-1 py-4 text-xl transition" onclick="switchQuizTab('m2', 'med', this)">Mức độ: Trung Bình</button>
-                            <button class="quiz-tab flex-1 py-4 text-xl transition" onclick="switchQuizTab('m2', 'hard', this)">Mức độ: Khó</button>
+                        <div class="flex border-b border-slate-200 bg-slate-100 flex-wrap">
+                            <button class="quiz-tab active flex-1 py-4 px-2 text-lg md:text-xl transition" onclick="switchQuizTab('m2', 'easy', this)">Mức độ: Dễ</button>
+                            <button class="quiz-tab flex-1 py-4 px-2 text-lg md:text-xl transition" onclick="switchQuizTab('m2', 'med', this)">Mức độ: Trung Bình</button>
+                            <button class="quiz-tab flex-1 py-4 px-2 text-lg md:text-xl transition" onclick="switchQuizTab('m2', 'hard', this)">Mức độ: Khó</button>
                         </div>
 
                         <!-- Easy -->
-                        <div id="m2-easy" class="quiz-pane active p-8">
+                        <div id="m2-easy" class="quiz-pane active p-6 md:p-8">
                             <p class="text-2xl font-bold text-slate-800 mb-6 leading-relaxed">❓ Để kiểm tra xem Công tắc chênh áp (DPS) của màng lọc AHU có hoạt động không, kỹ thuật tháo 2 dây tín hiệu đi về DDC ra. Sau đó dùng VOM vặn thang đo nào là chính xác nhất?</p>
                             <div class="space-y-4" id="m2-easy-opts">
                                 <button onclick="handleAnswer('m2-easy', false, this)" class="w-full text-left p-5 text-xl bg-slate-50 hover:bg-blue-50 border border-slate-300 rounded-xl transition">A. Thang đo điện áp DC (VDC).</button>
@@ -392,7 +409,7 @@
                         </div>
 
                         <!-- Medium -->
-                        <div id="m2-med" class="quiz-pane p-8">
+                        <div id="m2-med" class="quiz-pane p-6 md:p-8">
                             <p class="text-2xl font-bold text-slate-800 mb-6 leading-relaxed">❓ Cảm biến nhiệt độ phòng (AI) trên BMS liên tục nhảy số loạn xạ (Ví dụ: 25°C nháy lên 85°C rồi rớt xuống -10°C) theo từng giây. Cáp cảm biến đi chung máng điện với cáp nguồn 3 pha của quạt. Bệnh này xử lý triệt để thế nào?</p>
                             <div class="space-y-4" id="m2-med-opts">
                                 <button onclick="handleAnswer('m2-med', true, this)" class="w-full text-left p-5 text-xl bg-slate-50 hover:bg-blue-50 border border-slate-300 rounded-xl transition">A. Đây là nhiễu điện từ (EMI). Phải thay bằng cáp vặn xoắn có bọc chống nhiễu (STP) và nối dây tiếp địa bọc nhiễu vào thanh nối đất tủ DDC (chỉ nối 1 đầu).</button>
@@ -403,7 +420,7 @@
                         </div>
 
                         <!-- Hard -->
-                        <div id="m2-hard" class="quiz-pane p-8">
+                        <div id="m2-hard" class="quiz-pane p-6 md:p-8">
                             <p class="text-2xl font-bold text-slate-800 mb-6 leading-relaxed">❓ Bạn được giao nhiệm vụ bóc tách khối lượng cáp AI từ 1 tủ DDC đến cảm biến nhiệt trên trần. Khoảng cách đo trên bản vẽ mặt bằng (theo máng cáp) là 30 mét. Để không bị thiếu hụt khi thi công thực tế, con số bạn đặt hàng vật tư nên là bao nhiêu?</p>
                             <div class="space-y-4" id="m2-hard-opts">
                                 <button onclick="handleAnswer('m2-hard', false, this)" class="w-full text-left p-5 text-xl bg-slate-50 hover:bg-blue-50 border border-slate-300 rounded-xl transition">A. 30 mét (đúng như bản vẽ).</button>
@@ -421,7 +438,7 @@
                 <div id="p3-1" class="page-content">
                     <h3 class="text-4xl font-extrabold text-primary mb-8 border-l-8 border-accent pl-4">Topology (Mô Hình Mạng) Truyền Thông</h3>
                     
-                    <div class="grid grid-cols-3 gap-6 h-[400px]">
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 h-auto md:h-[400px]">
                         <!-- Bus -->
                         <div class="bg-white p-8 rounded-2xl border-t-8 border-primary shadow-sm flex flex-col items-center text-center">
                             <div class="font-black text-6xl text-primary mb-6">═</div>
@@ -470,7 +487,7 @@
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
                         <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm border-t-8 border-primary">
                             <div class="flex justify-center mb-6 text-6xl">🛣️</div>
-                            <h4 class="font-black text-3xl text-primary mb-4 text-center">Chuẩn Vật Lý <br><span class="text-lg font-normal">(Physical Standard)</span></h4>
+                            <h4 class="font-black text-3xl text-primary mb-4 text-center">Chuẩn Vật Lý <br><span class="text-lg font-normal text-slate-500">(Physical Standard)</span></h4>
                             <p class="text-xl text-slate-800 font-bold mb-4 text-center">Giống như: Con đường hạ tầng</p>
                             <ul class="text-lg space-y-3 text-slate-700 bg-slate-50 p-6 rounded-xl">
                                 <li>• Là hình thù sợi cáp, là đầu giắc cắm, là mức điện áp chạy trên dây.</li>
@@ -481,7 +498,7 @@
 
                         <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm border-t-8 border-secondary">
                             <div class="flex justify-center mb-6 text-6xl">🗣️</div>
-                            <h4 class="font-black text-3xl text-secondary mb-4 text-center">Giao Thức Truyền Thông <br><span class="text-lg font-normal">(Protocol)</span></h4>
+                            <h4 class="font-black text-3xl text-secondary mb-4 text-center">Giao Thức Truyền Thông <br><span class="text-lg font-normal text-slate-500">(Protocol)</span></h4>
                             <p class="text-xl text-slate-800 font-bold mb-4 text-center">Giống như: Ngôn ngữ giao tiếp</p>
                             <ul class="text-lg space-y-3 text-slate-700 bg-slate-50 p-6 rounded-xl">
                                 <li>• Là cấu trúc phần mềm, là cách các gói tin được đóng gói để thiết bị hiểu nhau.</li>
@@ -491,8 +508,8 @@
                         </div>
                     </div>
 
-                    <div class="mt-8 bg-amber-50 p-6 rounded-xl border border-amber-200">
-                        <p class="font-black text-amber-900 text-xl mb-2">💡 Bài học rút ra:</p>
+                    <div class="mt-8 bg-amber-50 p-6 rounded-xl border border-amber-200 shadow-sm">
+                        <p class="font-black text-amber-900 text-xl mb-2 flex items-center gap-2"><span>💡</span> Bài học rút ra:</p>
                         <p class="text-lg text-amber-800">Cắm chung 1 sợi cáp (Cùng chạy trên 1 con đường RS485), nhưng nếu Đồng hồ điện nói tiếng "Modbus", còn tủ DDC lại cài đặt nghe tiếng "BACnet" thì hai bên <strong>không bao giờ nói chuyện được với nhau</strong>.</p>
                     </div>
                 </div>
@@ -500,23 +517,23 @@
                 <div id="p3-4" class="page-content">
                     <h3 class="text-4xl font-extrabold text-primary mb-8 border-l-8 border-accent pl-4">Modbus, BACnet & Tiêu Chuẩn Cáp</h3>
                     
-                    <div class="grid grid-cols-2 gap-10">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
                         <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200">
                             <div class="flex items-center gap-4 mb-6 border-b border-slate-100 pb-4">
                                 <span class="bg-primary text-white text-xl font-bold py-1 px-3 rounded">SERIAL</span>
                                 <h4 class="text-3xl font-bold text-primary">Cáp cho RS485</h4>
                             </div>
-                            <p class="text-xl font-medium text-secondary mb-6">Mang giao thức: Modbus RTU, BACnet MS/TP</p>
+                            <p class="text-xl font-medium text-secondary mb-6 bg-slate-50 p-2 rounded">Mang giao thức: Modbus RTU, BACnet MS/TP</p>
                             
                             <ul class="text-lg space-y-4 text-slate-700 mb-8">
-                                <li class="flex items-start gap-2"><span>🎯</span> <strong>Ứng dụng:</strong> Đấu nối Biến tần (VSD), Đồng hồ điện, VRV, PAC.</li>
-                                <li class="flex items-start gap-2"><span>🔌</span> <strong>Loại cáp CẦN:</strong> Cáp vặn xoắn bọc nhiễu kép (RS485 Cable).</li>
-                                <li class="flex items-start gap-2"><span>⚡</span> <strong>Điện trở:</strong> Có trở kháng đặc tính 120 Ohm.</li>
+                                <li class="flex items-start gap-3"><span>🎯</span> <strong>Ứng dụng:</strong> Đấu nối Biến tần (VSD), Đồng hồ điện, VRV, PAC.</li>
+                                <li class="flex items-start gap-3"><span>🔌</span> <strong>Loại cáp CẦN:</strong> Cáp vặn xoắn bọc nhiễu kép (RS485 Cable).</li>
+                                <li class="flex items-start gap-3"><span>⚡</span> <strong>Điện trở:</strong> Có trở kháng đặc tính 120 Ohm.</li>
                             </ul>
                             
                             <div class="bg-amber-50 p-5 rounded-xl border-l-4 border-accent">
                                 <p class="font-bold text-amber-900 mb-1">⚠ Ám ảnh bảo trì:</p>
-                                <p class="text-amber-800 text-sm">Nhà thầu kéo cáp điện chiếu sáng đi cho mạng RS485. Hậu quả: Mạng chập chờn, rớt gói tin liên tục. Bắt buộc phải đấu điện trở cuối tuyến (EOL) ở thiết bị cuối cùng để giảm xung dội.</p>
+                                <p class="text-amber-800 text-base">Nhà thầu kéo cáp điện chiếu sáng đi cho mạng RS485. Hậu quả: Mạng chập chờn, rớt gói tin liên tục. Bắt buộc phải đấu điện trở cuối tuyến (EOL) ở thiết bị cuối cùng để giảm xung dội.</p>
                             </div>
                         </div>
 
@@ -525,17 +542,17 @@
                                 <span class="bg-secondary text-white text-xl font-bold py-1 px-3 rounded">TCP/IP</span>
                                 <h4 class="text-3xl font-bold text-primary">Cáp cho Ethernet</h4>
                             </div>
-                            <p class="text-xl font-medium text-secondary mb-6">Mang giao thức: Modbus TCP, BACnet IP</p>
+                            <p class="text-xl font-medium text-secondary mb-6 bg-slate-50 p-2 rounded">Mang giao thức: Modbus TCP, BACnet IP</p>
                             
                             <ul class="text-lg space-y-4 text-slate-700 mb-8">
-                                <li class="flex items-start gap-2"><span>🎯</span> <strong>Ứng dụng:</strong> Kết nối các DDC với nhau, DDC lên Server.</li>
-                                <li class="flex items-start gap-2"><span>🔌</span> <strong>Loại cáp CẦN:</strong> Cáp mạng Cat5e/Cat6 hoặc Cáp quang.</li>
-                                <li class="flex items-start gap-2"><span>⚡</span> <strong>Thiết bị:</strong> Switch mạng tiêu chuẩn.</li>
+                                <li class="flex items-start gap-3"><span>🎯</span> <strong>Ứng dụng:</strong> Kết nối các DDC với nhau, DDC lên Server.</li>
+                                <li class="flex items-start gap-3"><span>🔌</span> <strong>Loại cáp CẦN:</strong> Cáp mạng Cat5e/Cat6 hoặc Cáp quang.</li>
+                                <li class="flex items-start gap-3"><span>⚡</span> <strong>Thiết bị:</strong> Switch mạng tiêu chuẩn.</li>
                             </ul>
                             
                             <div class="bg-blue-50 p-5 rounded-xl border-l-4 border-blue-500">
                                 <p class="font-bold text-blue-900 mb-1">🔧 Lỗi thường gặp:</p>
-                                <p class="text-blue-800 text-sm">Trùng địa chỉ IP, dùng Switch văn phòng nhét vào tủ điện kín gây treo do quá nhiệt, bấm lỏng đầu RJ45.</p>
+                                <p class="text-blue-800 text-base">Trùng địa chỉ IP, dùng Switch văn phòng nhét vào tủ điện kín gây treo do quá nhiệt, bấm lỏng đầu RJ45.</p>
                             </div>
                         </div>
                     </div>
@@ -551,14 +568,14 @@
                     <h3 class="text-4xl font-extrabold text-primary mb-8 border-l-8 border-accent pl-4">Thực Hành: Truyền Thông & Cấu Hình</h3>
                     
                     <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
-                        <div class="flex border-b border-slate-200 bg-slate-100">
-                            <button class="quiz-tab active flex-1 py-4 text-xl transition" onclick="switchQuizTab('m3', 'easy', this)">Mức độ: Dễ</button>
-                            <button class="quiz-tab flex-1 py-4 text-xl transition" onclick="switchQuizTab('m3', 'med', this)">Mức độ: Trung Bình</button>
-                            <button class="quiz-tab flex-1 py-4 text-xl transition" onclick="switchQuizTab('m3', 'hard', this)">Mức độ: Khó</button>
+                        <div class="flex border-b border-slate-200 bg-slate-100 flex-wrap">
+                            <button class="quiz-tab active flex-1 py-4 px-2 text-lg md:text-xl transition" onclick="switchQuizTab('m3', 'easy', this)">Mức độ: Dễ</button>
+                            <button class="quiz-tab flex-1 py-4 px-2 text-lg md:text-xl transition" onclick="switchQuizTab('m3', 'med', this)">Mức độ: Trung Bình</button>
+                            <button class="quiz-tab flex-1 py-4 px-2 text-lg md:text-xl transition" onclick="switchQuizTab('m3', 'hard', this)">Mức độ: Khó</button>
                         </div>
 
                         <!-- Easy -->
-                        <div id="m3-easy" class="quiz-pane active p-8">
+                        <div id="m3-easy" class="quiz-pane active p-6 md:p-8">
                             <p class="text-2xl font-bold text-slate-800 mb-6 leading-relaxed">❓ 10 Đồng hồ điện (Đồng hồ số 1 đến 10) nối tiếp nhau theo mạng Tuyến (Daisy-chain) qua chuẩn RS485. Tự nhiên hôm nay màn hình BMS báo mất kết nối từ Đồng hồ số 5 đến số 10 (offline). Bạn sẽ đến hiện trường kiểm tra đoạn cáp nào đầu tiên?</p>
                             <div class="space-y-4" id="m3-easy-opts">
                                 <button onclick="handleAnswer('m3-easy', false, this)" class="w-full text-left p-5 text-xl bg-slate-50 hover:bg-blue-50 border border-slate-300 rounded-xl transition">A. Kiểm tra cáp từ Gateway tổng tới Đồng hồ số 1.</button>
@@ -569,7 +586,7 @@
                         </div>
 
                         <!-- Medium -->
-                        <div id="m3-med" class="quiz-pane p-8">
+                        <div id="m3-med" class="quiz-pane p-6 md:p-8">
                             <p class="text-2xl font-bold text-slate-800 mb-6 leading-relaxed">❓ Kỹ thuật viên thay thế 1 biến tần (VSD) mới vào giữa một chuỗi mạng RS485. Sau khi cấp nguồn và cắm cáp đúng cực A(+), B(-), tủ DDC vẫn báo mất kết nối (Offline) riêng VSD này. Thiết lập nào trên màn hình của VSD chưa được cấu hình?</p>
                             <div class="space-y-4" id="m3-med-opts">
                                 <button onclick="handleAnswer('m3-med', false, this)" class="w-full text-left p-5 text-xl bg-slate-50 hover:bg-blue-50 border border-slate-300 rounded-xl transition">A. Chưa khai báo dải đo (Range) cho điện áp motor.</button>
@@ -580,7 +597,7 @@
                         </div>
 
                         <!-- Hard -->
-                        <div id="m3-hard" class="quiz-pane p-8">
+                        <div id="m3-hard" class="quiz-pane p-6 md:p-8">
                             <p class="text-2xl font-bold text-slate-800 mb-6 leading-relaxed">❓ Nhà thầu lắp 1 cảm biến đếm người dùng chuẩn mạng RS485 nhưng chạy giao thức độc quyền của hãng đó (Proprietary Protocol). Tủ DDC của bạn lại chỉ hỗ trợ giao thức Modbus RTU tiêu chuẩn. Hai thiết bị này có kết nối nói chuyện được với nhau không?</p>
                             <div class="space-y-4" id="m3-hard-opts">
                                 <button onclick="handleAnswer('m3-hard', false, this)" class="w-full text-left p-5 text-xl bg-slate-50 hover:bg-blue-50 border border-slate-300 rounded-xl transition">A. Có. Cứ nối chung sợi cáp RS485 là tự nhiên sẽ lấy được dữ liệu.</button>
@@ -693,14 +710,14 @@
                     <h3 class="text-4xl font-extrabold text-primary mb-8 border-l-8 border-accent pl-4">Thực Hành: Troubleshooting HVAC</h3>
                     
                     <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
-                        <div class="flex border-b border-slate-200 bg-slate-100">
-                            <button class="quiz-tab active flex-1 py-4 text-xl transition" onclick="switchQuizTab('m4', 'easy', this)">Mức độ: Dễ</button>
-                            <button class="quiz-tab flex-1 py-4 text-xl transition" onclick="switchQuizTab('m4', 'med', this)">Mức độ: Trung Bình</button>
-                            <button class="quiz-tab flex-1 py-4 text-xl transition" onclick="switchQuizTab('m4', 'hard', this)">Mức độ: Khó</button>
+                        <div class="flex border-b border-slate-200 bg-slate-100 flex-wrap">
+                            <button class="quiz-tab active flex-1 py-4 px-2 text-lg md:text-xl transition" onclick="switchQuizTab('m4', 'easy', this)">Mức độ: Dễ</button>
+                            <button class="quiz-tab flex-1 py-4 px-2 text-lg md:text-xl transition" onclick="switchQuizTab('m4', 'med', this)">Mức độ: Trung Bình</button>
+                            <button class="quiz-tab flex-1 py-4 px-2 text-lg md:text-xl transition" onclick="switchQuizTab('m4', 'hard', this)">Mức độ: Khó</button>
                         </div>
 
                         <!-- Easy -->
-                        <div id="m4-easy" class="quiz-pane active p-8">
+                        <div id="m4-easy" class="quiz-pane active p-6 md:p-8">
                             <p class="text-2xl font-bold text-slate-800 mb-6 leading-relaxed">❓ Phòng hội nghị mở sự kiện, AHU báo đang RUN bình thường, Setpoint là 22°C. Tuy nhiên nhiệt độ phòng báo 26°C, rất ngột ngạt. Khách hàng phàn nàn. Tuân thủ Nguyên tắc 4 bước Vàng, bạn làm gì ĐẦU TIÊN?</p>
                             <div class="space-y-4" id="m4-easy-opts">
                                 <button onclick="handleAnswer('m4-easy', false, this)" class="w-full text-left p-5 text-xl bg-slate-50 hover:bg-blue-50 border border-slate-300 rounded-xl transition">A. Vào BMS chỉnh Setpoint xuống thấp nhất (18°C) và ép tốc độ quạt cấp gió lên tối đa.</button>
@@ -711,7 +728,7 @@
                         </div>
 
                         <!-- Medium -->
-                        <div id="m4-med" class="quiz-pane p-8">
+                        <div id="m4-med" class="quiz-pane p-6 md:p-8">
                             <p class="text-2xl font-bold text-slate-800 mb-6 leading-relaxed">❓ Trên phần mềm BMS, giữa "Lệnh xuất đi" (Command - DO) và "Trạng thái báo về" (Status - DI) luôn có sự chênh lệch thời gian do quán tính cơ khí của quạt/bơm khởi động. Thông số nào trên phần mềm dùng để bù đắp khoảng thời gian này tránh báo Alarm giả?</p>
                             <div class="space-y-4" id="m4-med-opts">
                                 <button onclick="handleAnswer('m4-med', false, this)" class="w-full text-left p-5 text-xl bg-slate-50 hover:bg-blue-50 border border-slate-300 rounded-xl transition">A. Proportional Band (P trong PID).</button>
@@ -722,7 +739,7 @@
                         </div>
 
                         <!-- Hard -->
-                        <div id="m4-hard" class="quiz-pane p-8">
+                        <div id="m4-hard" class="quiz-pane p-6 md:p-8">
                             <p class="text-2xl font-bold text-slate-800 mb-6 leading-relaxed">❓ Nếu bạn bỏ qua "Bước 1: Kiểm tra thực tế" mà nhảy thẳng vào phần mềm máy tính để ép (Force) cưỡng bức lệnh AO xuất 100% để mở toang Van cấp nước Chiller (do thấy phòng không lạnh). Tuy nhiên thực tế thì ty van dưới hiện trường đang bị kẹt gỉ sét cứng ngắc. Việc bạn ép phần mềm như vậy gây rủi ro gì nghiêm trọng nhất?</p>
                             <div class="space-y-4" id="m4-hard-opts">
                                 <button onclick="handleAnswer('m4-hard', false, this)" class="w-full text-left p-5 text-xl bg-slate-50 hover:bg-blue-50 border border-slate-300 rounded-xl transition">A. Phần mềm BMS sẽ bị treo do lệnh Force bị quá tải.</button>
@@ -730,6 +747,40 @@
                                 <button onclick="handleAnswer('m4-hard', false, this)" class="w-full text-left p-5 text-xl bg-slate-50 hover:bg-blue-50 border border-slate-300 rounded-xl transition">C. Vỡ đường ống nước Chiller do áp lực quá mạnh.</button>
                             </div>
                             <div id="m4-hard-res" class="hidden mt-6"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tính năng AI 1 -->
+                <div id="p4-6" class="page-content">
+                    <div class="bg-gradient-to-r from-blue-900 to-primary p-8 md:p-12 rounded-2xl shadow-xl text-white relative overflow-hidden">
+                        <div class="absolute -right-10 -top-10 opacity-10 text-9xl">🤖</div>
+                        
+                        <div class="relative z-10">
+                            <h3 class="text-4xl font-extrabold mb-4 flex items-center gap-3">Trợ Lý AI Phân Tích Sự Cố ✨</h3>
+                            <p class="text-xl text-blue-100 mb-8 max-w-3xl leading-relaxed">Mô tả hiện tượng lỗi thực tế bạn đang gặp phải tại dự án. Mô hình ngôn ngữ lớn (Gemini) sẽ đóng vai Kỹ sư trưởng 15 năm kinh nghiệm để gợi ý các bước kiểm tra (Troubleshooting) dựa trên "Nguyên tắc 4 bước vàng".</p>
+                            
+                            <div class="bg-white/10 p-6 rounded-xl border border-white/20 backdrop-blur-sm mb-6">
+                                <label for="ai-trouble-input" class="block text-sm font-bold text-blue-200 mb-2 uppercase tracking-wider">Mô tả sự cố (Càng chi tiết càng tốt):</label>
+                                <textarea id="ai-trouble-input" rows="4" class="w-full p-4 rounded-lg bg-white text-slate-800 text-lg border-2 border-transparent focus:border-accent focus:outline-none transition shadow-inner" placeholder="Ví dụ: AHU số 1 báo Alarm 'Fan Trip', dưới hiện trường thấy mùi khét nhưng BMS vẫn cấp lệnh Run. Phải kiểm tra gì trước?"></textarea>
+                                
+                                <div class="mt-4 flex flex-col sm:flex-row gap-4 items-center">
+                                    <button onclick="runAITroubleshooting()" id="btn-ai-trouble" class="w-full sm:w-auto px-8 py-4 bg-accent text-primary font-black text-xl rounded-lg hover:bg-yellow-400 shadow-lg transition transform hover:-translate-y-1 flex items-center justify-center gap-2">
+                                        Phân Tích Bằng AI ✨
+                                    </button>
+                                    <span class="text-sm text-blue-200">Powered by Google Gemini 2.5</span>
+                                </div>
+                            </div>
+
+                            <!-- Loading & Output -->
+                            <div id="ai-trouble-loading" class="hidden text-center py-8">
+                                <div class="loading-spinner"></div>
+                                <p class="mt-4 text-blue-200 font-bold animate-pulse">Trợ lý AI đang rà soát dữ liệu sự cố...</p>
+                            </div>
+                            
+                            <div id="ai-trouble-output" class="hidden bg-white text-slate-800 p-6 md:p-8 rounded-xl shadow-inner border-l-8 border-accent">
+                                <!-- AI Content goes here -->
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -887,14 +938,14 @@
                     <h3 class="text-4xl font-extrabold text-primary mb-8 border-l-8 border-accent pl-4">Thực Hành: Bàn Giao & Vận Hành An Toàn</h3>
                     
                     <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
-                        <div class="flex border-b border-slate-200 bg-slate-100">
-                            <button class="quiz-tab active flex-1 py-4 text-xl transition" onclick="switchQuizTab('m5', 'easy', this)">Mức độ: Dễ</button>
-                            <button class="quiz-tab flex-1 py-4 text-xl transition" onclick="switchQuizTab('m5', 'med', this)">Mức độ: Trung Bình</button>
-                            <button class="quiz-tab flex-1 py-4 text-xl transition" onclick="switchQuizTab('m5', 'hard', this)">Mức độ: Khó</button>
+                        <div class="flex border-b border-slate-200 bg-slate-100 flex-wrap">
+                            <button class="quiz-tab active flex-1 py-4 px-2 text-lg md:text-xl transition" onclick="switchQuizTab('m5', 'easy', this)">Mức độ: Dễ</button>
+                            <button class="quiz-tab flex-1 py-4 px-2 text-lg md:text-xl transition" onclick="switchQuizTab('m5', 'med', this)">Mức độ: Trung Bình</button>
+                            <button class="quiz-tab flex-1 py-4 px-2 text-lg md:text-xl transition" onclick="switchQuizTab('m5', 'hard', this)">Mức độ: Khó</button>
                         </div>
 
                         <!-- Easy -->
-                        <div id="m5-easy" class="quiz-pane active p-8">
+                        <div id="m5-easy" class="quiz-pane active p-6 md:p-8">
                             <p class="text-2xl font-bold text-slate-800 mb-6 leading-relaxed">❓ Nhà thầu bàn giao Tài khoản đăng nhập vào máy tính BMS nhưng khi bạn vào muốn đổi tên 1 điểm cảm biến thì hệ thống báo 'Access Denied' (Từ chối quyền). Nguyên nhân sự cố khóa quyền này là gì?</p>
                             <div class="space-y-4" id="m5-easy-opts">
                                 <button onclick="handleAnswer('m5-easy', false, this)" class="w-full text-left p-5 text-xl bg-slate-50 hover:bg-blue-50 border border-slate-300 rounded-xl transition">A. Do phần mềm BMS bị nhiễm Virus.</button>
@@ -905,7 +956,7 @@
                         </div>
 
                         <!-- Medium -->
-                        <div id="m5-med" class="quiz-pane p-8">
+                        <div id="m5-med" class="quiz-pane p-6 md:p-8">
                             <p class="text-2xl font-bold text-slate-800 mb-6 leading-relaxed">❓ Một Server BMS có chức năng Backup tự động. Nhưng khi ổ cứng hỏng, trưởng nhóm bảo trì phát hiện toàn bộ file Backup đều lưu trên... chính ổ C của Server đó nên đã mất sạch. Quy tắc Backup nào đã bị vi phạm?</p>
                             <div class="space-y-4" id="m5-med-opts">
                                 <button onclick="handleAnswer('m5-med', true, this)" class="w-full text-left p-5 text-xl bg-slate-50 hover:bg-blue-50 border border-slate-300 rounded-xl transition">A. Quy tắc 3-2-1: Tuyệt đối không lưu file dự phòng trên cùng một thiết bị vật lý. Backup phải được copy tự động sang ổ đĩa mạng (NAS) hoặc chép ra USB rời hàng tháng.</button>
@@ -916,7 +967,7 @@
                         </div>
 
                         <!-- Hard -->
-                        <div id="m5-hard" class="quiz-pane p-8">
+                        <div id="m5-hard" class="quiz-pane p-6 md:p-8">
                             <p class="text-2xl font-bold text-slate-800 mb-6 leading-relaxed">❓ Khi nhận bàn giao hệ thống, nếu nhà thầu chỉ giao File Backup Database của Server phần mềm máy tính (Bản vẽ, giao diện), nhưng KHÔNG chịu giao File Source Code (Mã nguồn thuật toán) của các tủ DDC, bạn có đồng ý ký nghiệm thu hoàn thành dự án không?</p>
                             <div class="space-y-4" id="m5-hard-opts">
                                 <button onclick="handleAnswer('m5-hard', false, this)" class="w-full text-left p-5 text-xl bg-slate-50 hover:bg-blue-50 border border-slate-300 rounded-xl transition">A. Đồng ý ký vì Database giao diện là đủ để vận hành tòa nhà hằng ngày.</button>
@@ -928,6 +979,39 @@
                     </div>
                 </div>
 
+                <!-- Tính năng AI 2 -->
+                <div id="p5-7" class="page-content">
+                    <div class="bg-gradient-to-r from-teal-800 to-teal-600 p-8 md:p-12 rounded-2xl shadow-xl text-white relative overflow-hidden">
+                        <div class="absolute -right-10 -top-10 opacity-10 text-9xl">📖</div>
+                        
+                        <div class="relative z-10">
+                            <h3 class="text-4xl font-extrabold mb-4 flex items-center gap-3">AI Dịch & Tóm Tắt SOO ✨</h3>
+                            <p class="text-xl text-teal-50 mb-8 max-w-3xl leading-relaxed">Sequence of Operation (SOO) từ thiết kế nước ngoài thường rất dài và phức tạp. Dán tài liệu SOO tiếng Anh vào đây, Gemini sẽ tóm tắt lại nguyên lý chạy/dừng thành các gạch đầu dòng tiếng Việt dễ hiểu nhất cho kỹ thuật viên tòa nhà.</p>
+                            
+                            <div class="bg-white/10 p-6 rounded-xl border border-white/20 backdrop-blur-sm mb-6">
+                                <label for="ai-soo-input" class="block text-sm font-bold text-teal-100 mb-2 uppercase tracking-wider">Đoạn nguyên lý (Tiếng Anh/Việt):</label>
+                                <textarea id="ai-soo-input" rows="5" class="w-full p-4 rounded-lg bg-white text-slate-800 text-lg border-2 border-transparent focus:border-accent focus:outline-none transition shadow-inner font-mono text-sm" placeholder="VD: When the start command is issued, the isolation valve shall open. Proof of flow is required via flow switch before the VFD is enabled. Upon fire alarm, the unit shall shut down immediately..."></textarea>
+                                
+                                <div class="mt-4 flex flex-col sm:flex-row gap-4 items-center">
+                                    <button onclick="runAISOO()" id="btn-ai-soo" class="w-full sm:w-auto px-8 py-4 bg-accent text-primary font-black text-xl rounded-lg hover:bg-yellow-400 shadow-lg transition transform hover:-translate-y-1 flex items-center justify-center gap-2">
+                                        Tóm Tắt Bằng AI ✨
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Loading & Output -->
+                            <div id="ai-soo-loading" class="hidden text-center py-8">
+                                <div class="loading-spinner"></div>
+                                <p class="mt-4 text-teal-100 font-bold animate-pulse">AI đang dịch và lập ma trận logic điều khiển...</p>
+                            </div>
+                            
+                            <div id="ai-soo-output" class="hidden bg-white text-slate-800 p-6 md:p-8 rounded-xl shadow-inner border-l-8 border-accent">
+                                <!-- AI Content goes here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
             
             <!-- Spacer for scrolling -->
@@ -935,18 +1019,18 @@
         </div>
 
         <!-- Footer Navigation -->
-        <footer class="h-24 bg-white border-t border-slate-200 px-8 flex justify-between items-center shrink-0 z-10 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)]">
-            <button onclick="navigate(-1)" id="btn-prev" class="px-8 py-4 bg-slate-200 text-slate-700 font-bold rounded-xl hover:bg-slate-300 disabled:opacity-40 transition text-xl shadow-sm">← Trang trước</button>
+        <footer class="h-24 bg-white border-t border-slate-200 px-6 lg:px-8 flex justify-between items-center shrink-0 z-10 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)]">
+            <button onclick="navigate(-1)" id="btn-prev" class="px-6 py-3 md:px-8 md:py-4 bg-slate-200 text-slate-700 font-bold rounded-xl hover:bg-slate-300 disabled:opacity-40 transition text-lg md:text-xl shadow-sm whitespace-nowrap">← <span class="hidden sm:inline">Trang trước</span></button>
             
-            <div class="flex items-center gap-6">
-                <span class="text-slate-500 font-bold text-lg hidden md:block">Tiến trình:</span>
-                <div class="w-64 h-4 bg-slate-200 rounded-full overflow-hidden shadow-inner">
+            <div class="flex items-center gap-4 md:gap-6 w-full justify-center max-w-lg mx-4">
+                <span class="text-slate-500 font-bold text-lg hidden md:block shrink-0">Tiến trình:</span>
+                <div class="w-full h-4 bg-slate-200 rounded-full overflow-hidden shadow-inner hidden sm:block">
                     <div id="progress-bar" class="h-full bg-accent transition-all duration-300 w-0"></div>
                 </div>
-                <span id="page-indicator" class="font-black text-xl text-primary bg-slate-100 px-4 py-1 rounded-lg border border-slate-200">1 / 26</span>
+                <span id="page-indicator" class="font-black text-lg md:text-xl text-primary bg-slate-100 px-3 md:px-4 py-1 rounded-lg border border-slate-200 shrink-0">1 / 28</span>
             </div>
 
-            <button onclick="navigate(1)" id="btn-next" class="px-8 py-4 bg-primary text-white font-bold rounded-xl hover:bg-blue-800 disabled:opacity-40 shadow-md transition text-xl">Trang sau →</button>
+            <button onclick="navigate(1)" id="btn-next" class="px-6 py-3 md:px-8 md:py-4 bg-primary text-white font-bold rounded-xl hover:bg-blue-800 disabled:opacity-40 shadow-md transition text-lg md:text-xl whitespace-nowrap"><span class="hidden sm:inline">Trang sau</span> →</button>
         </footer>
 
     </main>
@@ -977,13 +1061,15 @@
             { id: 'p4-3', title: '4.3 Hình Ảnh: Lưu đồ xử lý lỗi', module: '4. Troubleshooting HVAC' },
             { id: 'p4-4', title: '4.4 Hình Ảnh: Kỹ năng đo VOM', module: '4. Troubleshooting HVAC' },
             { id: 'p4-5', title: '4.5 Thực hành: Troubleshooting', module: '4. Troubleshooting HVAC' },
+            { id: 'p4-6', title: '4.6 Trợ Lý AI Phân Tích Sự Cố ✨', module: '4. Troubleshooting HVAC' },
             
             { id: 'p5-1', title: '5.1 Vận hành & Phối hợp Nhà thầu', module: '5. Nhận Bàn Giao' },
             { id: 'p5-2', title: '5.2 Hồ Sơ Bàn Giao & Vendor Lock-in', module: '5. Nhận Bàn Giao' },
             { id: 'p5-3', title: '5.3 Hình Ảnh: Bộ Hồ Sơ Tiêu Chuẩn', module: '5. Nhận Bàn Giao' },
             { id: 'p5-4', title: '5.4 Bảo Hành & Bảo Trì Phòng Ngừa', module: '5. Nhận Bàn Giao' },
             { id: 'p5-5', title: '5.5 Hình Ảnh: Mẫu Biên bản Data', module: '5. Nhận Bàn Giao' },
-            { id: 'p5-6', title: '5.6 Thực hành: Vận hành & Bàn giao', module: '5. Nhận Bàn Giao' }
+            { id: 'p5-6', title: '5.6 Thực hành: Vận hành & Bàn giao', module: '5. Nhận Bàn Giao' },
+            { id: 'p5-7', title: '5.7 AI Tóm Tắt Nguyên Lý (SOO) ✨', module: '5. Nhận Bàn Giao' }
         ];
 
         let currentIndex = 0;
@@ -1001,7 +1087,10 @@
                                 <summary class="px-5 py-3 font-bold text-slate-400 uppercase text-xs tracking-wider cursor-default">${item.module}</summary>`;
                     currentModule = item.module;
                 }
-                html += `<button onclick="goToPage(${index})" id="menu-btn-${index}" class="menu-item w-full text-left px-8 py-3 text-sm text-slate-300 hover:bg-slate-800 focus:outline-none flex items-center gap-2"><span class="opacity-50 text-xs">●</span> ${item.title}</button>`;
+                const isAI = item.title.includes('✨');
+                const titleText = isAI ? `<span class="text-accent font-bold">${item.title}</span>` : item.title;
+                
+                html += `<button onclick="goToPage(${index})" id="menu-btn-${index}" class="menu-item w-full text-left px-8 py-3 text-sm text-slate-300 hover:bg-slate-800 focus:outline-none flex items-center gap-2"><span class="opacity-50 text-xs">●</span> ${titleText}</button>`;
             });
             html += `</details>`;
             menuContainer.innerHTML = html;
@@ -1037,6 +1126,21 @@
             document.getElementById('main-scroll-area').scrollTop = 0;
         }
 
+        function toggleMenu() {
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('sidebar-overlay');
+            
+            if (sidebar.classList.contains('hidden')) {
+                sidebar.classList.remove('hidden');
+                sidebar.classList.add('flex');
+                if (window.innerWidth < 768) overlay.classList.remove('hidden');
+            } else {
+                sidebar.classList.add('hidden');
+                sidebar.classList.remove('flex');
+                overlay.classList.add('hidden');
+            }
+        }
+
         function navigate(direction) {
             currentIndex += direction;
             if (currentIndex < 0) currentIndex = 0;
@@ -1047,6 +1151,13 @@
         function goToPage(index) {
             currentIndex = index;
             updateUI();
+            if (window.innerWidth < 768) {
+                const sidebar = document.getElementById('sidebar');
+                const overlay = document.getElementById('sidebar-overlay');
+                sidebar.classList.add('hidden');
+                sidebar.classList.remove('flex');
+                overlay.classList.add('hidden');
+            }
         }
 
         // Interactive Logic (Simulators)
@@ -1098,16 +1209,11 @@
 
         // Quiz Logic
         function switchQuizTab(moduleStr, levelStr, btnEl) {
-            // UI Tab switch
             const container = btnEl.parentElement;
             container.querySelectorAll('.quiz-tab').forEach(b => b.classList.remove('active'));
             btnEl.classList.add('active');
-
-            // Hide all panes in this module
             const parentSection = btnEl.closest('.bg-white');
             parentSection.querySelectorAll('.quiz-pane').forEach(p => p.classList.remove('active'));
-            
-            // Show target pane
             const targetId = `${moduleStr}-${levelStr}`;
             document.getElementById(targetId).classList.add('active');
         }
@@ -1122,11 +1228,9 @@
             });
 
             btnEl.classList.remove('opacity-40');
-            
             const feedbackBox = document.getElementById(`${questionId}-res`);
             feedbackBox.classList.remove('hidden');
 
-            // Answers Data Dictionary
             const feedbackData = {
                 'm1-easy': "✅ <strong>Chính xác!</strong> Tính độc lập là cực kỳ quan trọng. DDC phải giữ được chương trình logic để thiết bị tự hoạt động bảo vệ tòa nhà ngay cả khi Server máy tính bị hỏng hoặc dây cáp mạng bị đứt chuột cắn.",
                 'm1-med': "✅ <strong>Đúng!</strong> Rớt 1 cụm hệ thống (nhiều tủ) cùng lúc thường do đứt trục cáp truyền thông mạng kết nối giữa các tủ thuộc Lớp Tự động hóa, hoặc switch mạng bị mất nguồn. Lỗi cảm biến hay lỗi 1 tủ DDC thì không thể làm rớt chùm như vậy được.",
@@ -1149,14 +1253,12 @@
                 'm5-hard': "✅ <strong>Xuất sắc!</strong> Đây là mấu chốt chống Vendor Lock-in (bị ép giá bảo trì). Không có mã nguồn (Source Code) của tủ DDC, nếu sét đánh cháy tủ, bạn mua vỏ tủ mới về nhưng không có thuật toán bên trong để chạy. Phải thuê nhà thầu khác viết lại từ đầu bằng tiền túi."
             };
 
-            // Enhanced Feedback Structure
             let feedbackHTML = `
                 <div class="${isCorrect ? 'bg-green-50 border-l-4 border-green-500 text-green-800' : 'bg-red-50 border-l-4 border-red-500 text-red-800'} p-6 rounded-lg text-xl mb-4 shadow-sm">
                     ${feedbackData[questionId]}
                 </div>
             `;
             
-            // Generate relevant follow-up questions based on the Module
             let q1, q2, q3;
             if (questionId.startsWith('m1')) {
                 q1 = "Làm cách nào để test tính năng Stand-alone của DDC ngay trong quá trình nhận bàn giao?";
@@ -1188,7 +1290,6 @@
                         <li>${q2}</li>
                         <li>${q3}</li>
                     </ul>
-                    <p class="text-sm text-slate-500 mt-4 italic">Ghi chú cho Giảng viên: Dành 5 phút yêu cầu học viên suy luận và đưa ra câu trả lời cho các tình huống trên.</p>
                 </div>
             `;
 
@@ -1196,7 +1297,6 @@
                 btnEl.classList.add('bg-green-100', 'border-green-500', 'text-green-800', 'font-bold', 'ring-2', 'ring-green-400');
             } else {
                 btnEl.classList.add('bg-red-100', 'border-red-500', 'text-red-800', 'ring-2', 'ring-red-400');
-                // Highlight correct
                 buttons.forEach(b => {
                     if(b.getAttribute('onclick').includes('true')) {
                         b.classList.remove('opacity-40');
@@ -1207,13 +1307,143 @@
             feedbackBox.innerHTML = feedbackHTML;
         }
 
+        // --- GEMINI API INTEGRATION ---
+        
+        async function fetchWithRetry(url, options, maxRetries = 5) {
+            let retries = 0;
+            const delays = [1000, 2000, 4000, 8000, 16000];
+            while (retries < maxRetries) {
+                try {
+                    const response = await fetch(url, options);
+                    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+                    return await response.json();
+                } catch (e) {
+                    if (retries === maxRetries - 1) throw e;
+                    console.warn(`Retry ${retries + 1} due to error:`, e);
+                    await new Promise(res => setTimeout(res, delays[retries]));
+                    retries++;
+                }
+            }
+        }
+
+        async function callGemini(userText, systemText) {
+            const apiKey = ""; // API Key is injected by the runtime environment
+            if (!apiKey) {
+                console.warn("API Key is missing. Simulation mode triggered.");
+                return "<p><i>Cảnh báo: Không tìm thấy API Key. Xin vui lòng kiểm tra lại môi trường chạy.</i></p>";
+            }
+            
+            const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
+            const payload = {
+                contents: [{ parts: [{ text: userText }] }],
+                systemInstruction: { parts: [{ text: systemText }] }
+            };
+
+            try {
+                const data = await fetchWithRetry(url, {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify(payload)
+                });
+                return data.candidates?.[0]?.content?.parts?.[0]?.text || "Không có phản hồi từ AI.";
+            } catch (error) {
+                return `<p class="text-red-600 font-bold">Lỗi kết nối API: ${error.message}. Vui lòng thử lại sau.</p>`;
+            }
+        }
+
+        // Format Gemini raw markdown output to basic HTML for safe display
+        function formatAIOutput(text) {
+            let html = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>'); // bold
+            html = html.replace(/\*(.*?)\*/g, '<em>$1</em>'); // italics
+            html = html.replace(/^### (.*$)/gim, '<h3>$1</h3>'); // headers
+            html = html.replace(/^## (.*$)/gim, '<h3>$1</h3>');
+            html = html.replace(/^- (.*$)/gim, '<ul><li>$1</li></ul>'); // bullets
+            html = html.replace(/<\/ul>\n<ul>/gim, ''); // merge lists
+            html = html.replace(/\n\n/g, '<br><br>'); // paragraph breaks
+            return html;
+        }
+
+        async function runAITroubleshooting() {
+            const input = document.getElementById('ai-trouble-input').value.trim();
+            const loading = document.getElementById('ai-trouble-loading');
+            const output = document.getElementById('ai-trouble-output');
+            const btn = document.getElementById('btn-ai-trouble');
+
+            if (!input) {
+                alert("Vui lòng nhập mô tả sự cố trước khi chạy AI!");
+                return;
+            }
+
+            loading.classList.remove('hidden');
+            output.classList.add('hidden');
+            btn.disabled = true;
+            btn.classList.add('opacity-50');
+
+            const systemPrompt = `Bạn là một chuyên gia Kỹ sư trưởng hệ thống BMS và HVAC với 15 năm kinh nghiệm. Dựa vào mô tả hiện tượng sự cố của người dùng, hãy đưa ra hướng dẫn khắc phục sự cố (Troubleshooting) MỘT CÁCH SÚC TÍCH, DỄ HIỂU.
+Yêu cầu bắt buộc phải chia thành 4 bước theo "Nguyên tắc 4 bước vàng":
+Bước 1: Kiểm tra thực tế hiện trường (kiểm tra phần cứng, cơ khí)
+Bước 2: So sánh Tín hiệu I/O (dùng VOM đo tại tủ MCC/DDC)
+Bước 3: Khoanh vùng lỗi (điện, cơ, hay BMS)
+Bước 4: Kiểm tra Logic phần mềm (nếu phần cứng đã OK).
+Sử dụng các thẻ HTML cơ bản (<h3>, <strong>, <ul>, <li>, <br>) để trình bày kết quả cho đẹp mắt. Không dùng cú pháp Markdown.`;
+
+            const result = await callGemini(input, systemPrompt);
+            
+            output.innerHTML = `<div class="ai-output-content">${formatAIOutput(result)}</div>`;
+            output.classList.remove('hidden');
+            loading.classList.add('hidden');
+            btn.disabled = false;
+            btn.classList.remove('opacity-50');
+        }
+
+        async function runAISOO() {
+            const input = document.getElementById('ai-soo-input').value.trim();
+            const loading = document.getElementById('ai-soo-loading');
+            const output = document.getElementById('ai-soo-output');
+            const btn = document.getElementById('btn-ai-soo');
+
+            if (!input) {
+                alert("Vui lòng nhập đoạn mô tả Sequence of Operation (SOO)!");
+                return;
+            }
+
+            loading.classList.remove('hidden');
+            output.classList.add('hidden');
+            btn.disabled = true;
+            btn.classList.add('opacity-50');
+
+            const systemPrompt = `Bạn là chuyên gia về Tự động hóa và BMS. Nhiệm vụ của bạn là đọc một đoạn tài liệu Sequence of Operation (Nguyên lý hoạt động - SOO) do kỹ sư hoặc nhà thầu viết (thường bằng tiếng Anh hoặc rất dài dòng).
+Bạn hãy DỊCH SANG TIẾNG VIỆT (nếu là tiếng Anh) và TÓM TẮT LẠI thành các gạch đầu dòng súc tích, dễ hiểu nhất cho công nhân và kỹ sư bảo trì đọc hiểu nhanh.
+Tập trung vào:
+- Điều kiện chạy (Start/Stop conditions)
+- Điều kiện an toàn/khóa chéo (Interlocks / Safeties)
+- Các vòng lặp PID hoặc kiểm soát (Setpoint control).
+Sử dụng các thẻ HTML cơ bản (<h3>, <strong>, <ul>, <li>, <br>) để trình bày kết quả cho đẹp mắt. Không dùng cú pháp Markdown.`;
+
+            const result = await callGemini(input, systemPrompt);
+            
+            output.innerHTML = `<div class="ai-output-content">${formatAIOutput(result)}</div>`;
+            output.classList.remove('hidden');
+            loading.classList.add('hidden');
+            btn.disabled = false;
+            btn.classList.remove('opacity-50');
+        }
+
         // Init
         window.onload = () => {
             renderMenu();
             updateUI();
             setTimeout(initChart, 200);
+            
+            // Auto hide sidebar on mobile at startup
+            if (window.innerWidth < 768) {
+                const sidebar = document.getElementById('sidebar');
+                const overlay = document.getElementById('sidebar-overlay');
+                sidebar.classList.add('hidden');
+                sidebar.classList.remove('flex');
+                if(overlay) overlay.classList.add('hidden');
+            }
         }
     </script>
 </body>
 </html>
-```
