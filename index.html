@@ -17,7 +17,7 @@
         .page-content.active { display: block; }
         .loading-spinner { border: 4px solid rgba(255, 255, 255, 0.3); border-radius: 50%; border-top: 4px solid #ffffff; width: 24px; height: 24px; animation: spin 1s linear infinite; display: inline-block; vertical-align: middle; }
 
-        /* Custom Scrollbar for Lean look */
+        /* Custom Scrollbar */
         ::-webkit-scrollbar { width: 8px; }
         ::-webkit-scrollbar-track { background: #f8fafc; }
         ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
@@ -27,15 +27,6 @@
         .menu-item.active { background-color: #eab308; color: #1e3a8a; font-weight: bold; border-right: 4px solid #1e3a8a; }
         .menu-item { transition: all 0.2s; }
         
-        /* Large Image Placeholder */
-        .img-placeholder-large { 
-            background: linear-gradient(135deg, #f0fdfa 0%, #e0f2fe 100%); 
-            border: 3px dashed #7dd3fc; 
-            display: flex; flex-direction: column; align-items: center; justify-content: center; 
-            color: #0369a1; font-weight: 700; text-align: center; 
-            border-radius: 1rem; width: 100%; height: calc(100vh - 200px); min-height: 500px;
-        }
-
         /* Tabs for Quiz */
         .quiz-tab { border-bottom: 4px solid transparent; transition: all 0.2s; }
         .quiz-tab.active { border-bottom-color: #eab308; color: #1e3a8a; background-color: #f1f5f9; font-weight: bold;}
@@ -45,11 +36,11 @@
         details > summary { list-style: none; }
         details > summary::-webkit-details-marker { display: none; }
         
-        /* AI output formatting */
-        .ai-output-content ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1rem; }
+        /* AI output formatting - Restored Large Fonts */
+        .ai-output-content ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1rem; font-size: 1.125rem; }
         .ai-output-content h3 { font-size: 1.25rem; font-weight: bold; color: #1e3a8a; margin-top: 1rem; margin-bottom: 0.5rem; }
         .ai-output-content strong { color: #0f172a; }
-        .ai-output-content p { margin-bottom: 0.75rem; }
+        .ai-output-content p { margin-bottom: 0.75rem; font-size: 1.125rem; }
         
         /* Sidebar Responsive Classes */
         #sidebar { display: flex; }
@@ -148,8 +139,8 @@
                         <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 border-t-8 border-t-danger">
                             <h4 class="font-bold text-2xl mb-4 text-danger">Tư duy sai lầm hay gặp</h4>
                             <ul class="text-xl space-y-4 text-slate-700">
-                                <li class="flex items-start gap-3"><span class="text-danger text-2xl">✖</span> Thiết bị cơ điện hỏng cũng đổ lỗi cho BMS điều khiển sai.</li>
-                                <li class="flex items-start gap-3"><span class="text-danger text-2xl">✖</span> Hễ thấy rớt mạng là vội vàng đi Reset phần cứng tủ DDC.</li>
+                                <li class="flex items-start gap-3"><span class="text-danger text-2xl mt-1">✖</span> Thiết bị cơ điện hỏng cũng đổ lỗi cho BMS điều khiển sai.</li>
+                                <li class="flex items-start gap-3"><span class="text-danger text-2xl mt-1">✖</span> Hễ thấy rớt mạng là vội vàng đi Reset phần cứng tủ DDC.</li>
                             </ul>
                         </div>
                     </div>
@@ -162,7 +153,7 @@
                         </div>
                         <div class="flex items-center gap-6 p-4 bg-slate-50 rounded-lg">
                             <div class="w-16 h-16 bg-accent text-primary rounded-full flex items-center justify-center text-2xl font-bold shrink-0 shadow-lg">2</div>
-                            <div><h4 class="text-2xl font-bold text-amber-600">Lớp Tự động hóa (Automation / DDC)</h4><p class="text-lg text-slate-600">Chạy logic tự động (Stand-alone). Tích hợp sẵn truyền thông IP. Lỗi hay gặp: Hết pin CMOS mất code, cháy bo mạch.</p></div>
+                            <div><h4 class="text-2xl font-bold text-amber-600">Lớp Tự động hóa (DDC)</h4><p class="text-lg text-slate-600">Chạy logic tự động. Tích hợp sẵn truyền thông IP. Lỗi: Hết pin CMOS mất code.</p></div>
                         </div>
                         <div class="flex items-center gap-6 p-4 bg-slate-50 rounded-lg">
                             <div class="w-16 h-16 bg-slate-400 text-white rounded-full flex items-center justify-center text-2xl font-bold shrink-0 shadow-lg">3</div>
@@ -173,7 +164,7 @@
 
                 <div id="p1-2" class="page-content">
                     <div class="flex justify-center items-center h-full min-h-[500px] bg-white rounded-2xl shadow-sm border border-slate-200 p-4">
-                        <img src="images/1.jpg" alt="Sơ đồ Kiến trúc BMS 3 Lớp Hiện đại" class="max-w-full max-h-[75vh] object-contain rounded-xl" onerror="this.onerror=null; this.src='https://placehold.co/1200x600/f1f5f9/0ea5e9?text=Vui+long+them+anh+vao+duong+dan:+images/1.jpg'">
+                        <img src="images/1.jpg" alt="Sơ đồ Kiến trúc BMS 3 Lớp Hiện đại" class="max-w-full max-h-[75vh] object-contain rounded-xl" onerror="this.onerror=null; this.src='https://placehold.co/1200x600/f1f5f9/0ea5e9?text=[Image+of+S%C6%A1+%C4%91%E1%BB%93+Ki%E1%BA%BFn+tr%C3%BAc+BMS+3+L%E1%BB%9Bp]'">
                     </div>
                 </div>
 
@@ -192,7 +183,7 @@
                             <p class="text-2xl font-bold text-slate-800 mb-6 leading-relaxed">❓ Chức năng "Stand-alone" (Độc lập) của tủ DDC thuộc Lớp Tự động hóa có nghĩa là gì trong vận hành thực tế?</p>
                             <div class="space-y-4" id="m1-easy-opts">
                                 <button onclick="handleAnswer('m1-easy', false, this)" class="w-full text-left p-5 text-xl bg-slate-50 hover:bg-blue-50 border border-slate-300 rounded-xl transition">A. Tủ DDC tự phát ra điện để chạy khi mất điện lưới.</button>
-                                <button onclick="handleAnswer('m1-easy', true, this)" class="w-full text-left p-5 text-xl bg-slate-50 hover:bg-blue-50 border border-slate-300 rounded-xl transition">B. Khi cáp mạng đứt, mất kết nối với máy chủ Server (Lớp quản lý), DDC vẫn tự động điều khiển thiết bị hiện trường theo logic đã lập trình sẵn bên trong.</button>
+                                <button onclick="handleAnswer('m1-easy', true, this)" class="w-full text-left p-5 text-xl bg-slate-50 hover:bg-blue-50 border border-slate-300 rounded-xl transition">B. Khi cáp mạng đứt, mất kết nối với máy chủ Server, DDC vẫn tự động điều khiển thiết bị hiện trường theo logic đã lập trình sẵn.</button>
                                 <button onclick="handleAnswer('m1-easy', false, this)" class="w-full text-left p-5 text-xl bg-slate-50 hover:bg-blue-50 border border-slate-300 rounded-xl transition">C. Tủ DDC chỉ nhận lệnh thủ công từ kỹ thuật viên nhấn nút trên mặt tủ.</button>
                             </div>
                             <div id="m1-easy-res" class="hidden mt-6"></div>
@@ -200,18 +191,18 @@
 
                         <!-- Medium -->
                         <div id="m1-med" class="quiz-pane p-6 md:p-8">
-                            <p class="text-2xl font-bold text-slate-800 mb-6 leading-relaxed">❓ Khi màn hình BMS hiển thị [Offline] hoặc [Mất kết nối] toàn bộ các tủ DDC thuộc hệ thống Chiller Plant ở tầng hầm, nguyên nhân có khả năng cao nhất là gì?</p>
+                            <p class="text-2xl font-bold text-slate-800 mb-6 leading-relaxed">❓ Khi màn hình BMS hiển thị [Offline] toàn bộ các tủ DDC thuộc hệ thống Chiller Plant ở tầng hầm, nguyên nhân có khả năng cao nhất là gì?</p>
                             <div class="space-y-4" id="m1-med-opts">
                                 <button onclick="handleAnswer('m1-med', false, this)" class="w-full text-left p-5 text-xl bg-slate-50 hover:bg-blue-50 border border-slate-300 rounded-xl transition">A. Hỏng 1 cảm biến nhiệt độ cấp nước lạnh của Chiller dưới hiện trường.</button>
                                 <button onclick="handleAnswer('m1-med', false, this)" class="w-full text-left p-5 text-xl bg-slate-50 hover:bg-blue-50 border border-slate-300 rounded-xl transition">B. Lỗi phần mềm đồ họa trên Server.</button>
-                                <button onclick="handleAnswer('m1-med', true, this)" class="w-full text-left p-5 text-xl bg-slate-50 hover:bg-blue-50 border border-slate-300 rounded-xl transition">C. Lỗi trục cáp mạng truyền thông (đứt cáp quang) nối các tủ DDC, hoặc thiết bị Switch mạng nội bộ của cụm DDC này bị mất nguồn/treo.</button>
+                                <button onclick="handleAnswer('m1-med', true, this)" class="w-full text-left p-5 text-xl bg-slate-50 hover:bg-blue-50 border border-slate-300 rounded-xl transition">C. Lỗi trục cáp mạng truyền thông nối các tủ DDC, hoặc Switch mạng nội bộ của cụm DDC bị mất nguồn/treo.</button>
                             </div>
                             <div id="m1-med-res" class="hidden mt-6"></div>
                         </div>
 
                         <!-- Hard -->
                         <div id="m1-hard" class="quiz-pane p-6 md:p-8">
-                            <p class="text-2xl font-bold text-slate-800 mb-6 leading-relaxed">❓ Sự cố mất điện tòa nhà xảy ra. Máy phát điện đã chạy lại. Tuy nhiên, toàn bộ DDC vẫn mất kết nối và Server không thể truy cập Database. Nguyên nhân cốt lõi do công tác bảo trì nào bị thiếu sót?</p>
+                            <p class="text-2xl font-bold text-slate-800 mb-6 leading-relaxed">❓ Sự cố mất điện tòa nhà xảy ra. Máy phát điện đã chạy lại. Tuy nhiên, toàn bộ DDC vẫn mất kết nối và Server không thể truy cập Database. Nguyên nhân do đâu?</p>
                             <div class="space-y-4" id="m1-hard-opts">
                                 <button onclick="handleAnswer('m1-hard', true, this)" class="w-full text-left p-5 text-xl bg-slate-50 hover:bg-blue-50 border border-slate-300 rounded-xl transition">A. Không bảo trì ắc-quy cho UPS của Server BMS. Khi mất điện đột ngột, Server sập tức thì làm hỏng (corrupt) file SQL Database.</button>
                                 <button onclick="handleAnswer('m1-hard', false, this)" class="w-full text-left p-5 text-xl bg-slate-50 hover:bg-blue-50 border border-slate-300 rounded-xl transition">B. Quên gạt cầu dao (CB) cấp nguồn cho các tủ DDC dưới hiện trường.</button>
@@ -239,13 +230,13 @@
                             
                             <div class="bg-blue-50 p-6 rounded-xl border-l-4 border-blue-500">
                                 <p class="font-bold text-lg text-blue-900 mb-2">Cách dùng VOM bắt bệnh:</p>
-                                <p class="text-lg text-blue-800">Màn hình BMS báo ON, kỹ thuật đo điện áp (VDC/VAC) tại chân ngõ ra DDC. Nếu đo <strong>không có điện áp</strong> (0V) -> Cháy bo mạch/rơ-le trong tủ DDC.</p>
+                                <p class="text-lg text-blue-800">BMS báo ON, đo điện áp tại ngõ ra DDC. Nếu <strong>không có điện áp</strong> -> Cháy rơ-le DDC.</p>
                             </div>
                         </div>
 
                         <div class="bg-white p-8 rounded-2xl shadow-sm border-t-8 border-secondary">
                             <h4 class="font-bold text-3xl mb-4 text-slate-800">DI (Trạng Thái Báo Về)</h4>
-                            <p class="text-xl text-slate-600 mb-6 h-20">Nhận tiếp điểm khô (Run/Trip/Auto) từ tủ điện động lực trả về DDC.</p>
+                            <p class="text-xl text-slate-600 mb-6 h-20">Nhận tiếp điểm khô (Run/Trip) từ tủ điện động lực trả về.</p>
                             
                             <div class="bg-slate-100 p-8 rounded-xl text-center mb-8 border border-slate-200 flex items-center justify-center h-[106px]">
                                 <span id="status-di" class="px-8 py-3 bg-slate-300 text-slate-600 rounded-full font-black text-2xl w-full">OFF (DỪNG)</span>
@@ -253,7 +244,7 @@
                             
                             <div class="bg-teal-50 p-6 rounded-xl border-l-4 border-teal-500">
                                 <p class="font-bold text-lg text-teal-900 mb-2">Cách dùng VOM bắt bệnh:</p>
-                                <p class="text-lg text-teal-800">Thiết bị đang chạy nhưng BMS báo OFF. Tháo 2 sợi cáp DI ra. Dùng VOM <strong>thang đo Thông Mạch (Ohm)</strong>. Nếu VOM không kêu -> Đứt cáp hoặc lỏng tiếp điểm bên tủ điện.</p>
+                                <p class="text-lg text-teal-800">BMS báo OFF sai. Tháo 2 cáp DI ra, dùng VOM <strong>đo Thông Mạch (Ohm)</strong> để kiểm tra.</p>
                             </div>
                         </div>
                     </div>
@@ -264,133 +255,110 @@
                     
                     <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200 mb-10">
                         <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8 gap-4">
-                            <h4 class="font-bold text-2xl text-primary">Giả lập: DDC xuất lệnh 0-10V điều khiển Van</h4>
+                            <h4 class="font-bold text-2xl text-primary">Giả lập: DDC xuất 0-10V điều khiển Van</h4>
                             <span id="val-ao" class="font-black text-3xl text-accent bg-primary px-6 py-3 rounded-lg shadow whitespace-nowrap">50% (5.0V)</span>
                         </div>
                         
                         <div class="mb-10">
                             <input type="range" min="0" max="100" value="50" class="w-full h-4 bg-slate-200 rounded-lg appearance-none cursor-pointer accent-accent" oninput="updateAnalog(this.value)">
                             <div class="flex justify-between mt-2 text-slate-500 font-bold text-sm sm:text-base">
-                                <span>0% (Đóng hoàn toàn)</span>
+                                <span>0% (Đóng)</span>
                                 <span>100% (Mở tối đa)</span>
                             </div>
                         </div>
 
                         <div class="bg-slate-50 p-6 rounded-xl border border-slate-200">
-                            <p class="text-lg font-bold text-slate-600 mb-4 flex items-center gap-2"><span>📈</span> Đồ thị AI Nhiệt độ phòng phản hồi theo độ mở van:</p>
+                            <p class="text-lg font-bold text-slate-600 mb-4 flex items-center gap-2"><span>📈</span> Đồ thị phản hồi nhiệt độ:</p>
                             <div class="chart-container h-64"><canvas id="aiChart"></canvas></div>
                         </div>
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                         <div class="bg-amber-50 p-6 rounded-xl border-l-4 border-accent">
-                            <h4 class="font-bold text-amber-800 text-xl mb-3">⚠️ Lưu ý thay cảm biến (AI)</h4>
-                            <p class="text-lg text-slate-700">Phải mua khớp <strong>Dải đo (Range)</strong> và <strong>Hệ số điện trở</strong>. DDC khai báo PT1000 mà lắp NTC10K thì nhiệt độ sẽ báo âm (-50°C).</p>
+                            <h4 class="font-bold text-amber-800 text-xl mb-3">⚠️ Lưu ý cảm biến (AI)</h4>
+                            <p class="text-lg text-slate-700">Mua khớp <strong>Dải đo</strong> và <strong>Hệ số điện trở</strong>. Khai báo sai (PT1000 lắp NTC10K) sẽ báo sai lệch lớn.</p>
                         </div>
                         <div class="bg-blue-50 p-6 rounded-xl border-l-4 border-blue-500">
-                            <h4 class="font-bold text-blue-900 text-xl mb-3">🔧 Bắt bệnh sụt áp (AO)</h4>
-                            <p class="text-lg text-slate-700">Nếu kéo cáp quá xa (>150m), tín hiệu 0-10V sẽ bị sụt áp. DDC xuất 10V, VOM đo tại motor van chỉ còn 8V. Cần chuyển sang dùng tín hiệu dòng 4-20mA.</p>
+                            <h4 class="font-bold text-blue-900 text-xl mb-3">🔧 Hiện tượng sụt áp (AO)</h4>
+                            <p class="text-lg text-slate-700">Cáp kéo quá xa (>150m) sẽ sụt áp 0-10V. Nên chuyển sang dùng tín hiệu dòng 4-20mA.</p>
                         </div>
                     </div>
                 </div>
 
                 <div id="p2-3" class="page-content">
-                    <h3 class="text-4xl font-extrabold text-primary mb-8 border-l-8 border-accent pl-4">Nhận Diện & Phân Loại Thiết Bị Trường</h3>
-                    <p class="text-xl text-slate-700 mb-8">Hiểu đúng chức năng của thiết bị để tra cứu bản vẽ và xác định tín hiệu tương ứng.</p>
+                    <h3 class="text-4xl font-extrabold text-primary mb-8 border-l-8 border-accent pl-4">Phân Loại Thiết Bị Trường</h3>
+                    <p class="text-xl text-slate-700 mb-8">Nhận diện chức năng thiết bị để tra cứu bản vẽ và xác định đúng loại tín hiệu I/O.</p>
 
                     <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                        <!-- Sensors -->
                         <div class="bg-white p-8 rounded-2xl border-t-8 border-primary shadow-sm">
                             <div class="text-5xl mb-4">🌡️</div>
-                            <h4 class="font-black text-2xl text-primary mb-4 uppercase">1. Cảm Biến (Sensors)</h4>
-                            <p class="text-lg font-bold text-slate-500 mb-4">Loại tín hiệu: AI / AO</p>
-                            <ul class="text-lg space-y-3 text-slate-700">
-                                <li>• <strong>Ví dụ:</strong> Cảm biến Nhiệt độ, Độ ẩm, Khí CO2, Cảm biến Chênh áp gió (DPS).</li>
-                                <li>• <strong>Mục đích:</strong> Đo lường giá trị môi trường thay đổi liên tục để hệ thống chạy thuật toán (PID) điều chỉnh công suất thiết bị.</li>
-                            </ul>
+                            <h4 class="font-black text-2xl text-primary mb-4 uppercase">1. Cảm Biến</h4>
+                            <p class="text-lg font-bold text-slate-500 mb-4">Tín hiệu: AI / AO</p>
+                            <p class="text-lg text-slate-700">Đo lường giá trị thay đổi liên tục (Nhiệt, Ẩm, CO2) phục vụ vòng lặp PID.</p>
                         </div>
 
-                        <!-- Switches -->
                         <div class="bg-white p-8 rounded-2xl border-t-8 border-secondary shadow-sm">
                             <div class="text-5xl mb-4">🎚️</div>
-                            <h4 class="font-black text-2xl text-secondary mb-4 uppercase">2. Công Tắc (Switches)</h4>
-                            <p class="text-lg font-bold text-slate-500 mb-4">Loại tín hiệu: DI / DO</p>
-                            <ul class="text-lg space-y-3 text-slate-700">
-                                <li>• <strong>Ví dụ:</strong> Công tắc dòng chảy (Flow switch), Công tắc áp suất (DPS báo dơ màng lọc), Rơ-le.</li>
-                                <li>• <strong>Mục đích:</strong> Báo trạng thái Bật/Tắt, Lỗi, hoặc dùng làm tiếp điểm cho vòng khóa chéo bảo vệ cứng (Hardware Interlock).</li>
-                            </ul>
+                            <h4 class="font-black text-2xl text-secondary mb-4 uppercase">2. Công Tắc</h4>
+                            <p class="text-lg font-bold text-slate-500 mb-4">Tín hiệu: DI / DO</p>
+                            <p class="text-lg text-slate-700">Báo trạng thái Bật/Tắt (Flow switch, DPS) hoặc dùng khóa chéo bảo vệ.</p>
                         </div>
 
-                        <!-- Meters -->
                         <div class="bg-white p-8 rounded-2xl border-t-8 border-accent shadow-sm">
                             <div class="text-5xl mb-4">⏱️</div>
-                            <h4 class="font-black text-2xl text-amber-600 mb-4 uppercase">3. Đo Đếm (Meters)</h4>
-                            <p class="text-lg font-bold text-slate-500 mb-4">Loại tín hiệu: RS485 / Modbus / Xung</p>
-                            <ul class="text-lg space-y-3 text-slate-700">
-                                <li>• <strong>Ví dụ:</strong> Đồng hồ điện (Power Meter), Đồng hồ nước lạnh (BTU Meter), Đồng hồ lưu lượng.</li>
-                                <li>• <strong>Mục đích:</strong> Đo đếm năng lượng tiêu thụ, phục vụ tính tiền và phân tích hiệu suất (PUE) của tòa nhà.</li>
-                            </ul>
+                            <h4 class="font-black text-2xl text-amber-600 mb-4 uppercase">3. Đo Đếm</h4>
+                            <p class="text-lg font-bold text-slate-500 mb-4">Tín hiệu: RS485 / IP</p>
+                            <p class="text-lg text-slate-700">Đồng hồ điện, nước, BTU Meter phục vụ theo dõi năng lượng (PUE).</p>
                         </div>
                     </div>
                 </div>
 
                 <div id="p2-4" class="page-content">
                     <div class="flex justify-center items-center h-full min-h-[500px] bg-white rounded-2xl shadow-sm border border-slate-200 p-4">
-                        <img src="images/2.jpg" alt="Các nhóm thiết bị trường thường gặp" class="max-w-full max-h-[75vh] object-contain rounded-xl" onerror="this.onerror=null; this.src='https://placehold.co/1200x600/f1f5f9/0ea5e9?text=Vui+long+them+anh+vao+duong+dan:+images/2.jpg'">
+                        <img src="images/2.jpg" alt="Các nhóm thiết bị trường thường gặp" class="max-w-full max-h-[75vh] object-contain rounded-xl" onerror="this.onerror=null; this.src='https://placehold.co/1200x600/f1f5f9/0ea5e9?text=[Image+of+C%C3%A1c+Nh%C3%B3m+Thi%E1%BA%BFt+B%E1%BB%8B+Tr%C6%B0%E1%BB%9Dng]'">
                     </div>
                 </div>
 
                 <div id="p2-5" class="page-content">
-                    <h3 class="text-4xl font-extrabold text-primary mb-8 border-l-8 border-accent pl-4">Loại Cáp Tín Hiệu & Cách Bóc Tách Khối Lượng</h3>
+                    <h3 class="text-4xl font-extrabold text-primary mb-8 border-l-8 border-accent pl-4">Cáp Tín Hiệu & Khối Lượng</h3>
                     
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
                         <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm border-t-8 border-primary">
-                            <h4 class="font-black text-2xl text-primary mb-4">1. Cáp Tín Hiệu Analog (AI, AO)</h4>
-                            <p class="text-lg text-slate-700 mb-4">Tín hiệu dạng điện áp (0-10V) rất yếu và cực kỳ nhạy cảm với nhiễu từ trường (EMI).</p>
+                            <h4 class="font-black text-2xl text-primary mb-4">1. Cáp Analog (AI, AO)</h4>
                             <ul class="text-lg space-y-3 text-slate-700 bg-blue-50 p-4 rounded-lg border border-blue-100">
-                                <li>👉 <strong>Loại cáp:</strong> STP (Shielded Twisted Pair) - Cáp vặn xoắn có bọc màng nhôm chống nhiễu.</li>
-                                <li>👉 <strong>Kích thước:</strong> Thường là 1 Pair (2 lõi), tiết diện 18AWG đến 22AWG (khoảng 0.5 - 0.75mm²).</li>
-                                <li class="text-danger font-bold">⚠ Bắt buộc: Nối đất (Ground) dây Drain Wire của lớp chống nhiễu ở DUY NHẤT 1 ĐẦU (thường tại DDC).</li>
+                                <li>👉 <strong>Loại cáp:</strong> Cáp vặn xoắn bọc chống nhiễu (STP).</li>
+                                <li>👉 <strong>Tiết diện:</strong> 1 Pair (18AWG - 22AWG).</li>
+                                <li class="text-danger font-bold text-base mt-2">⚠ Bắt buộc: Nối tiếp địa (Drain wire) chống nhiễu ở DUY NHẤT 1 ĐẦU.</li>
                             </ul>
                         </div>
 
                         <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm border-t-8 border-secondary">
-                            <h4 class="font-black text-2xl text-secondary mb-4">2. Cáp Tín Hiệu Digital (DI, DO)</h4>
-                            <p class="text-lg text-slate-700 mb-4">Tín hiệu dạng On/Off (thường dùng điện áp 24VDC/VAC) đủ lớn để ít bị nhiễu.</p>
+                            <h4 class="font-black text-2xl text-secondary mb-4">2. Cáp Digital (DI, DO)</h4>
                             <ul class="text-lg space-y-3 text-slate-700 bg-sky-50 p-4 rounded-lg border border-sky-100">
-                                <li>👉 <strong>Loại cáp:</strong> Cáp điều khiển (Control Cable / CVV). Không bắt buộc bọc nhiễu.</li>
-                                <li>👉 <strong>Kích thước:</strong> Cáp đa lõi (Multi-core) ví dụ 4x1.0mm², 8x1.5mm².</li>
-                                <li>👉 <strong>Lưu ý:</strong> Nên dùng cáp có đánh số thứ tự trên lõi (Marking) để thợ thi công không đấu nhầm khi kéo số lượng lớn.</li>
+                                <li>👉 <strong>Loại cáp:</strong> Cáp điều khiển (CVV) không cần bọc nhiễu.</li>
+                                <li>👉 <strong>Tiết diện:</strong> Cáp đa lõi 4x1.0mm², 8x1.5mm².</li>
+                                <li class="text-slate-600 italic text-base mt-2">Lưu ý: Dùng cáp đánh số (Marking) để dễ đấu nối.</li>
                             </ul>
                         </div>
                     </div>
 
                     <div class="bg-slate-800 p-8 rounded-2xl shadow-md text-slate-200">
-                        <h4 class="font-black text-2xl text-accent mb-6 uppercase tracking-wider">🧮 Bóc Tách Khối Lượng Cáp (Dự Toán & Thi Công)</h4>
+                        <h4 class="font-black text-2xl text-accent mb-6">🧮 Bóc Tách Khối Lượng Nhanh</h4>
                         
-                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
                             <div class="bg-slate-900 p-6 rounded-xl border border-slate-600">
-                                <p class="font-bold text-sky-400 mb-3 text-xl">1. Công thức chi tiết (Thi công):</p>
-                                <p class="text-2xl font-mono text-green-400 mb-3 text-center break-words">L = (L_trục + L_nhánh + L_thả) x 1.1</p>
-                                <ul class="text-base space-y-2 text-slate-400">
-                                    <li>- <strong>L_thả:</strong> +2-3m chờ tại thiết bị, +1.5-2m tại tủ DDC.</li>
-                                    <li>- <strong>Hao phí:</strong> Nhân 1.1 (10%) bù độ võng, cắt đầu cáp.</li>
-                                </ul>
+                                <p class="text-green-400 font-mono text-xl mb-2">L = (L_trục + L_nhánh + L_thả) x 1.1</p>
+                                <p class="text-slate-400 text-lg">Công thức tính chi tiết thi công thực tế (Cộng thêm đoạn thả trần + 10% hao phí).</p>
                             </div>
-                            
                             <div class="bg-slate-900 p-6 rounded-xl border border-slate-600">
-                                <p class="font-bold text-accent mb-3 text-xl">2. Tính nhanh (Dự toán 20m/tín hiệu):</p>
-                                <p class="text-2xl font-mono text-yellow-400 mb-3 text-center break-words">Tổng cáp = Số điểm I/O × 20m</p>
-                                <ul class="text-base space-y-2 text-slate-400">
-                                    <li>- <strong>Cáp chống nhiễu:</strong> (Tổng AI + AO) × 20m.</li>
-                                    <li>- <strong>Cáp ĐK 1.5mm²:</strong> (Tổng DI + DO) × 20m.</li>
-                                </ul>
+                                <p class="text-yellow-400 font-mono text-xl mb-2">Tổng cáp = Số I/O × 20m</p>
+                                <p class="text-slate-400 text-lg">Công thức tính nhẩm nhanh lập dự toán thầu.</p>
                             </div>
                         </div>
 
                         <div class="bg-red-900/40 p-5 rounded-lg border-l-4 border-danger">
-                            <p class="text-red-400 font-bold mb-2 uppercase tracking-wide text-lg flex items-center gap-2"><span class="text-2xl">⚠</span> Lỗi tử huyệt: Bóc thiếu cáp nguồn</p>
-                            <p class="text-slate-300 text-lg leading-relaxed">Đối với các cảm biến Active (CO2, Nhiệt ẩm) hoặc Van tuyến tính, thiết bị cần nguồn nuôi 24V. Ngoài cáp tín hiệu, <strong>bắt buộc phải bóc thêm 1 tuyến dây nguồn 2x1.5mm² (hoặc 2 sợi cáp đơn 1.5mm)</strong> chạy song song. Rất nhiều nhà thầu bóc dự toán bị âm tiền vì quên loại cáp này!</p>
+                            <strong class="text-red-400 block mb-2 text-xl">⚠ Đừng quên cáp nguồn!</strong>
+                            <span class="text-slate-300 text-lg">Cảm biến Active (CO2, Temp/RH) hoặc Van tuyến tính cần cấp nguồn 24V. Phải bóc thêm dây nguồn 2x1.5mm chạy song song.</span>
                         </div>
                     </div>
                 </div>
@@ -405,9 +373,8 @@
                             <button class="quiz-tab flex-1 py-4 px-2 text-lg md:text-xl transition" onclick="switchQuizTab('m2', 'hard', this)">Mức độ: Khó</button>
                         </div>
 
-                        <!-- Easy -->
                         <div id="m2-easy" class="quiz-pane active p-6 md:p-8">
-                            <p class="text-2xl font-bold text-slate-800 mb-6 leading-relaxed">❓ Để kiểm tra xem Công tắc chênh áp (DPS) của màng lọc AHU có hoạt động không, kỹ thuật tháo 2 dây tín hiệu đi về DDC ra. Sau đó dùng VOM vặn thang đo nào là chính xác nhất?</p>
+                            <p class="text-2xl font-bold text-slate-800 mb-6 leading-relaxed">❓ Để kiểm tra Công tắc chênh áp (DPS) màng lọc AHU, kỹ thuật tháo 2 dây đi về DDC ra. Vặn VOM sang thang đo nào là chuẩn?</p>
                             <div class="space-y-4" id="m2-easy-opts">
                                 <button onclick="handleAnswer('m2-easy', false, this)" class="w-full text-left p-5 text-xl bg-slate-50 hover:bg-blue-50 border border-slate-300 rounded-xl transition">A. Thang đo điện áp DC (VDC).</button>
                                 <button onclick="handleAnswer('m2-easy', true, this)" class="w-full text-left p-5 text-xl bg-slate-50 hover:bg-blue-50 border border-slate-300 rounded-xl transition">B. Thang đo Điện trở hoặc Thông mạch (Ohm / Biểu tượng sóng âm).</button>
@@ -416,24 +383,22 @@
                             <div id="m2-easy-res" class="hidden mt-6"></div>
                         </div>
 
-                        <!-- Medium -->
                         <div id="m2-med" class="quiz-pane p-6 md:p-8">
-                            <p class="text-2xl font-bold text-slate-800 mb-6 leading-relaxed">❓ Cảm biến nhiệt độ phòng (AI) trên BMS liên tục nhảy số loạn xạ (Ví dụ: 25°C nháy lên 85°C rồi rớt xuống -10°C) theo từng giây. Cáp cảm biến đi chung máng điện với cáp nguồn 3 pha của quạt. Bệnh này xử lý triệt để thế nào?</p>
+                            <p class="text-2xl font-bold text-slate-800 mb-6 leading-relaxed">❓ Cảm biến nhiệt (AI) nhảy số loạn xạ (25°C -> 85°C -> -10°C). Cáp đi chung máng với nguồn 3 pha. Xử lý triệt để thế nào?</p>
                             <div class="space-y-4" id="m2-med-opts">
-                                <button onclick="handleAnswer('m2-med', true, this)" class="w-full text-left p-5 text-xl bg-slate-50 hover:bg-blue-50 border border-slate-300 rounded-xl transition">A. Đây là nhiễu điện từ (EMI). Phải thay bằng cáp vặn xoắn có bọc chống nhiễu (STP) và nối dây tiếp địa bọc nhiễu vào thanh nối đất tủ DDC (chỉ nối 1 đầu).</button>
-                                <button onclick="handleAnswer('m2-med', false, this)" class="w-full text-left p-5 text-xl bg-slate-50 hover:bg-blue-50 border border-slate-300 rounded-xl transition">B. Thay cảm biến nhiệt độ mới vì cảm biến cũ đã bị hỏng linh kiện bên trong.</button>
-                                <button onclick="handleAnswer('m2-med', false, this)" class="w-full text-left p-5 text-xl bg-slate-50 hover:bg-blue-50 border border-slate-300 rounded-xl transition">C. Lên phần mềm Server BMS cài đặt Delay time khoảng 10 giây để lọc nhiễu.</button>
+                                <button onclick="handleAnswer('m2-med', true, this)" class="w-full text-left p-5 text-xl bg-slate-50 hover:bg-blue-50 border border-slate-300 rounded-xl transition">A. Hiện tượng nhiễu EMI. Thay cáp chống nhiễu (STP) và nối đất lớp bọc bạc ở 1 đầu.</button>
+                                <button onclick="handleAnswer('m2-med', false, this)" class="w-full text-left p-5 text-xl bg-slate-50 hover:bg-blue-50 border border-slate-300 rounded-xl transition">B. Thay cảm biến nhiệt độ mới do hỏng linh kiện.</button>
+                                <button onclick="handleAnswer('m2-med', false, this)" class="w-full text-left p-5 text-xl bg-slate-50 hover:bg-blue-50 border border-slate-300 rounded-xl transition">C. Cài Delay Time trên phần mềm Server.</button>
                             </div>
                             <div id="m2-med-res" class="hidden mt-6"></div>
                         </div>
 
-                        <!-- Hard -->
                         <div id="m2-hard" class="quiz-pane p-6 md:p-8">
-                            <p class="text-2xl font-bold text-slate-800 mb-6 leading-relaxed">❓ Bạn được giao nhiệm vụ bóc tách khối lượng cáp AI từ 1 tủ DDC đến cảm biến nhiệt trên trần. Khoảng cách đo trên bản vẽ mặt bằng (theo máng cáp) là 30 mét. Để không bị thiếu hụt khi thi công thực tế, con số bạn đặt hàng vật tư nên là bao nhiêu?</p>
+                            <p class="text-2xl font-bold text-slate-800 mb-6 leading-relaxed">❓ Đo bản vẽ mặt bằng cáp AI từ DDC đến trần là 30m. Khối lượng cáp đặt hàng thực tế nên là bao nhiêu?</p>
                             <div class="space-y-4" id="m2-hard-opts">
-                                <button onclick="handleAnswer('m2-hard', false, this)" class="w-full text-left p-5 text-xl bg-slate-50 hover:bg-blue-50 border border-slate-300 rounded-xl transition">A. 30 mét (đúng như bản vẽ).</button>
-                                <button onclick="handleAnswer('m2-hard', false, this)" class="w-full text-left p-5 text-xl bg-slate-50 hover:bg-blue-50 border border-slate-300 rounded-xl transition">B. 33 mét (Cộng thêm 10% hao phí đi máng).</button>
-                                <button onclick="handleAnswer('m2-hard', true, this)" class="w-full text-left p-5 text-xl bg-slate-50 hover:bg-blue-50 border border-slate-300 rounded-xl transition">C. Khoảng 38 mét. Gồm: 30m (trục) + 1.5m (thả xuống DDC) + 3m (chạy dọc từ trần xuống cảm biến) = 34.5m. Sau đó cộng thêm 10% hao phí cho tổng đoạn này là thành ~38m.</button>
+                                <button onclick="handleAnswer('m2-hard', false, this)" class="w-full text-left p-5 text-xl bg-slate-50 hover:bg-blue-50 border border-slate-300 rounded-xl transition">A. 30 mét.</button>
+                                <button onclick="handleAnswer('m2-hard', false, this)" class="w-full text-left p-5 text-xl bg-slate-50 hover:bg-blue-50 border border-slate-300 rounded-xl transition">B. 33 mét (+10% hao phí).</button>
+                                <button onclick="handleAnswer('m2-hard', true, this)" class="w-full text-left p-5 text-xl bg-slate-50 hover:bg-blue-50 border border-slate-300 rounded-xl transition">C. Khoảng 38 mét (Bao gồm đoạn thả trần, đấu nối tủ và 10% bù võng).</button>
                             </div>
                             <div id="m2-hard-res" class="hidden mt-6"></div>
                         </div>
@@ -444,39 +409,33 @@
                 <!-- MODULE 3: TRUYỀN THÔNG -->
                 <!-- ========================================== -->
                 <div id="p3-1" class="page-content">
-                    <h3 class="text-4xl font-extrabold text-primary mb-8 border-l-8 border-accent pl-4">Topology (Mô Hình Mạng) Truyền Thông</h3>
+                    <h3 class="text-4xl font-extrabold text-primary mb-8 border-l-8 border-accent pl-4">Topology Mạng Truyền Thông</h3>
                     
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 h-auto md:h-[400px]">
-                        <!-- Bus -->
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 h-auto md:h-[400px]">
                         <div class="bg-white p-8 rounded-2xl border-t-8 border-primary shadow-sm flex flex-col items-center text-center">
                             <div class="font-black text-6xl text-primary mb-6">═</div>
                             <h4 class="font-bold text-2xl mb-4 text-slate-800">Mạng Tuyến (Bus)</h4>
-                            <p class="text-lg text-slate-600 mb-6">Daisy-chain nối tiếp (Vào-Ra). Cáp RS485.</p>
+                            <p class="text-lg text-slate-600 mb-6">Nối tiếp (Vào-Ra). RS485.</p>
                             <div class="mt-auto bg-red-50 p-4 rounded-lg w-full">
-                                <p class="font-bold text-red-700">Rủi ro cao:</p>
-                                <p class="text-red-600">Đứt cáp giữa chừng là toàn bộ mảng phía sau Offline.</p>
+                                <p class="font-bold text-red-700">Đứt giữa chừng mất toàn bộ phía sau.</p>
                             </div>
                         </div>
                         
-                        <!-- Star -->
                         <div class="bg-white p-8 rounded-2xl border-t-8 border-secondary shadow-sm flex flex-col items-center text-center">
                             <div class="font-black text-6xl text-secondary mb-6">✯</div>
                             <h4 class="font-bold text-2xl mb-4 text-slate-800">Hình Sao (Star)</h4>
-                            <p class="text-lg text-slate-600 mb-6">Tập trung cáp về Switch. Cáp LAN/Quang.</p>
+                            <p class="text-lg text-slate-600 mb-6">Cáp quang/LAN tập trung về Switch.</p>
                             <div class="mt-auto bg-green-50 p-4 rounded-lg w-full">
-                                <p class="font-bold text-green-700">Bảo trì dễ:</p>
-                                <p class="text-green-600">Đứt cáp tủ nào chỉ mất tủ đó. Khoanh vùng rất nhanh.</p>
+                                <p class="font-bold text-green-700">Lỗi điểm nào khoanh vùng điểm đó.</p>
                             </div>
                         </div>
 
-                        <!-- Ring -->
                         <div class="bg-white p-8 rounded-2xl border-t-8 border-accent shadow-sm flex flex-col items-center text-center">
                             <div class="font-black text-6xl text-amber-500 mb-6">⭮</div>
                             <h4 class="font-bold text-2xl mb-4 text-slate-800">Mạch Vòng (Ring)</h4>
-                            <p class="text-lg text-slate-600 mb-6">Switch nối vòng khép kín. Backbone Server.</p>
+                            <p class="text-lg text-slate-600 mb-6">Dự phòng cao cho trục Backbone.</p>
                             <div class="mt-auto bg-blue-50 p-4 rounded-lg w-full">
-                                <p class="font-bold text-blue-700">Dự phòng tốt:</p>
-                                <p class="text-blue-600">Đứt 1 điểm, mạng tự chạy vòng ngược chiều, không sập.</p>
+                                <p class="font-bold text-blue-700">Đứt 1 điểm, mạng chạy vòng ngược lại.</p>
                             </div>
                         </div>
                     </div>
@@ -484,41 +443,37 @@
 
                 <div id="p3-2" class="page-content">
                     <div class="flex justify-center items-center h-full min-h-[500px] bg-white rounded-2xl shadow-sm border border-slate-200 p-4">
-                        <img src="images/3.jpg" alt="Mô Phỏng Topology Mạng Thực Tế" class="max-w-full max-h-[75vh] object-contain rounded-xl" onerror="this.onerror=null; this.src='https://placehold.co/1200x600/f1f5f9/0ea5e9?text=Vui+long+them+anh+vao+duong+dan:+images/3.jpg'">
+                        <img src="images/3.jpg" alt="Mô Phỏng Topology Mạng Thực Tế" class="max-w-full max-h-[75vh] object-contain rounded-xl" onerror="this.onerror=null; this.src='https://placehold.co/1200x600/f1f5f9/0ea5e9?text=[Image+of+C%C3%A1c+Ki%E1%BB%83u+M%E1%BA%A1ng+Topology]'">
                     </div>
                 </div>
 
                 <div id="p3-3" class="page-content">
-                    <h3 class="text-4xl font-extrabold text-primary mb-8 border-l-8 border-accent pl-4">Sự Khác Biệt Giữa "Chuẩn" và "Giao Thức"</h3>
-                    <p class="text-xl text-slate-700 mb-8 leading-relaxed">Rất nhiều kỹ sư nhầm lẫn: "Cổng RS485 thì chắc chắn cắm Modbus chạy được". Đây là sai lầm cơ bản. Hãy hiểu sự khác biệt qua ví dụ sau:</p>
+                    <h3 class="text-4xl font-extrabold text-primary mb-8 border-l-8 border-accent pl-4">"Chuẩn" Vật Lý vs "Giao Thức"</h3>
+                    <p class="text-xl text-slate-700 mb-8">Tránh nhầm lẫn: "Cắm cổng RS485 là Modbus chạy được". Đó là sai lầm.</p>
                     
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-10">
                         <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm border-t-8 border-primary">
-                            <div class="flex justify-center mb-6 text-6xl">🛣️</div>
-                            <h4 class="font-black text-3xl text-primary mb-4 text-center">Chuẩn Vật Lý <br><span class="text-lg font-normal text-slate-500">(Physical Standard)</span></h4>
-                            <p class="text-xl text-slate-800 font-bold mb-4 text-center">Giống như: Con đường hạ tầng</p>
-                            <ul class="text-lg space-y-3 text-slate-700 bg-slate-50 p-6 rounded-xl">
-                                <li>• Là hình thù sợi cáp, là đầu giắc cắm, là mức điện áp chạy trên dây.</li>
-                                <li>• <strong class="text-primary">Ví dụ:</strong> Cáp RS485 (Đường cao tốc), Cáp quang, Cáp mạng Ethernet (Đường thủy).</li>
-                                <li>• <strong class="text-slate-500 italic">Chỉ là cái ống để dữ liệu đi qua, nó không biết bên trong chở cái gì.</strong></li>
+                            <h4 class="font-black text-3xl text-primary mb-4">Chuẩn Vật Lý (Đường lộ)</h4>
+                            <ul class="text-lg space-y-3 text-slate-700">
+                                <li>• Dây dẫn, giắc cắm, mức điện áp.</li>
+                                <li>• <strong>Ví dụ:</strong> RS485, Cáp quang, Cáp Ethernet.</li>
+                                <li class="italic text-slate-500">Chỉ chở dữ liệu, không hiểu nội dung.</li>
                             </ul>
                         </div>
 
                         <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm border-t-8 border-secondary">
-                            <div class="flex justify-center mb-6 text-6xl">🗣️</div>
-                            <h4 class="font-black text-3xl text-secondary mb-4 text-center">Giao Thức Truyền Thông <br><span class="text-lg font-normal text-slate-500">(Protocol)</span></h4>
-                            <p class="text-xl text-slate-800 font-bold mb-4 text-center">Giống như: Ngôn ngữ giao tiếp</p>
-                            <ul class="text-lg space-y-3 text-slate-700 bg-slate-50 p-6 rounded-xl">
-                                <li>• Là cấu trúc phần mềm, là cách các gói tin được đóng gói để thiết bị hiểu nhau.</li>
-                                <li>• <strong class="text-secondary">Ví dụ:</strong> Modbus, BACnet, LonWorks (Giống như Tiếng Anh, Tiếng Việt).</li>
-                                <li>• <strong class="text-slate-500 italic">Luật quy định bên gửi nói "A", thì bên nhận phải hiểu là "A".</strong></li>
+                            <h4 class="font-black text-3xl text-secondary mb-4">Giao Thức (Ngôn ngữ)</h4>
+                            <ul class="text-lg space-y-3 text-slate-700">
+                                <li>• Cách đóng gói gói tin phần mềm.</li>
+                                <li>• <strong>Ví dụ:</strong> Modbus, BACnet, LonWorks.</li>
+                                <li class="italic text-slate-500">Thiết bị chung ngôn ngữ mới hiểu nhau.</li>
                             </ul>
                         </div>
                     </div>
 
-                    <div class="mt-8 bg-amber-50 p-6 rounded-xl border border-amber-200 shadow-sm">
-                        <p class="font-black text-amber-900 text-xl mb-2 flex items-center gap-2"><span>💡</span> Bài học rút ra:</p>
-                        <p class="text-lg text-amber-800">Cắm chung 1 sợi cáp (Cùng chạy trên 1 con đường RS485), nhưng nếu Đồng hồ điện nói tiếng "Modbus", còn tủ DDC lại cài đặt nghe tiếng "BACnet" thì hai bên <strong>không bao giờ nói chuyện được với nhau</strong>.</p>
+                    <div class="mt-8 bg-amber-50 p-6 rounded-xl border border-amber-200 shadow-sm text-lg">
+                        <strong class="text-amber-900 block mb-2 text-xl">💡 Rút ra:</strong>
+                        <span class="text-amber-800">Chung sợi cáp RS485, nhưng Đồng hồ điện nói "Modbus" còn DDC cài "BACnet MS/TP" thì không thể giao tiếp nếu không qua bộ chuyển đổi (Gateway).</span>
                     </div>
                 </div>
 
@@ -527,40 +482,26 @@
                     
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
                         <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200">
-                            <div class="flex items-center gap-4 mb-6 border-b border-slate-100 pb-4">
-                                <span class="bg-primary text-white text-xl font-bold py-1 px-3 rounded">SERIAL</span>
-                                <h4 class="text-3xl font-bold text-primary">Cáp cho RS485</h4>
-                            </div>
-                            <p class="text-xl font-medium text-secondary mb-6 bg-slate-50 p-2 rounded">Mang giao thức: Modbus RTU, BACnet MS/TP</p>
-                            
+                            <h4 class="text-3xl font-bold text-primary mb-4">Cáp cho RS485 (Serial)</h4>
+                            <p class="text-xl font-bold text-slate-500 mb-6">Giao thức: Modbus RTU, BACnet MS/TP</p>
                             <ul class="text-lg space-y-4 text-slate-700 mb-8">
-                                <li class="flex items-start gap-3"><span>🎯</span> <strong>Ứng dụng:</strong> Đấu nối Biến tần (VSD), Đồng hồ điện, VRV, PAC.</li>
-                                <li class="flex items-start gap-3"><span>🔌</span> <strong>Loại cáp CẦN:</strong> Cáp vặn xoắn bọc nhiễu kép (RS485 Cable).</li>
-                                <li class="flex items-start gap-3"><span>⚡</span> <strong>Điện trở:</strong> Có trở kháng đặc tính 120 Ohm.</li>
+                                <li>• Ứng dụng: Đấu VSD, Đồng hồ điện, VRV.</li>
+                                <li>• Yêu cầu cáp vặn xoắn bọc nhiễu kép (120 Ohm).</li>
                             </ul>
-                            
-                            <div class="bg-amber-50 p-5 rounded-xl border-l-4 border-accent">
-                                <p class="font-bold text-amber-900 mb-1">⚠ Ám ảnh bảo trì:</p>
-                                <p class="text-amber-800 text-base">Nhà thầu kéo cáp điện chiếu sáng đi cho mạng RS485. Hậu quả: Mạng chập chờn, rớt gói tin liên tục. Bắt buộc phải đấu điện trở cuối tuyến (EOL) ở thiết bị cuối cùng để giảm xung dội.</p>
+                            <div class="bg-amber-50 p-5 rounded-xl border-l-4 border-accent text-lg">
+                                <strong class="text-amber-900 block mb-2">Mẹo bảo trì:</strong> Lắp điện trở EOL cuối tuyến để giảm xung nhiễu tín hiệu chập chờn.
                             </div>
                         </div>
 
                         <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200">
-                            <div class="flex items-center gap-4 mb-6 border-b border-slate-100 pb-4">
-                                <span class="bg-secondary text-white text-xl font-bold py-1 px-3 rounded">TCP/IP</span>
-                                <h4 class="text-3xl font-bold text-primary">Cáp cho Ethernet</h4>
-                            </div>
-                            <p class="text-xl font-medium text-secondary mb-6 bg-slate-50 p-2 rounded">Mang giao thức: Modbus TCP, BACnet IP</p>
-                            
+                            <h4 class="text-3xl font-bold text-primary mb-4">Cáp cho Ethernet (TCP/IP)</h4>
+                            <p class="text-xl font-bold text-slate-500 mb-6">Giao thức: Modbus TCP, BACnet IP</p>
                             <ul class="text-lg space-y-4 text-slate-700 mb-8">
-                                <li class="flex items-start gap-3"><span>🎯</span> <strong>Ứng dụng:</strong> Kết nối các DDC với nhau, DDC lên Server.</li>
-                                <li class="flex items-start gap-3"><span>🔌</span> <strong>Loại cáp CẦN:</strong> Cáp mạng Cat5e/Cat6 hoặc Cáp quang.</li>
-                                <li class="flex items-start gap-3"><span>⚡</span> <strong>Thiết bị:</strong> Switch mạng tiêu chuẩn.</li>
+                                <li>• Ứng dụng: Nối mạng DDC với Server.</li>
+                                <li>• Yêu cầu cáp mạng LAN Cat5e/Cat6.</li>
                             </ul>
-                            
-                            <div class="bg-blue-50 p-5 rounded-xl border-l-4 border-blue-500">
-                                <p class="font-bold text-blue-900 mb-1">🔧 Lỗi thường gặp:</p>
-                                <p class="text-blue-800 text-base">Trùng địa chỉ IP, dùng Switch văn phòng nhét vào tủ điện kín gây treo do quá nhiệt, bấm lỏng đầu RJ45.</p>
+                            <div class="bg-blue-50 p-5 rounded-xl border-l-4 border-blue-500 text-lg">
+                                <strong class="text-blue-900 block mb-2">Lỗi thường gặp:</strong> Trùng IP mạng, hoặc đặt Switch văn phòng vào tủ điện gây quá nhiệt.
                             </div>
                         </div>
                     </div>
@@ -568,12 +509,12 @@
 
                 <div id="p3-5" class="page-content">
                     <div class="flex justify-center items-center h-full min-h-[500px] bg-white rounded-2xl shadow-sm border border-slate-200 p-4">
-                        <img src="images/4.jpg" alt="Đấu Nối Điện Trở Cuối Tuyến (EOL)" class="max-w-full max-h-[75vh] object-contain rounded-xl" onerror="this.onerror=null; this.src='https://placehold.co/1200x600/f1f5f9/0ea5e9?text=Vui+long+them+anh+vao+duong+dan:+images/4.jpg'">
+                        <img src="images/4.jpg" alt="Đấu Nối Điện Trở Cuối Tuyến (EOL)" class="max-w-full max-h-[75vh] object-contain rounded-xl" onerror="this.onerror=null; this.src='https://placehold.co/1200x600/f1f5f9/0ea5e9?text=[Image+of+S%C6%A1+%C4%91%E1%BB%93+M%E1%BA%A1ng+v%C3%A0+%C4%90i%E1%BB%87n+tr%E1%BB%9F+EOL]'">
                     </div>
                 </div>
 
                 <div id="p3-6" class="page-content">
-                    <h3 class="text-4xl font-extrabold text-primary mb-8 border-l-8 border-accent pl-4">Thực Hành: Truyền Thông & Cấu Hình</h3>
+                    <h3 class="text-4xl font-extrabold text-primary mb-8 border-l-8 border-accent pl-4">Thực Hành: Truyền Thông</h3>
                     
                     <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
                         <div class="flex border-b border-slate-200 bg-slate-100 flex-wrap">
@@ -582,35 +523,31 @@
                             <button class="quiz-tab flex-1 py-4 px-2 text-lg md:text-xl transition" onclick="switchQuizTab('m3', 'hard', this)">Mức độ: Khó</button>
                         </div>
 
-                        <!-- Easy -->
                         <div id="m3-easy" class="quiz-pane active p-6 md:p-8">
-                            <p class="text-2xl font-bold text-slate-800 mb-6 leading-relaxed">❓ 10 Đồng hồ điện (Đồng hồ số 1 đến 10) nối tiếp nhau theo mạng Tuyến (Daisy-chain) qua chuẩn RS485. Tự nhiên hôm nay màn hình BMS báo mất kết nối từ Đồng hồ số 5 đến số 10 (offline). Bạn sẽ đến hiện trường kiểm tra đoạn cáp nào đầu tiên?</p>
+                            <p class="text-2xl font-bold text-slate-800 mb-6 leading-relaxed">❓ 10 Đồng hồ nối mạng Tuyến RS485. Từ đồng hồ 5-10 báo mất kết nối. Kiểm tra vị trí nào?</p>
                             <div class="space-y-4" id="m3-easy-opts">
-                                <button onclick="handleAnswer('m3-easy', false, this)" class="w-full text-left p-5 text-xl bg-slate-50 hover:bg-blue-50 border border-slate-300 rounded-xl transition">A. Kiểm tra cáp từ Gateway tổng tới Đồng hồ số 1.</button>
-                                <button onclick="handleAnswer('m3-easy', true, this)" class="w-full text-left p-5 text-xl bg-slate-50 hover:bg-blue-50 border border-slate-300 rounded-xl transition">B. Kiểm tra vật lý đoạn cáp nối từ Đồng hồ số 4 sang Đồng hồ số 5. Khả năng cao lỏng giắc cắm hoặc đứt cáp đoạn này.</button>
-                                <button onclick="handleAnswer('m3-easy', false, this)" class="w-full text-left p-5 text-xl bg-slate-50 hover:bg-blue-50 border border-slate-300 rounded-xl transition">C. Kiểm tra đoạn cáp từ Đồng hồ số 9 sang Đồng hồ số 10.</button>
+                                <button onclick="handleAnswer('m3-easy', false, this)" class="w-full text-left p-5 text-xl bg-slate-50 hover:bg-blue-50 border border-slate-300 rounded-xl transition">A. Gateway tới đồng hồ 1.</button>
+                                <button onclick="handleAnswer('m3-easy', true, this)" class="w-full text-left p-5 text-xl bg-slate-50 hover:bg-blue-50 border border-slate-300 rounded-xl transition">B. Đoạn cáp nối từ đồng hồ 4 sang 5.</button>
+                                <button onclick="handleAnswer('m3-easy', false, this)" class="w-full text-left p-5 text-xl bg-slate-50 hover:bg-blue-50 border border-slate-300 rounded-xl transition">C. Đoạn cáp từ 9 sang 10.</button>
                             </div>
                             <div id="m3-easy-res" class="hidden mt-6"></div>
                         </div>
 
-                        <!-- Medium -->
                         <div id="m3-med" class="quiz-pane p-6 md:p-8">
-                            <p class="text-2xl font-bold text-slate-800 mb-6 leading-relaxed">❓ Kỹ thuật viên thay thế 1 biến tần (VSD) mới vào giữa một chuỗi mạng RS485. Sau khi cấp nguồn và cắm cáp đúng cực A(+), B(-), tủ DDC vẫn báo mất kết nối (Offline) riêng VSD này. Thiết lập nào trên màn hình của VSD chưa được cấu hình?</p>
+                            <p class="text-2xl font-bold text-slate-800 mb-6 leading-relaxed">❓ Vừa thay biến tần mới, cắm cáp A/B đúng nhưng vẫn Offline BMS. Nguyên nhân do đâu?</p>
                             <div class="space-y-4" id="m3-med-opts">
-                                <button onclick="handleAnswer('m3-med', false, this)" class="w-full text-left p-5 text-xl bg-slate-50 hover:bg-blue-50 border border-slate-300 rounded-xl transition">A. Chưa khai báo dải đo (Range) cho điện áp motor.</button>
-                                <button onclick="handleAnswer('m3-med', true, this)" class="w-full text-left p-5 text-xl bg-slate-50 hover:bg-blue-50 border border-slate-300 rounded-xl transition">B. Chưa cấu hình thông số truyền thông: Địa chỉ ID (Slave ID), Tốc độ Baud Rate và Parity phải khớp 100% với cấu hình khai báo trên tủ DDC.</button>
-                                <button onclick="handleAnswer('m3-med', false, this)" class="w-full text-left p-5 text-xl bg-slate-50 hover:bg-blue-50 border border-slate-300 rounded-xl transition">C. Chưa chỉnh thời gian tăng tốc/giảm tốc (Acc/Dec time).</button>
+                                <button onclick="handleAnswer('m3-med', false, this)" class="w-full text-left p-5 text-xl bg-slate-50 hover:bg-blue-50 border border-slate-300 rounded-xl transition">A. Cài đặt Acc/Dec time sai.</button>
+                                <button onclick="handleAnswer('m3-med', true, this)" class="w-full text-left p-5 text-xl bg-slate-50 hover:bg-blue-50 border border-slate-300 rounded-xl transition">B. Chưa cấu hình ID, Baud Rate, Parity khớp với DDC.</button>
+                                <button onclick="handleAnswer('m3-med', false, this)" class="w-full text-left p-5 text-xl bg-slate-50 hover:bg-blue-50 border border-slate-300 rounded-xl transition">C. Lỗi cáp đứt ngầm.</button>
                             </div>
                             <div id="m3-med-res" class="hidden mt-6"></div>
                         </div>
 
-                        <!-- Hard -->
                         <div id="m3-hard" class="quiz-pane p-6 md:p-8">
-                            <p class="text-2xl font-bold text-slate-800 mb-6 leading-relaxed">❓ Nhà thầu lắp 1 cảm biến đếm người dùng chuẩn mạng RS485 nhưng chạy giao thức độc quyền của hãng đó (Proprietary Protocol). Tủ DDC của bạn lại chỉ hỗ trợ giao thức Modbus RTU tiêu chuẩn. Hai thiết bị này có kết nối nói chuyện được với nhau không?</p>
+                            <p class="text-2xl font-bold text-slate-800 mb-6 leading-relaxed">❓ Thiết bị RS485 dùng Giao thức độc quyền có cắm thẳng chạy với DDC Modbus RTU được không?</p>
                             <div class="space-y-4" id="m3-hard-opts">
-                                <button onclick="handleAnswer('m3-hard', false, this)" class="w-full text-left p-5 text-xl bg-slate-50 hover:bg-blue-50 border border-slate-300 rounded-xl transition">A. Có. Cứ nối chung sợi cáp RS485 là tự nhiên sẽ lấy được dữ liệu.</button>
-                                <button onclick="handleAnswer('m3-hard', true, this)" class="w-full text-left p-5 text-xl bg-slate-50 hover:bg-blue-50 border border-slate-300 rounded-xl transition">B. Không. Dù chung "đường cao tốc" (chuẩn vật lý RS485), nhưng khác "ngôn ngữ" (Giao thức), DDC sẽ không hiểu dữ liệu gửi tới là gì. Bắt buộc phải mua thêm một bộ chuyển đổi giao thức (Gateway) đứng ở giữa.</button>
-                                <button onclick="handleAnswer('m3-hard', false, this)" class="w-full text-left p-5 text-xl bg-slate-50 hover:bg-blue-50 border border-slate-300 rounded-xl transition">C. Có thể kết nối được nếu ta dùng cáp mạng to hơn.</button>
+                                <button onclick="handleAnswer('m3-hard', false, this)" class="w-full text-left p-5 text-xl bg-slate-50 hover:bg-blue-50 border border-slate-300 rounded-xl transition">A. Có, cùng chuẩn RS485 là tự đọc được.</button>
+                                <button onclick="handleAnswer('m3-hard', true, this)" class="w-full text-left p-5 text-xl bg-slate-50 hover:bg-blue-50 border border-slate-300 rounded-xl transition">B. Không, khác giao thức (ngôn ngữ) phải cần bộ dịch Gateway.</button>
                             </div>
                             <div id="m3-hard-res" class="hidden mt-6"></div>
                         </div>
@@ -621,43 +558,42 @@
                 <!-- MODULE 4: TROUBLESHOOTING -->
                 <!-- ========================================== -->
                 <div id="p4-1" class="page-content">
-                    <h3 class="text-4xl font-extrabold text-primary mb-8 border-l-8 border-accent pl-4">Khắc Phục Sự Cố: Nguyên Tắc 4 Bước Vàng</h3>
-                    <p class="text-xl text-slate-700 mb-10">Tuân thủ trình tự đi từ phần Cứng đến phần Mềm để giảm nhanh thời gian Downtime.</p>
+                    <h3 class="text-4xl font-extrabold text-primary mb-8 border-l-8 border-accent pl-4">Nguyên Tắc 4 Bước Vàng Khắc Phục Lỗi</h3>
+                    <p class="text-xl text-slate-700 mb-10">Trình tự "Cứng trước - Mềm sau" giúp bắt đúng bệnh, giảm Downtime.</p>
                     
                     <div class="relative max-w-4xl mx-auto">
-                        <!-- Connecting Line -->
-                        <div class="absolute left-1/2 top-0 bottom-0 w-1 bg-slate-200 -translate-x-1/2 hidden md:block"></div>
+                        <div class="absolute left-10 md:left-1/2 top-0 bottom-0 w-1 bg-slate-200 md:-translate-x-1/2"></div>
 
                         <div class="space-y-8 relative">
-                            <div class="flex flex-col md:flex-row items-center gap-8 bg-white p-6 rounded-2xl shadow-sm border border-slate-200 z-10 relative">
+                            <div class="flex flex-col md:flex-row items-center gap-6 bg-white p-6 rounded-2xl shadow-sm border border-slate-200 z-10 relative">
                                 <div class="bg-primary text-white w-20 h-20 rounded-2xl flex items-center justify-center font-black text-4xl shadow-lg shrink-0 z-10">1</div>
-                                <div class="text-center md:text-left">
+                                <div class="text-left">
                                     <h4 class="font-bold text-2xl text-slate-800 mb-2">Kiểm tra thực tế hiện trường</h4>
-                                    <p class="text-lg text-slate-600">Đừng nhìn màn hình vội. Xuống tận nơi xem van kẹt không, quạt có chạy rung lắc không.</p>
+                                    <p class="text-lg text-slate-600">Van kẹt? Quạt rung lắc? Không xem phần mềm vội.</p>
                                 </div>
                             </div>
 
-                            <div class="flex flex-col md:flex-row items-center gap-8 bg-white p-6 rounded-2xl shadow-sm border border-slate-200 z-10 relative">
+                            <div class="flex flex-col md:flex-row items-center gap-6 bg-white p-6 rounded-2xl shadow-sm border border-slate-200 z-10 relative">
                                 <div class="bg-secondary text-white w-20 h-20 rounded-2xl flex items-center justify-center font-black text-4xl shadow-lg shrink-0 z-10">2</div>
-                                <div class="text-center md:text-left">
-                                    <h4 class="font-bold text-2xl text-slate-800 mb-2">So sánh Thiết bị - Tín hiệu - BMS</h4>
-                                    <p class="text-lg text-slate-600">Đo VOM xem điện áp thực tế tủ điện có khớp với Command (Lệnh) và Status (Báo về) trên BMS không.</p>
+                                <div class="text-left">
+                                    <h4 class="font-bold text-2xl text-slate-800 mb-2">Đo đạc Tín hiệu I/O</h4>
+                                    <p class="text-lg text-slate-600">Dùng VOM đo điện áp, thông mạch tại tủ MCC/DDC.</p>
                                 </div>
                             </div>
 
-                            <div class="flex flex-col md:flex-row items-center gap-8 bg-white p-6 rounded-2xl shadow-sm border border-slate-200 z-10 relative">
+                            <div class="flex flex-col md:flex-row items-center gap-6 bg-white p-6 rounded-2xl shadow-sm border border-slate-200 z-10 relative">
                                 <div class="bg-accent text-primary w-20 h-20 rounded-2xl flex items-center justify-center font-black text-4xl shadow-lg shrink-0 z-10">3</div>
-                                <div class="text-center md:text-left">
-                                    <h4 class="font-bold text-2xl text-slate-800 mb-2">Cô lập khoanh vùng</h4>
-                                    <p class="text-lg text-slate-600">Trả lời dứt khoát: Lỗi do Cơ khí, Điện động lực, hay do Mạch tự động hóa / BMS?</p>
+                                <div class="text-left">
+                                    <h4 class="font-bold text-2xl text-slate-800 mb-2">Khoanh vùng Lỗi</h4>
+                                    <p class="text-lg text-slate-600">Quyết định do Cơ điện lực hay do bo mạch tự động hóa?</p>
                                 </div>
                             </div>
 
-                            <div class="flex flex-col md:flex-row items-center gap-8 bg-white p-6 rounded-2xl shadow-sm border border-slate-200 border-b-8 border-b-slate-400 z-10 relative">
+                            <div class="flex flex-col md:flex-row items-center gap-6 bg-white p-6 rounded-2xl shadow-sm border border-slate-200 border-b-8 border-b-slate-400 z-10 relative">
                                 <div class="bg-slate-500 text-white w-20 h-20 rounded-2xl flex items-center justify-center font-black text-4xl shadow-lg shrink-0 z-10">4</div>
-                                <div class="text-center md:text-left">
-                                    <h4 class="font-bold text-2xl text-slate-800 mb-2">Kiểm tra Logic Phần Mềm</h4>
-                                    <p class="text-lg text-slate-600">Phần cứng OK mới mở máy tính kiểm tra xem bộ điều khiển PID có bị treo hay cài sai Setpoint không.</p>
+                                <div class="text-left">
+                                    <h4 class="font-bold text-2xl text-slate-800 mb-2">Phân tích Logic Phần mềm</h4>
+                                    <p class="text-lg text-slate-600">Kiểm tra PID, giới hạn Setpoint, Alarm thresholds.</p>
                                 </div>
                             </div>
                         </div>
@@ -665,38 +601,23 @@
                 </div>
 
                 <div id="p4-2" class="page-content">
-                    <h3 class="text-4xl font-extrabold text-primary mb-8 border-l-8 border-accent pl-4">Sai Lầm Gây Downtime & Xử Lý Báo Động Giả</h3>
+                    <h3 class="text-4xl font-extrabold text-primary mb-8 border-l-8 border-accent pl-4">Downtime & Báo Động Giả</h3>
                     
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-                        <!-- Downtime -->
                         <div class="bg-red-50 p-8 rounded-2xl border-t-8 border-danger shadow-sm">
-                            <h4 class="font-black text-3xl text-danger mb-6 uppercase">⛔ Nguyên nhân kéo dài sự cố</h4>
-                            <div class="space-y-6">
-                                <div class="flex gap-4 items-start">
-                                    <span class="text-2xl mt-1">❌</span>
-                                    <div>
-                                        <p class="font-bold text-xl text-slate-800">Nhảy cóc bước</p>
-                                        <p class="text-slate-700 text-lg">Vội vàng Force (ép giá trị) logic trên máy tính khi chưa rõ van cơ khí đang bị khóa tay.</p>
-                                    </div>
-                                </div>
-                                <div class="flex gap-4 items-start">
-                                    <span class="text-2xl mt-1">❌</span>
-                                    <div>
-                                        <p class="font-bold text-xl text-slate-800">Bỏ qua Trend Log</p>
-                                        <p class="text-slate-700 text-lg">Không xem đồ thị lịch sử nên không bắt được quy luật lúc nào máy lạnh thường xuyên bị sập tải.</p>
-                                    </div>
-                                </div>
+                            <h4 class="font-black text-3xl text-danger mb-6 uppercase">⛔ Tăng Downtime</h4>
+                            <div class="space-y-4 text-lg">
+                                <p class="flex gap-3 items-start"><span class="text-danger font-bold text-2xl">❌</span> Nhảy cóc bước, ép Force phần mềm làm cháy thiết bị cơ.</p>
+                                <p class="flex gap-3 items-start"><span class="text-danger font-bold text-2xl">❌</span> Bỏ qua Trendlog phân tích chu kỳ sập điều hòa.</p>
                             </div>
                         </div>
 
-                        <!-- False Alarms -->
                         <div class="bg-slate-800 p-8 rounded-2xl border-t-8 border-secondary shadow-sm text-slate-200">
                             <h4 class="font-black text-3xl text-accent mb-6 uppercase">🔍 Xử lý False Alarm</h4>
-                            <p class="text-lg mb-6">Alarm ảo (VD: cảm biến cửa, motion chớp tắt liên tục) gây nhiễu loạn thông tin. Cần dập tắt ngay bằng 3 bước:</p>
                             <ul class="space-y-4 text-lg font-medium">
-                                <li class="bg-slate-700 p-4 rounded-lg flex items-center gap-3"><span class="text-secondary font-bold">1.</span> Kiểm tra vị trí Sensor (tránh gió, nhiệt).</li>
-                                <li class="bg-slate-700 p-4 rounded-lg flex items-center gap-3"><span class="text-secondary font-bold">2.</span> Cài <strong>Delay Time</strong> (VD: cửa mở quá 10s mới báo động).</li>
-                                <li class="bg-slate-700 p-4 rounded-lg flex items-center gap-3"><span class="text-secondary font-bold">3.</span> Nới lỏng Alarm Limit nếu quá khắt khe.</li>
+                                <li class="bg-slate-700 p-4 rounded-lg flex items-center gap-3"><span class="text-secondary font-bold">1.</span> Xem lại vị trí Sensor vật lý.</li>
+                                <li class="bg-slate-700 p-4 rounded-lg flex items-center gap-3"><span class="text-secondary font-bold">2.</span> Tăng tham số Time Delay.</li>
+                                <li class="bg-slate-700 p-4 rounded-lg flex items-center gap-3"><span class="text-secondary font-bold">3.</span> Nới lỏng Limit Alarm đồ thị.</li>
                             </ul>
                         </div>
                     </div>
@@ -704,18 +625,18 @@
 
                 <div id="p4-3" class="page-content">
                     <div class="flex justify-center items-center h-full min-h-[500px] bg-white rounded-2xl shadow-sm border border-slate-200 p-4">
-                        <img src="images/5.jpg" alt="Sơ đồ Lưu đồ Troubleshooting 4 Bước" class="max-w-full max-h-[75vh] object-contain rounded-xl" onerror="this.onerror=null; this.src='https://placehold.co/1200x600/f1f5f9/0ea5e9?text=Vui+long+them+anh+vao+duong+dan:+images/5.jpg'">
+                        <img src="images/5.jpg" alt="Sơ đồ Lưu đồ Troubleshooting 4 Bước" class="max-w-full max-h-[75vh] object-contain rounded-xl" onerror="this.onerror=null; this.src='https://placehold.co/1200x600/f1f5f9/0ea5e9?text=[Image+of+L%C6%B0u+%C4%91%E1%BB%93+Troubleshooting]'">
                     </div>
                 </div>
 
                 <div id="p4-4" class="page-content">
                     <div class="flex justify-center items-center h-full min-h-[500px] bg-white rounded-2xl shadow-sm border border-slate-200 p-4">
-                        <img src="images/6.jpg" alt="Kỹ thuật viên đo kiểm bằng đồng hồ VOM" class="max-w-full max-h-[75vh] object-contain rounded-xl" onerror="this.onerror=null; this.src='https://placehold.co/1200x600/f1f5f9/0ea5e9?text=Vui+long+them+anh+vao+duong+dan:+images/6.jpg'">
+                        <img src="images/6.jpg" alt="Kỹ thuật viên đo kiểm bằng đồng hồ VOM" class="max-w-full max-h-[75vh] object-contain rounded-xl" onerror="this.onerror=null; this.src='https://placehold.co/1200x600/f1f5f9/0ea5e9?text=[Image+of+Ki%E1%BB%83m+tra+t%C3%ADn+hi%E1%BB%87u+b%E1%BA%B1ng+VOM]'">
                     </div>
                 </div>
 
                 <div id="p4-5" class="page-content">
-                    <h3 class="text-4xl font-extrabold text-primary mb-8 border-l-8 border-accent pl-4">Thực Hành: Troubleshooting HVAC</h3>
+                    <h3 class="text-4xl font-extrabold text-primary mb-8 border-l-8 border-accent pl-4">Thực Hành: Troubleshooting</h3>
                     
                     <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
                         <div class="flex border-b border-slate-200 bg-slate-100 flex-wrap">
@@ -724,35 +645,30 @@
                             <button class="quiz-tab flex-1 py-4 px-2 text-lg md:text-xl transition" onclick="switchQuizTab('m4', 'hard', this)">Mức độ: Khó</button>
                         </div>
 
-                        <!-- Easy -->
                         <div id="m4-easy" class="quiz-pane active p-6 md:p-8">
-                            <p class="text-2xl font-bold text-slate-800 mb-6 leading-relaxed">❓ Phòng hội nghị mở sự kiện, AHU báo đang RUN bình thường, Setpoint là 22°C. Tuy nhiên nhiệt độ phòng báo 26°C, rất ngột ngạt. Khách hàng phàn nàn. Tuân thủ Nguyên tắc 4 bước Vàng, bạn làm gì ĐẦU TIÊN?</p>
+                            <p class="text-2xl font-bold text-slate-800 mb-6 leading-relaxed">❓ AHU báo RUN, setpoint 22°C nhưng phòng nóng 26°C. Bước 1 làm gì?</p>
                             <div class="space-y-4" id="m4-easy-opts">
-                                <button onclick="handleAnswer('m4-easy', false, this)" class="w-full text-left p-5 text-xl bg-slate-50 hover:bg-blue-50 border border-slate-300 rounded-xl transition">A. Vào BMS chỉnh Setpoint xuống thấp nhất (18°C) và ép tốc độ quạt cấp gió lên tối đa.</button>
-                                <button onclick="handleAnswer('m4-easy', false, this)" class="w-full text-left p-5 text-xl bg-slate-50 hover:bg-blue-50 border border-slate-300 rounded-xl transition">B. Lập tức khởi động lại (Reset) tủ DDC điều khiển AHU hy vọng hệ thống tự hết lỗi.</button>
-                                <button onclick="handleAnswer('m4-easy', true, this)" class="w-full text-left p-5 text-xl bg-slate-50 hover:bg-blue-50 border border-slate-300 rounded-xl transition">C. Cầm nhiệt kế xuống tận phòng đo xem nhiệt độ thực tế có đúng là 26°C không (xác minh cảm biến AI đọc chuẩn), rồi soi đèn pin xem trục motor van nước lạnh có đang mở không.</button>
+                                <button onclick="handleAnswer('m4-easy', false, this)" class="w-full text-left p-5 text-xl bg-slate-50 hover:bg-blue-50 border border-slate-300 rounded-xl transition">A. Force BMS mở van 100%.</button>
+                                <button onclick="handleAnswer('m4-easy', false, this)" class="w-full text-left p-5 text-xl bg-slate-50 hover:bg-blue-50 border border-slate-300 rounded-xl transition">B. Reset tủ DDC.</button>
+                                <button onclick="handleAnswer('m4-easy', true, this)" class="w-full text-left p-5 text-xl bg-slate-50 hover:bg-blue-50 border border-slate-300 rounded-xl transition">C. Cầm nhiệt kế đo tại phòng và soi đèn xem ty van nước lạnh có mở cơ khí không.</button>
                             </div>
                             <div id="m4-easy-res" class="hidden mt-6"></div>
                         </div>
 
-                        <!-- Medium -->
                         <div id="m4-med" class="quiz-pane p-6 md:p-8">
-                            <p class="text-2xl font-bold text-slate-800 mb-6 leading-relaxed">❓ Trên phần mềm BMS, giữa "Lệnh xuất đi" (Command - DO) và "Trạng thái báo về" (Status - DI) luôn có sự chênh lệch thời gian do quán tính cơ khí của quạt/bơm khởi động. Thông số nào trên phần mềm dùng để bù đắp khoảng thời gian này tránh báo Alarm giả?</p>
+                            <p class="text-2xl font-bold text-slate-800 mb-6 leading-relaxed">❓ Thông số nào chống cảnh báo ảo do độ trễ cơ khí khi quạt khởi động?</p>
                             <div class="space-y-4" id="m4-med-opts">
-                                <button onclick="handleAnswer('m4-med', false, this)" class="w-full text-left p-5 text-xl bg-slate-50 hover:bg-blue-50 border border-slate-300 rounded-xl transition">A. Proportional Band (P trong PID).</button>
-                                <button onclick="handleAnswer('m4-med', true, this)" class="w-full text-left p-5 text-xl bg-slate-50 hover:bg-blue-50 border border-slate-300 rounded-xl transition">B. Time Delay (thường gọi là Proof Delay hoặc Feedback Delay).</button>
-                                <button onclick="handleAnswer('m4-med', false, this)" class="w-full text-left p-5 text-xl bg-slate-50 hover:bg-blue-50 border border-slate-300 rounded-xl transition">C. Sampling Time (Thời gian lấy mẫu).</button>
+                                <button onclick="handleAnswer('m4-med', false, this)" class="w-full text-left p-5 text-xl bg-slate-50 hover:bg-blue-50 border border-slate-300 rounded-xl transition">A. Tham số PID.</button>
+                                <button onclick="handleAnswer('m4-med', true, this)" class="w-full text-left p-5 text-xl bg-slate-50 hover:bg-blue-50 border border-slate-300 rounded-xl transition">B. Time Delay (Proof Delay).</button>
                             </div>
                             <div id="m4-med-res" class="hidden mt-6"></div>
                         </div>
 
-                        <!-- Hard -->
                         <div id="m4-hard" class="quiz-pane p-6 md:p-8">
-                            <p class="text-2xl font-bold text-slate-800 mb-6 leading-relaxed">❓ Nếu bạn bỏ qua "Bước 1: Kiểm tra thực tế" mà nhảy thẳng vào phần mềm máy tính để ép (Force) cưỡng bức lệnh AO xuất 100% để mở toang Van cấp nước Chiller (do thấy phòng không lạnh). Tuy nhiên thực tế thì ty van dưới hiện trường đang bị kẹt gỉ sét cứng ngắc. Việc bạn ép phần mềm như vậy gây rủi ro gì nghiêm trọng nhất?</p>
+                            <p class="text-2xl font-bold text-slate-800 mb-6 leading-relaxed">❓ Nếu kẹt ty van nhưng kỹ thuật viên ép (Force) phần mềm chạy 100% sẽ gây rủi ro gì?</p>
                             <div class="space-y-4" id="m4-hard-opts">
-                                <button onclick="handleAnswer('m4-hard', false, this)" class="w-full text-left p-5 text-xl bg-slate-50 hover:bg-blue-50 border border-slate-300 rounded-xl transition">A. Phần mềm BMS sẽ bị treo do lệnh Force bị quá tải.</button>
-                                <button onclick="handleAnswer('m4-hard', true, this)" class="w-full text-left p-5 text-xl bg-slate-50 hover:bg-blue-50 border border-slate-300 rounded-xl transition">B. DDC liên tục dồn điện áp 10V (hoặc đóng tiếp điểm đẩy) bắt motor van quay. Do kẹt cơ khí, Motor van sẽ bị ghì lại, quá nhiệt và cháy cuộn dây motor hoàn toàn.</button>
-                                <button onclick="handleAnswer('m4-hard', false, this)" class="w-full text-left p-5 text-xl bg-slate-50 hover:bg-blue-50 border border-slate-300 rounded-xl transition">C. Vỡ đường ống nước Chiller do áp lực quá mạnh.</button>
+                                <button onclick="handleAnswer('m4-hard', false, this)" class="w-full text-left p-5 text-xl bg-slate-50 hover:bg-blue-50 border border-slate-300 rounded-xl transition">A. Treo phần mềm BMS.</button>
+                                <button onclick="handleAnswer('m4-hard', true, this)" class="w-full text-left p-5 text-xl bg-slate-50 hover:bg-blue-50 border border-slate-300 rounded-xl transition">B. Cháy cuộn dây motor điều khiển van do quá tải ghì trục.</button>
                             </div>
                             <div id="m4-hard-res" class="hidden mt-6"></div>
                         </div>
@@ -766,28 +682,24 @@
                         
                         <div class="relative z-10">
                             <h3 class="text-4xl font-extrabold mb-4 flex items-center gap-3">Trợ Lý AI Phân Tích Sự Cố ✨</h3>
-                            <p class="text-xl text-blue-100 mb-8 max-w-3xl leading-relaxed">Mô tả hiện tượng lỗi thực tế bạn đang gặp phải tại dự án. Mô hình ngôn ngữ lớn (Gemini) sẽ đóng vai Kỹ sư trưởng 15 năm kinh nghiệm để gợi ý các bước kiểm tra (Troubleshooting) dựa trên "Nguyên tắc 4 bước vàng".</p>
+                            <p class="text-xl text-blue-100 mb-8 max-w-3xl leading-relaxed">Mô tả hiện tượng lỗi (Ví dụ: "Phòng lạnh nhưng quạt chạy 100%"). Trợ lý AI sẽ gợi ý các bước Troubleshooting chuẩn T&C.</p>
                             
                             <div class="bg-white/10 p-6 rounded-xl border border-white/20 backdrop-blur-sm mb-6">
-                                <label for="ai-trouble-input" class="block text-sm font-bold text-blue-200 mb-2 uppercase tracking-wider">Mô tả sự cố (Càng chi tiết càng tốt):</label>
-                                <textarea id="ai-trouble-input" rows="4" class="w-full p-4 rounded-lg bg-white text-slate-800 text-lg border-2 border-transparent focus:border-accent focus:outline-none transition shadow-inner" placeholder="Ví dụ: AHU số 1 báo Alarm 'Fan Trip', dưới hiện trường thấy mùi khét nhưng BMS vẫn cấp lệnh Run. Phải kiểm tra gì trước?"></textarea>
+                                <textarea id="ai-trouble-input" rows="3" class="w-full p-4 rounded-lg bg-white text-slate-800 text-lg border-2 border-transparent focus:border-accent focus:outline-none transition shadow-inner" placeholder="Mô tả sự cố tại đây..."></textarea>
                                 
-                                <div class="mt-4 flex flex-col sm:flex-row gap-4 items-center">
-                                    <button onclick="runAITroubleshooting()" id="btn-ai-trouble" class="w-full sm:w-auto px-8 py-4 bg-accent text-primary font-black text-xl rounded-lg hover:bg-yellow-400 shadow-lg transition transform hover:-translate-y-1 flex items-center justify-center gap-2">
+                                <div class="mt-4 flex gap-4 items-center">
+                                    <button onclick="runAITroubleshooting()" id="btn-ai-trouble" class="px-8 py-4 bg-accent text-primary font-black text-xl rounded-lg hover:bg-yellow-400 shadow-lg transition transform hover:-translate-y-1">
                                         Phân Tích Bằng AI ✨
                                     </button>
-                                    <span class="text-sm text-blue-200">Powered by Google Gemini 2.5</span>
                                 </div>
                             </div>
 
-                            <!-- Loading & Output -->
                             <div id="ai-trouble-loading" class="hidden text-center py-8">
                                 <div class="loading-spinner"></div>
-                                <p class="mt-4 text-blue-200 font-bold animate-pulse">Trợ lý AI đang rà soát dữ liệu sự cố...</p>
+                                <p class="mt-4 text-blue-200 text-lg font-bold animate-pulse">Đang phân tích dữ liệu...</p>
                             </div>
                             
                             <div id="ai-trouble-output" class="hidden bg-white text-slate-800 p-6 md:p-8 rounded-xl shadow-inner border-l-8 border-accent">
-                                <!-- AI Content goes here -->
                             </div>
                         </div>
                     </div>
@@ -797,89 +709,53 @@
                 <!-- MODULE 5: BÀN GIAO & VẬN HÀNH -->
                 <!-- ========================================== -->
                 <div id="p5-1" class="page-content">
-                    <h3 class="text-4xl font-extrabold text-primary mb-8 border-l-8 border-accent pl-4">Vận Hành An Toàn & Phối Hợp Nhà Thầu</h3>
+                    <h3 class="text-4xl font-extrabold text-primary mb-8 border-l-8 border-accent pl-4">Vận Hành An Toàn</h3>
                     
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-                        <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm relative overflow-hidden">
-                            <div class="absolute top-0 left-0 w-2 h-full bg-accent"></div>
-                            <h4 class="font-bold text-2xl text-primary mb-6">🛡️ Nguyên Tắc Vận Hành Chống Sập Hệ Thống</h4>
+                        <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm border-t-8 border-primary">
+                            <h4 class="font-bold text-2xl text-primary mb-6">🛡️ Tránh Sập Hệ Thống</h4>
                             <ul class="space-y-6 text-lg text-slate-700">
-                                <li class="flex gap-4 items-start"><span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold shrink-0">1</span><div><strong class="text-slate-900 block mb-1">Đọc kỹ Nguyên lý vận hành (SOO)</strong>Hiểu rõ logic ma trận báo cháy, hút khói trước khi test.</div></li>
-                                <li class="flex gap-4 items-start"><span class="bg-primary text-white rounded-full w-8 h-8 flex items-center justify-center font-bold shrink-0">2</span><div><strong class="text-slate-900 block mb-1">Test từng thay đổi đơn lẻ</strong>Thay đổi 1 thông số PID, chờ 10 phút xem đồ thị phản hồi. Đừng chỉnh nhiều thứ cùng lúc.</div></li>
-                                <li class="flex gap-4 items-start"><span class="bg-danger text-white rounded-full w-8 h-8 flex items-center justify-center font-bold shrink-0">!</span><div><strong class="text-danger block mb-1">Cấm tải code giờ cao điểm</strong>Thao tác "Download/Upload Code" DDC làm tủ Restart, mất điều hòa cả tầng, rất nguy hiểm.</div></li>
+                                <li><strong class="text-slate-900">1. Hiểu SOO:</strong> Đọc kỹ logic báo cháy trước khi test.</li>
+                                <li><strong class="text-slate-900">2. Test đơn lẻ:</strong> Thay đổi PID phải chờ 10 phút xem phản hồi.</li>
+                                <li><strong class="text-danger">3. Cấm tải Code:</strong> Không Download chương trình giờ cao điểm tránh Restart DDC.</li>
                             </ul>
                         </div>
 
                         <div class="bg-slate-800 p-8 rounded-2xl shadow-sm text-slate-200">
-                            <h4 class="font-black text-2xl text-sky-400 mb-6 uppercase tracking-wider">📞 Báo sự cố như Chuyên gia</h4>
-                            <p class="text-lg mb-6">Đừng gọi điện nói "Anh ơi tòa nhà mất lạnh BMS báo lỗi". Hãy gửi phiếu yêu cầu (Ticket) gồm 4 yếu tố:</p>
-                            
-                            <div class="space-y-4">
-                                <div class="bg-slate-700 p-4 rounded-lg flex items-center gap-3">
-                                    <span class="text-green-400 text-2xl">✔</span> <span class="text-lg">Mô tả hiện tượng (Bơm số 1 Trip)</span>
-                                </div>
-                                <div class="bg-slate-700 p-4 rounded-lg flex items-center gap-3">
-                                    <span class="text-green-400 text-2xl">✔</span> <span class="text-lg">Thời điểm lỗi (14h30 ngày 10/10)</span>
-                                </div>
-                                <div class="bg-slate-700 p-4 rounded-lg flex items-center gap-3">
-                                    <span class="text-green-400 text-2xl">✔</span> <span class="text-lg">Trạng thái vật lý (Đã đo VOM tủ MCC)</span>
-                                </div>
-                                <div class="bg-slate-700 p-4 rounded-lg border border-sky-500">
-                                    <span class="text-sky-400 font-bold block mb-1">📸 Đính kèm Screenshot</span> Bằng chứng đồ thị Trend / Bảng Alarm lấy từ máy tính BMS.
-                                </div>
-                            </div>
+                            <h4 class="font-bold text-2xl text-sky-400 mb-6">📞 Báo Sự Cố Chuẩn Xác</h4>
+                            <p class="text-lg mb-6">Gửi Ticket yêu cầu nhà thầu cần đủ 4 yếu tố:</p>
+                            <ul class="space-y-4 text-lg">
+                                <li class="bg-slate-700 p-4 rounded-lg">✔ Hiện tượng lỗi thực tế</li>
+                                <li class="bg-slate-700 p-4 rounded-lg">✔ Thời điểm xảy ra lỗi</li>
+                                <li class="bg-slate-700 p-4 rounded-lg">✔ Dữ liệu đo đạc (VOM)</li>
+                                <li class="bg-slate-700 p-4 rounded-lg border border-sky-500">📸 Ảnh chụp Trendlog/Alarm</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
 
                 <div id="p5-2" class="page-content">
-                    <h3 class="text-4xl font-extrabold text-primary mb-8 border-l-8 border-accent pl-4">Hồ Sơ Bàn Giao & Chống Vendor Lock-in</h3>
-                    <p class="text-xl text-slate-700 mb-8 leading-relaxed">Để tránh tình trạng "đem con bỏ chợ" hoặc bị ép giá bảo trì cắt cổ do phụ thuộc độc quyền, đội ngũ vận hành <strong>BẮT BUỘC</strong> phải nắm giữ đầy đủ 2 nhóm hồ sơ sau trước khi ký Biên bản nghiệm thu hoàn thành (TAC).</p>
+                    <h3 class="text-4xl font-extrabold text-primary mb-8 border-l-8 border-accent pl-4">Chống Vendor Lock-in</h3>
+                    <p class="text-xl text-slate-700 mb-8">Đội ngũ vận hành BẮT BUỘC phải nhận bàn giao 2 nhóm hồ sơ sau để tự chủ hệ thống.</p>
                     
-                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                        <!-- Cột 1: Tài liệu Kỹ thuật -->
-                        <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm relative overflow-hidden">
-                            <div class="absolute top-0 right-0 bg-blue-100 text-primary font-bold py-1 px-4 rounded-bl-lg text-sm">HARD-COPY / PDF</div>
-                            <h4 class="font-black text-2xl text-slate-800 mb-6 border-b border-slate-100 pb-4 flex items-center gap-3">
-                                <span class="text-3xl">📘</span> Tài liệu Kỹ thuật & Vận hành
-                            </h4>
-                            
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                        <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm relative">
+                            <span class="absolute top-0 right-0 bg-blue-100 text-primary font-bold py-1 px-4 rounded-bl-lg">HARD-COPY</span>
+                            <h4 class="font-bold text-2xl text-slate-800 mb-6 border-b pb-4">📘 Tài liệu Kỹ thuật</h4>
                             <ul class="space-y-4 text-lg text-slate-700">
-                                <li class="bg-slate-50 p-4 rounded-xl border border-slate-100 hover:border-secondary transition">
-                                    <strong class="text-secondary block mb-1">1. Bản vẽ hoàn công (As-built Drawing)</strong>
-                                    Phải thể hiện chính xác tuyến cáp thực tế đi trên trần, sơ đồ nguyên lý (P&ID) và tủ điện điều khiển DDC.
-                                </li>
-                                <li class="bg-slate-50 p-4 rounded-xl border border-slate-100 hover:border-secondary transition">
-                                    <strong class="text-secondary block mb-1">2. Ma trận Nguyên lý điều khiển (SOO)</strong>
-                                    Sequence of Operation: Mô tả chi tiết bằng chữ cách hệ thống chạy tự động, thông số PID, và logic khóa chéo báo cháy.
-                                </li>
-                                <li class="bg-slate-50 p-4 rounded-xl border border-slate-100 hover:border-secondary transition">
-                                    <strong class="text-secondary block mb-1">3. Cẩm nang Vận hành (O&M Manual)</strong>
-                                    Tài liệu hướng dẫn sử dụng phần mềm, cách xử lý các cảnh báo (Troubleshooting guide) do chính nhà thầu biên soạn.
-                                </li>
+                                <li><strong>1. Bản vẽ As-built:</strong> Sơ đồ tủ DDC, P&ID.</li>
+                                <li><strong>2. Ma trận SOO:</strong> Logic điều khiển bằng chữ.</li>
+                                <li><strong>3. O&M Manual:</strong> Cẩm nang vận hành xử lý lỗi.</li>
                             </ul>
                         </div>
 
-                        <!-- Cột 2: Hard-core Data -->
-                        <div class="bg-red-50 p-8 rounded-2xl border border-red-200 shadow-sm relative overflow-hidden">
-                            <div class="absolute top-0 right-0 bg-danger text-white font-bold py-1 px-4 rounded-bl-lg text-sm">USB / BẢN MỀM</div>
-                            <h4 class="font-black text-2xl text-slate-800 mb-6 border-b border-red-100 pb-4 flex items-center gap-3">
-                                <span class="text-3xl">🔑</span> Dữ liệu Hệ thống (Hard-core Data)
-                            </h4>
-                            
+                        <div class="bg-red-50 p-8 rounded-2xl border border-red-200 shadow-sm relative">
+                            <span class="absolute top-0 right-0 bg-danger text-white font-bold py-1 px-4 rounded-bl-lg">DATA</span>
+                            <h4 class="font-bold text-2xl text-slate-800 mb-6 border-b border-red-100 pb-4">🔑 Dữ liệu Lõi</h4>
                             <ul class="space-y-4 text-lg text-slate-700">
-                                <li class="bg-white p-4 rounded-xl border border-red-100 hover:border-danger transition shadow-sm">
-                                    <strong class="text-danger block mb-1">1. Mật khẩu Root / Admin System</strong>
-                                    Quyền cao nhất để can thiệp hệ thống. Yêu cầu bàn giao trong phong bì niêm phong.
-                                </li>
-                                <li class="bg-white p-4 rounded-xl border border-red-100 hover:border-danger transition shadow-sm">
-                                    <strong class="text-danger block mb-1">2. Source Code DDC & Backup Database</strong>
-                                    Bản sao lưu chương trình thuật toán tải xuống tủ DDC và giao diện đồ họa Server. Thiếu cái này, nếu hỏng thiết bị, hệ thống bị tê liệt hoàn toàn.
-                                </li>
-                                <li class="bg-white p-4 rounded-xl border border-red-100 hover:border-danger transition shadow-sm">
-                                    <strong class="text-danger block mb-1">3. Bảng danh sách điểm (Point List & IP)</strong>
-                                    File Excel chốt cuối cùng, ghi rõ địa chỉ MAC, IP, Slave ID của từng thiết bị để tiện bảo trì, thay thế sau này.
-                                </li>
+                                <li class="text-danger font-bold">1. Mật khẩu Root/Admin System</li>
+                                <li class="text-danger font-bold">2. Source Code DDC & Backup Database</li>
+                                <li><strong>3. Bảng Point List & IP Mapping</strong></li>
                             </ul>
                         </div>
                     </div>
@@ -887,102 +763,61 @@
 
                 <div id="p5-3" class="page-content">
                     <div class="flex justify-center items-center h-full min-h-[500px] bg-white rounded-2xl shadow-sm border border-slate-200 p-4">
-                        <img src="images/8.jpg" alt="Danh mục Bộ Hồ Sơ Bàn Giao BMS Tiêu Chuẩn" class="max-w-full max-h-[75vh] object-contain rounded-xl" onerror="this.onerror=null; this.src='https://placehold.co/1200x600/f1f5f9/0ea5e9?text=Vui+long+them+anh+vao+duong+dan:+images/8.jpg'">
+                        <img src="images/8.jpg" alt="Danh mục Bộ Hồ Sơ Bàn Giao BMS Tiêu Chuẩn" class="max-w-full max-h-[75vh] object-contain rounded-xl" onerror="this.onerror=null; this.src='https://placehold.co/1200x600/f1f5f9/0ea5e9?text=[Image+of+B%E1%BB%99+H%E1%BB%93+S%C6%A1+B%C3%A0n+Giao]'">
                     </div>
                 </div>
 
                 <div id="p5-4" class="page-content">
-                    <h3 class="text-4xl font-extrabold text-primary mb-8 border-l-8 border-accent pl-4">Bảo Hành & Bảo Trì Phòng Ngừa (Preventive)</h3>
-                    <p class="text-xl text-slate-700 mb-8 leading-relaxed">Hệ thống BMS không chỉ để bật/tắt thiết bị, mà là công cụ cốt lõi để chuẩn đoán "bệnh" từ sớm và bảo vệ quyền lợi pháp lý trong bảo hành.</p>
+                    <h3 class="text-4xl font-extrabold text-primary mb-8 border-l-8 border-accent pl-4">Bảo Hành & Bảo Trì Phòng Ngừa</h3>
                     
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 mb-8">
-                        <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm border-t-8 border-primary">
-                            <h4 class="font-black text-2xl text-primary mb-4 flex items-center gap-2"><span>📂</span> BMS là "Hộp đen" Bằng Chứng</h4>
-                            <ul class="text-lg space-y-3 text-slate-700">
-                                <li>• Dữ liệu lịch sử (Trendlog) lưu trữ 24/7 không biết nói dối. Nó giúp giải quyết tranh chấp đổ lỗi giữa các nhà thầu Cơ, Điện, BMS.</li>
-                                <li>• <strong>Ví dụ:</strong> BMS ra lệnh (Command ON) nhưng 5 phút sau thiết bị mới Trip. Bằng chứng này xác định lỗi do thiết bị động lực hoặc quá tải cơ khí, loại trừ hoàn toàn lỗi BMS cấp lệnh sai.</li>
-                            </ul>
-                        </div>
-
-                        <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm border-t-8 border-secondary">
-                            <h4 class="font-black text-2xl text-secondary mb-4 flex items-center gap-2"><span>🔍</span> Bảo Trì Phòng Ngừa</h4>
-                            <ul class="text-lg space-y-3 text-slate-700">
-                                <li>• <strong>Chênh áp (DPS):</strong> Giám sát áp suất tăng dần báo hiệu màng lọc dơ -> Báo vệ sinh trước khi nghẹt cứng gây sập dàn lạnh.</li>
-                                <li>• <strong>Giờ chạy (Run Hour):</strong> Đếm chính xác số giờ chạy của bơm/quạt để hệ thống tự động xuất cảnh báo lên lịch bảo dưỡng định kỳ (thay dầu mỡ, phớt).</li>
-                            </ul>
-                        </div>
+                    <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm border-t-8 border-primary mb-8">
+                        <h4 class="font-bold text-2xl text-primary mb-4">BMS là "Hộp đen"</h4>
+                        <p class="text-xl text-slate-700">Dữ liệu lịch sử (Trendlog) giải quyết tranh chấp đổ lỗi. Nếu BMS phát lệnh ON nhưng 5 phút sau biến tần mới Trip, lỗi là do động lực, không phải BMS điều khiển sai.</p>
                     </div>
 
-                    <div class="bg-slate-800 p-8 rounded-2xl shadow-md text-slate-200">
-                        <h4 class="font-black text-2xl text-accent mb-6 uppercase tracking-wider">🚨 Khi Nào Mới Cần Gọi Nhà Thầu BMS?</h4>
-                        <p class="text-lg mb-4 text-slate-300">Đội vận hành cần hiểu kiến trúc và tự xử lý (khoanh vùng, kiểm tra I/O) các lỗi cơ bản. Chỉ phối hợp, gọi nhà thầu BMS (Escalation) trong các trường hợp sau:</p>
-                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                            <div class="bg-slate-700 p-5 rounded-xl border border-slate-600">
-                                <span class="text-3xl block mb-2">🧠</span>
-                                <strong class="text-sky-400 text-xl block mb-1">Lỗi Logic Phức Tạp</strong>
-                                <span class="text-sm">Vòng lặp PID chạy không ổn định, van nhấp nhô (Hunting) liên tục, thuật toán chạy không mượt.</span>
-                            </div>
-                            <div class="bg-slate-700 p-5 rounded-xl border border-slate-600">
-                                <span class="text-3xl block mb-2">🌐</span>
-                                <strong class="text-sky-400 text-xl block mb-1">Mất Mạng Diện Rộng</strong>
-                                <span class="text-sm">Mất kết nối cả một trục nhánh (Nhiều tủ DDC cùng lúc) mà không rõ nguyên nhân đứt cáp vật lý.</span>
-                            </div>
-                            <div class="bg-slate-700 p-5 rounded-xl border border-slate-600">
-                                <span class="text-3xl block mb-2">⚙️</span>
-                                <strong class="text-sky-400 text-xl block mb-1">Cần Chỉnh Đổi SOO</strong>
-                                <span class="text-sm">CĐT yêu cầu thay đổi hẳn nguyên lý hoạt động, nâng cấp/mở rộng hệ thống. Cần sửa Source code.</span>
-                            </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div class="bg-slate-800 p-8 rounded-2xl text-slate-200">
+                            <h4 class="font-bold text-xl text-accent mb-4">Bảo trì phòng ngừa (PM)</h4>
+                            <p class="text-lg">Đếm giờ chạy (Run hours) bơm/quạt và theo dõi chênh áp màng lọc tự động cảnh báo lịch vệ sinh.</p>
+                        </div>
+                        <div class="bg-slate-700 p-8 rounded-2xl text-slate-200">
+                            <h4 class="font-bold text-xl text-sky-400 mb-4">Khi nào gọi Nhà thầu BMS?</h4>
+                            <p class="text-lg">Chỉ leo thang (Escalate) khi: Lỗi PID phức tạp, mất kết nối cụm tủ lớn hoặc cần đổi logic SOO.</p>
                         </div>
                     </div>
                 </div>
 
                 <div id="p5-5" class="page-content">
                     <div class="flex justify-center items-center h-full min-h-[500px] bg-white rounded-2xl shadow-sm border border-slate-200 p-4">
-                        <img src="images/7.jpg" alt="Mẫu Biên Bản Bàn Giao Soft-copy BMS" class="max-w-full max-h-[75vh] object-contain rounded-xl" onerror="this.onerror=null; this.src='https://placehold.co/1200x600/f1f5f9/0ea5e9?text=Vui+long+them+anh+vao+duong+dan:+images/7.jpg'">
+                        <img src="images/7.jpg" alt="Mẫu Biên Bản Bàn Giao Soft-copy BMS" class="max-w-full max-h-[75vh] object-contain rounded-xl" onerror="this.onerror=null; this.src='https://placehold.co/1200x600/f1f5f9/0ea5e9?text=[Image+of+Bi%C3%AAn+b%E1%BA%A3n+b%C3%A0n+giao]'">
                     </div>
                 </div>
 
                 <div id="p5-6" class="page-content">
-                    <h3 class="text-4xl font-extrabold text-primary mb-8 border-l-8 border-accent pl-4">Thực Hành: Bàn Giao & Vận Hành An Toàn</h3>
+                    <h3 class="text-4xl font-extrabold text-primary mb-8 border-l-8 border-accent pl-4">Thực Hành: Bàn Giao</h3>
                     
                     <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
                         <div class="flex border-b border-slate-200 bg-slate-100 flex-wrap">
-                            <button class="quiz-tab active flex-1 py-4 px-2 text-lg md:text-xl transition" onclick="switchQuizTab('m5', 'easy', this)">Mức độ: Dễ</button>
-                            <button class="quiz-tab flex-1 py-4 px-2 text-lg md:text-xl transition" onclick="switchQuizTab('m5', 'med', this)">Mức độ: Trung Bình</button>
-                            <button class="quiz-tab flex-1 py-4 px-2 text-lg md:text-xl transition" onclick="switchQuizTab('m5', 'hard', this)">Mức độ: Khó</button>
+                            <button class="quiz-tab active flex-1 py-4 px-2 text-lg md:text-xl transition" onclick="switchQuizTab('m5', 'easy', this)">Câu 1</button>
+                            <button class="quiz-tab flex-1 py-4 px-2 text-lg md:text-xl transition" onclick="switchQuizTab('m5', 'med', this)">Câu 2</button>
                         </div>
 
-                        <!-- Easy -->
                         <div id="m5-easy" class="quiz-pane active p-6 md:p-8">
-                            <p class="text-2xl font-bold text-slate-800 mb-6 leading-relaxed">❓ Nhà thầu bàn giao Tài khoản đăng nhập vào máy tính BMS nhưng khi bạn vào muốn đổi tên 1 điểm cảm biến thì hệ thống báo 'Access Denied' (Từ chối quyền). Nguyên nhân sự cố khóa quyền này là gì?</p>
+                            <p class="text-2xl font-bold text-slate-800 mb-6 leading-relaxed">❓ Truy cập BMS báo 'Access Denied' khi định đổi tên thông số. Do đâu?</p>
                             <div class="space-y-4" id="m5-easy-opts">
-                                <button onclick="handleAnswer('m5-easy', false, this)" class="w-full text-left p-5 text-xl bg-slate-50 hover:bg-blue-50 border border-slate-300 rounded-xl transition">A. Do phần mềm BMS bị nhiễm Virus.</button>
-                                <button onclick="handleAnswer('m5-easy', true, this)" class="w-full text-left p-5 text-xl bg-slate-50 hover:bg-blue-50 border border-slate-300 rounded-xl transition">B. Nhà thầu chỉ giao tài khoản cấp bậc 'Operator/Manager' (Vận hành) chứ chưa bàn giao tài khoản Engineer/Root cao nhất. Cần yêu cầu cấp lại mật khẩu Root.</button>
-                                <button onclick="handleAnswer('m5-easy', false, this)" class="w-full text-left p-5 text-xl bg-slate-50 hover:bg-blue-50 border border-slate-300 rounded-xl transition">C. Do bàn phím máy tính bị hỏng.</button>
+                                <button onclick="handleAnswer('m5-easy', true, this)" class="w-full text-left p-5 text-xl bg-slate-50 hover:bg-blue-50 border border-slate-300 rounded-xl transition">A. Mới chỉ được cấp tài khoản Operator, thiếu quyền Root/Admin.</button>
+                                <button onclick="handleAnswer('m5-easy', false, this)" class="w-full text-left p-5 text-xl bg-slate-50 hover:bg-blue-50 border border-slate-300 rounded-xl transition">B. Lỗi phần mềm do virus.</button>
                             </div>
                             <div id="m5-easy-res" class="hidden mt-6"></div>
                         </div>
 
-                        <!-- Medium -->
                         <div id="m5-med" class="quiz-pane p-6 md:p-8">
-                            <p class="text-2xl font-bold text-slate-800 mb-6 leading-relaxed">❓ Một Server BMS có chức năng Backup tự động. Nhưng khi ổ cứng hỏng, trưởng nhóm bảo trì phát hiện toàn bộ file Backup đều lưu trên... chính ổ C của Server đó nên đã mất sạch. Quy tắc Backup nào đã bị vi phạm?</p>
+                            <p class="text-2xl font-bold text-slate-800 mb-6 leading-relaxed">❓ Nhà thầu không giao Source Code tủ DDC. Bạn có ký nghiệm thu (TAC) không?</p>
                             <div class="space-y-4" id="m5-med-opts">
-                                <button onclick="handleAnswer('m5-med', true, this)" class="w-full text-left p-5 text-xl bg-slate-50 hover:bg-blue-50 border border-slate-300 rounded-xl transition">A. Quy tắc 3-2-1: Tuyệt đối không lưu file dự phòng trên cùng một thiết bị vật lý. Backup phải được copy tự động sang ổ đĩa mạng (NAS) hoặc chép ra USB rời hàng tháng.</button>
-                                <button onclick="handleAnswer('m5-med', false, this)" class="w-full text-left p-5 text-xl bg-slate-50 hover:bg-blue-50 border border-slate-300 rounded-xl transition">B. Quy tắc đặt tên file: File backup chưa được đặt tên theo đúng ngày tháng năm.</button>
-                                <button onclick="handleAnswer('m5-med', false, this)" class="w-full text-left p-5 text-xl bg-slate-50 hover:bg-blue-50 border border-slate-300 rounded-xl transition">C. Vi phạm do file Backup có dung lượng quá lớn làm treo ổ cứng.</button>
+                                <button onclick="handleAnswer('m5-med', false, this)" class="w-full text-left p-5 text-xl bg-slate-50 hover:bg-blue-50 border border-slate-300 rounded-xl transition">A. Đồng ý ký vì đã có Database giao diện máy tính.</button>
+                                <button onclick="handleAnswer('m5-med', true, this)" class="w-full text-left p-5 text-xl bg-slate-50 hover:bg-blue-50 border border-slate-300 rounded-xl transition">B. Kiên quyết từ chối. Hỏng tủ DDC không có mã nguồn tải xuống là hệ thống tê liệt.</button>
                             </div>
                             <div id="m5-med-res" class="hidden mt-6"></div>
-                        </div>
-
-                        <!-- Hard -->
-                        <div id="m5-hard" class="quiz-pane p-6 md:p-8">
-                            <p class="text-2xl font-bold text-slate-800 mb-6 leading-relaxed">❓ Khi nhận bàn giao hệ thống, nếu nhà thầu chỉ giao File Backup Database của Server phần mềm máy tính (Bản vẽ, giao diện), nhưng KHÔNG chịu giao File Source Code (Mã nguồn thuật toán) của các tủ DDC, bạn có đồng ý ký nghiệm thu hoàn thành dự án không?</p>
-                            <div class="space-y-4" id="m5-hard-opts">
-                                <button onclick="handleAnswer('m5-hard', false, this)" class="w-full text-left p-5 text-xl bg-slate-50 hover:bg-blue-50 border border-slate-300 rounded-xl transition">A. Đồng ý ký vì Database giao diện là đủ để vận hành tòa nhà hằng ngày.</button>
-                                <button onclick="handleAnswer('m5-hard', false, this)" class="w-full text-left p-5 text-xl bg-slate-50 hover:bg-blue-50 border border-slate-300 rounded-xl transition">B. Đồng ý ký nhưng yêu cầu nhà thầu cam kết bảo hành tủ DDC trọn đời.</button>
-                                <button onclick="handleAnswer('m5-hard', true, this)" class="w-full text-left p-5 text-xl bg-slate-50 hover:bg-blue-50 border border-slate-300 rounded-xl transition">C. Kiên quyết TỪ CHỐI KÝ. Database Server và Source Code DDC là 2 file riêng biệt. Database chỉ là cái vỏ giao diện. Không có Source Code DDC, sau này DDC hỏng bạn không thể mua tủ mới về nạp chương trình vào được, hệ thống tê liệt.</button>
-                            </div>
-                            <div id="m5-hard-res" class="hidden mt-6"></div>
                         </div>
                     </div>
                 </div>
@@ -993,28 +828,25 @@
                         <div class="absolute -right-10 -top-10 opacity-10 text-9xl">📖</div>
                         
                         <div class="relative z-10">
-                            <h3 class="text-4xl font-extrabold mb-4 flex items-center gap-3">AI Dịch & Tóm Tắt SOO ✨</h3>
-                            <p class="text-xl text-teal-50 mb-8 max-w-3xl leading-relaxed">Sequence of Operation (SOO) từ thiết kế nước ngoài thường rất dài và phức tạp. Dán tài liệu SOO tiếng Anh vào đây, Gemini sẽ tóm tắt lại nguyên lý chạy/dừng thành các gạch đầu dòng tiếng Việt dễ hiểu nhất cho kỹ thuật viên tòa nhà.</p>
+                            <h3 class="text-4xl font-extrabold mb-4 flex items-center gap-3">AI Tóm Tắt SOO ✨</h3>
+                            <p class="text-xl text-teal-50 mb-8 max-w-3xl leading-relaxed">Dán tài liệu Sequence of Operation (Tiếng Anh/Việt) để AI tóm gọn thành ma trận Logic chuẩn dễ hiểu.</p>
                             
                             <div class="bg-white/10 p-6 rounded-xl border border-white/20 backdrop-blur-sm mb-6">
-                                <label for="ai-soo-input" class="block text-sm font-bold text-teal-100 mb-2 uppercase tracking-wider">Đoạn nguyên lý (Tiếng Anh/Việt):</label>
-                                <textarea id="ai-soo-input" rows="5" class="w-full p-4 rounded-lg bg-white text-slate-800 text-lg border-2 border-transparent focus:border-accent focus:outline-none transition shadow-inner font-mono text-sm" placeholder="VD: When the start command is issued, the isolation valve shall open. Proof of flow is required via flow switch before the VFD is enabled. Upon fire alarm, the unit shall shut down immediately..."></textarea>
+                                <textarea id="ai-soo-input" rows="4" class="w-full p-4 rounded-lg bg-white text-slate-800 text-lg font-mono border-2 border-transparent focus:border-accent focus:outline-none transition shadow-inner" placeholder="When start command is issued, isolation valve opens. Proof of flow required..."></textarea>
                                 
-                                <div class="mt-4 flex flex-col sm:flex-row gap-4 items-center">
-                                    <button onclick="runAISOO()" id="btn-ai-soo" class="w-full sm:w-auto px-8 py-4 bg-accent text-primary font-black text-xl rounded-lg hover:bg-yellow-400 shadow-lg transition transform hover:-translate-y-1 flex items-center justify-center gap-2">
+                                <div class="mt-4 flex gap-4 items-center">
+                                    <button onclick="runAISOO()" id="btn-ai-soo" class="px-8 py-4 bg-accent text-primary font-black text-xl rounded-lg hover:bg-yellow-400 shadow-lg transition transform hover:-translate-y-1">
                                         Tóm Tắt Bằng AI ✨
                                     </button>
                                 </div>
                             </div>
 
-                            <!-- Loading & Output -->
                             <div id="ai-soo-loading" class="hidden text-center py-8">
                                 <div class="loading-spinner"></div>
-                                <p class="mt-4 text-teal-100 font-bold animate-pulse">AI đang dịch và lập ma trận logic điều khiển...</p>
+                                <p class="mt-4 text-teal-100 text-lg font-bold animate-pulse">Đang dịch và lập ma trận...</p>
                             </div>
                             
                             <div id="ai-soo-output" class="hidden bg-white text-slate-800 p-6 md:p-8 rounded-xl shadow-inner border-l-8 border-accent">
-                                <!-- AI Content goes here -->
                             </div>
                         </div>
                     </div>
@@ -1022,23 +854,22 @@
 
             </div>
             
-            <!-- Spacer for scrolling -->
             <div class="h-24"></div>
         </div>
 
-        <!-- Footer Navigation -->
-        <footer class="h-24 bg-white border-t border-slate-200 px-6 lg:px-8 flex justify-between items-center shrink-0 z-10 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)]">
-            <button onclick="navigate(-1)" id="btn-prev" class="px-6 py-3 md:px-8 md:py-4 bg-slate-200 text-slate-700 font-bold rounded-xl hover:bg-slate-300 disabled:opacity-40 transition text-lg md:text-xl shadow-sm whitespace-nowrap">← <span class="hidden sm:inline">Trang trước</span></button>
+        <!-- Footer Navigation - KHÔNG THAY ĐỔI, GIỮ NGUYÊN TỐI ƯU HIỂN THỊ -->
+        <footer class="h-16 md:h-20 bg-white border-t border-slate-200 px-4 lg:px-6 flex justify-between items-center shrink-0 z-10 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)]">
+            <button onclick="navigate(-1)" id="btn-prev" class="px-4 py-2 md:px-6 md:py-3 bg-slate-200 text-slate-700 font-bold rounded-lg hover:bg-slate-300 disabled:opacity-40 transition text-sm md:text-base shadow-sm whitespace-nowrap">← <span class="hidden sm:inline">Trang trước</span></button>
             
-            <div class="flex items-center gap-4 md:gap-6 w-full justify-center max-w-lg mx-4">
-                <span class="text-slate-500 font-bold text-lg hidden md:block shrink-0">Tiến trình:</span>
-                <div class="w-full h-4 bg-slate-200 rounded-full overflow-hidden shadow-inner hidden sm:block">
+            <div class="flex items-center gap-3 md:gap-5 w-full justify-center max-w-md mx-4">
+                <span class="text-slate-500 font-bold text-sm md:text-base hidden sm:block shrink-0">Tiến trình:</span>
+                <div class="w-full h-2.5 md:h-3 bg-slate-200 rounded-full overflow-hidden shadow-inner hidden sm:block">
                     <div id="progress-bar" class="h-full bg-accent transition-all duration-300 w-0"></div>
                 </div>
-                <span id="page-indicator" class="font-black text-lg md:text-xl text-primary bg-slate-100 px-3 md:px-4 py-1 rounded-lg border border-slate-200 shrink-0">1 / 28</span>
+                <span id="page-indicator" class="font-black text-sm md:text-base text-primary bg-slate-100 px-3 py-1 md:px-4 md:py-1.5 rounded border border-slate-200 shrink-0">1 / 28</span>
             </div>
 
-            <button onclick="navigate(1)" id="btn-next" class="px-6 py-3 md:px-8 md:py-4 bg-primary text-white font-bold rounded-xl hover:bg-blue-800 disabled:opacity-40 shadow-md transition text-lg md:text-xl whitespace-nowrap"><span class="hidden sm:inline">Trang sau</span> →</button>
+            <button onclick="navigate(1)" id="btn-next" class="px-4 py-2 md:px-6 md:py-3 bg-primary text-white font-bold rounded-lg hover:bg-blue-800 disabled:opacity-40 shadow transition text-sm md:text-base whitespace-nowrap"><span class="hidden sm:inline">Trang sau</span> →</button>
         </footer>
 
     </main>
@@ -1098,6 +929,7 @@
                 const isAI = item.title.includes('✨');
                 const titleText = isAI ? `<span class="text-accent font-bold">${item.title}</span>` : item.title;
                 
+                // Restored larger sidebar fonts
                 html += `<button onclick="goToPage(${index})" id="menu-btn-${index}" class="menu-item w-full text-left px-8 py-3 text-sm text-slate-300 hover:bg-slate-800 focus:outline-none flex items-center gap-2"><span class="opacity-50 text-xs">●</span> ${titleText}</button>`;
             });
             html += `</details>`;
@@ -1106,31 +938,25 @@
 
         // Navigation Logic
         function updateUI() {
-            // Hide all pages, show current
             document.querySelectorAll('.page-content').forEach(el => el.classList.remove('active'));
             const currentElement = document.getElementById(courseData[currentIndex].id);
             if(currentElement) {
-                // Re-trigger animation
                 currentElement.classList.remove('active');
                 void currentElement.offsetWidth;
                 currentElement.classList.add('active');
             }
 
-            // Update Header & Progress
             document.getElementById('header-title').innerText = courseData[currentIndex].title;
             document.getElementById('page-indicator').innerText = `${currentIndex + 1} / ${courseData.length}`;
             document.getElementById('progress-bar').style.width = `${((currentIndex + 1) / courseData.length) * 100}%`;
 
-            // Update Menu Active State
             document.querySelectorAll('.menu-item').forEach(el => el.classList.remove('active'));
             const activeBtn = document.getElementById(`menu-btn-${currentIndex}`);
             if(activeBtn) activeBtn.classList.add('active');
 
-            // Button States
             document.getElementById('btn-prev').disabled = currentIndex === 0;
             document.getElementById('btn-next').disabled = currentIndex === courseData.length - 1;
 
-            // Scroll top
             document.getElementById('main-scroll-area').scrollTop = 0;
         }
 
@@ -1242,25 +1068,25 @@
             feedbackBox.classList.remove('hidden');
 
             const feedbackData = {
-                'm1-easy': "✅ <strong>Chính xác!</strong> Tính độc lập là cực kỳ quan trọng. DDC phải giữ được chương trình logic để thiết bị tự hoạt động bảo vệ tòa nhà ngay cả khi Server máy tính bị hỏng hoặc dây cáp mạng bị đứt chuột cắn.",
-                'm1-med': "✅ <strong>Đúng!</strong> Rớt 1 cụm hệ thống (nhiều tủ) cùng lúc thường do đứt trục cáp truyền thông mạng kết nối giữa các tủ thuộc Lớp Tự động hóa, hoặc switch mạng bị mất nguồn. Lỗi cảm biến hay lỗi 1 tủ DDC thì không thể làm rớt chùm như vậy được.",
-                'm1-hard': "✅ <strong>Chính xác tuyệt đối!</strong> Tắt điện đột ngột là 'kẻ thù số 1' của Server hệ điều hành Windows và SQL Database. Nếu UPS hỏng, Database file sẽ bị Corrupt, bạn sẽ mất hoàn toàn lịch sử và giao diện đồ họa. Phải định kỳ xả và đo bình ắc-quy UPS.",
+                'm1-easy': "✅ <strong>Chính xác!</strong> Tính độc lập cực kỳ quan trọng. DDC phải giữ chương trình để thiết bị chạy an toàn dù đứt mạng.",
+                'm1-med': "✅ <strong>Đúng!</strong> Rớt mạng 1 cụm tủ lớn là do đứt trục truyền thông mạng, cáp quang hoặc hỏng Switch.",
+                'm1-hard': "✅ <strong>Chính xác!</strong> Server sập nguồn đột ngột do hỏng UPS sẽ làm chết File Database SQL.",
                 
-                'm2-easy': "✅ <strong>Đúng!</strong> Tiếp điểm khô (Dry contact) của báo lỗi hoặc trạng thái chỉ có Bật/Tắt (thông mạch hoặc đứt mạch). Dùng thang đo Ohm hoặc tiếng kêu beep (thông mạch) trên VOM là phương pháp đo nhanh và chuẩn nhất.",
-                'm2-med': "✅ <strong>Rất chuẩn xác!</strong> Nhiễu từ tính từ dây động lực (EMI) sẽ làm tín hiệu điện áp/điện trở của AI nhảy vọt. Cáp STP vặn xoắn giúp tự triệt tiêu nhiễu, nhưng nếu không nối đất ở 1 đầu thì lớp vỏ bọc bạc sẽ thành ăng-ten hút thêm nhiễu.",
-                'm2-hard': "✅ <strong>Hoàn toàn chính xác!</strong> Trong thực tế thi công, L(trục) + L(nhánh) + Đoạn thả trần (2-3m) + Đoạn đấu dây tủ DDC (1.5-2m) và cuối cùng nhân hệ số hao phí 10% là công thức vàng để không bao giờ bị thiếu cáp.",
+                'm2-easy': "✅ <strong>Đúng!</strong> Tiếp điểm khô báo trạng thái bằng cách đóng/mở mạch. Đo Ohm thông mạch là chuẩn nhất.",
+                'm2-med': "✅ <strong>Rất chuẩn!</strong> Dùng cáp xoắn chống nhiễu STP và nối tiếp địa lưới bọc tại 1 đầu để khử nhiễu điện từ (EMI).",
+                'm2-hard': "✅ <strong>Chính xác!</strong> Bóc tách khối lượng phải bao gồm cả dây dự trữ thả trần, dây đi máng và 10% hao hụt.",
 
-                'm3-easy': "✅ <strong>Đúng!</strong> Đặc thù của mạng Daisy-chain (nối tiếp) là nếu đứt tại điểm số 4 sang số 5, tín hiệu bị chặn lại, toàn bộ các đồng hồ phía sau (từ 5 đến 10) sẽ bị ngắt kết nối hoàn toàn.",
-                'm3-med': "✅ <strong>Rất chuẩn!</strong> Trong truyền thông Serial, chỉ nối đúng chân A/B là chưa đủ. Các thông số phần mềm như Slave ID, Baud Rate (vd: 9600), Parity (vd: None/Even) phải cài đặt trên mặt biến tần khớp 100% với trên tủ DDC thì 2 bên mới 'nói chuyện' được.",
-                'm3-hard': "✅ <strong>Xuất sắc!</strong> Cáp RS485 chỉ là 'Đường cao tốc' (Chuẩn vật lý). Còn Modbus và Proprietary Protocol là 2 'Ngôn ngữ' khác nhau. Dù đi chung đường nhưng không hiểu ngôn ngữ của nhau thì không thể giao tiếp. Bạn cần 1 bộ dịch (Gateway).",
+                'm3-easy': "✅ <strong>Đúng!</strong> RS485 đấu nối tiếp, đứt cáp giữa số 4 và 5 thì mất tín hiệu toàn bộ đoạn phía sau.",
+                'm3-med': "✅ <strong>Rất chuẩn!</strong> Cần cấu hình Slave ID, Baud Rate (9600), Parity ngay trên mặt biến tần khớp với lập trình DDC.",
+                'm3-hard': "✅ <strong>Xuất sắc!</strong> Cáp chỉ là đường vật lý, khác 'ngôn ngữ' giao thức bắt buộc phải gắn thiết bị Gateway chuyển đổi.",
 
-                'm4-easy': "✅ <strong>Đúng!</strong> Nguyên tắc vàng số 1: 'Kiểm tra thực tế'. Đừng vội chỉnh thông số trên màn hình khi chưa chắc chắn thiết bị dưới hiện trường (Cảm biến nhiệt, ty van nước lạnh) có đang hoạt động tốt về mặt vật lý hay không.",
-                'm4-med': "✅ <strong>Chính xác!</strong> Khi DDC ra lệnh ON (Command), tiếp điểm từ tủ điện mất 1-2 giây mới đóng lại phản hồi Status. Nếu không cài Proof Delay/Time Delay, BMS sẽ so sánh ngay lập tức và hú còi báo Alarm lỗi thiết bị ảo.",
-                'm4-hard': "✅ <strong>Hoàn toàn chính xác!</strong> Đây là bài học xương máu. Lệnh Force trên máy tính ép DDC xuất áp 10V (hoặc đóng relay) ép motor van mở. Motor cố gắng quay nhưng ty van kẹt chết, gây quá tải dòng điện cuộn dây, cháy đen motor van với chi phí đắt đỏ.",
+                'm4-easy': "✅ <strong>Đúng!</strong> Bước 1 luôn phải xuống tận nơi xem thiết bị (Van) có kẹt hay hỏng hóc cơ khí không.",
+                'm4-med': "✅ <strong>Chính xác!</strong> Time Delay giúp phần mềm chờ quá trình khởi động cơ học của quạt trước khi so sánh với lệnh bật.",
+                'm4-hard': "✅ <strong>Rất chính xác!</strong> Ép phần mềm chạy 100% khi van đang bị kẹt cứng làm mô tơ cố quay, sinh nhiệt và cháy cuộn điện.",
 
-                'm5-easy': "✅ <strong>Đúng!</strong> Rất nhiều nhà thầu 'chơi chiêu' giữ lại tài khoản Engineer (kỹ sư cấp cao) chỉ bàn giao tài khoản Operator (vận hành) để khóa tay ban quản lý. Bạn phải kiểm tra quyền của tài khoản bằng cách thử tạo User mới hoặc đổi IP.",
-                'm5-med': "✅ <strong>Rất chuẩn!</strong> Backup để trên ổ C mà ổ cứng vật lý đó chết thì mất sạch. Phải chép tự động sang ổ lưu trữ ngoài mạng (NAS) hoặc chép USB cất đi. Đó là quy tắc sống còn của IT và quản lý hệ thống.",
-                'm5-hard': "✅ <strong>Xuất sắc!</strong> Đây là mấu chốt chống Vendor Lock-in (bị ép giá bảo trì). Không có mã nguồn (Source Code) của tủ DDC, nếu sét đánh cháy tủ, bạn mua vỏ tủ mới về nhưng không có thuật toán bên trong để chạy. Phải thuê nhà thầu khác viết lại từ đầu bằng tiền túi."
+                'm5-easy': "✅ <strong>Đúng!</strong> Nhà thầu hay bàn giao thiếu tài khoản. Bắt buộc yêu cầu giao Account quyền Root/Admin hệ thống.",
+                'm5-med': "✅ <strong>Chuẩn!</strong> Nguyên tắc vàng là file Backup Database không được để chung với ổ vật lý của Server đang chạy.",
+                'm5-hard': "✅ <strong>Tuyệt vời!</strong> Mất Source code thuật toán, sau này hỏng bo mạch DDC sẽ không thể tải chương trình lại, bị bắt bí."
             };
 
             let feedbackHTML = `
@@ -1269,40 +1095,6 @@
                 </div>
             `;
             
-            let q1, q2, q3;
-            if (questionId.startsWith('m1')) {
-                q1 = "Làm cách nào để test tính năng Stand-alone của DDC ngay trong quá trình nhận bàn giao?";
-                q2 = "Nên thay Pin CMOS cho tủ DDC định kỳ bao nhiêu năm một lần?";
-                q3 = "Dữ liệu Trendlog (nhiệt độ, áp suất) có bị mất không nếu mạng LAN đứt 1 ngày (DDC chạy stand-alone)?";
-            } else if (questionId.startsWith('m2')) {
-                q1 = "Việc bóc tách cáp dư quá nhiều (hao phí trên 20%) sẽ dẫn đến hệ lụy gì cho nhà thầu M&E?";
-                q2 = "Trong trường hợp bất khả kháng phải nối cáp tín hiệu Analog bị đứt, nên dùng phương pháp mỏ hàn thiếc hay dùng domino vặn ốc?";
-                q3 = "Nếu cảm biến nhiệt độ bị đứt dây (hở mạch), DDC thường hiển thị giá trị là cực lớn (vd 1000°C) hay cực nhỏ (vd -50°C)?";
-            } else if (questionId.startsWith('m3')) {
-                q1 = "Có thể kéo cáp RS485 hình sao (Star) thay vì nối tiếp (Bus) được không? Hậu quả là gì?";
-                q2 = "Làm sao dùng đồng hồ VOM để kiểm tra xem cáp RS485 có đang được truyền dữ liệu không?";
-                q3 = "Tại sao giao thức BACnet thường được ưu tiên dùng cho hệ thống Điều hòa (HVAC), còn Modbus lại hay dùng cho Điện (Electrical)?";
-            } else if (questionId.startsWith('m4')) {
-                q1 = "Nếu cảm biến áp suất cầu thang (DPS) đo sai, khiến quạt chạy ở tốc độ 100% liên tục, hậu quả vật lý lên cửa thoát hiểm là gì?";
-                q2 = "Tại sao thông số 'I' (Integral) trong vòng điều khiển PID lại dễ gây ra hiện tượng van mở quá lố (Hunting)?";
-                q3 = "Viết Log Book (Sổ giao ca) quan trọng như thế nào trong quá trình xử lý sự cố kéo dài qua đêm?";
-            } else {
-                q1 = "Khi kỹ thuật viên lỡ tay xóa mất cấu hình IP trên màn hình DDC, làm sao để khôi phục?";
-                q2 = "Đã có trường hợp nhà thầu đặt mật khẩu Time-bomb (tự khóa hệ thống sau 1 năm hết bảo hành), làm sao để kiểm tra mã nguồn?";
-                q3 = "File 'As-built Drawing' (Bản vẽ hoàn công) khác biệt gì so với 'Shop Drawing' đệ trình ban đầu?";
-            }
-
-            feedbackHTML += `
-                <div class="bg-slate-100 p-6 rounded-xl border border-slate-300 mt-6 shadow-inner">
-                    <p class="font-black text-primary text-xl mb-4 flex items-center gap-2"><span>💬</span> Thảo Luận Mở Rộng:</p>
-                    <ul class="list-disc pl-6 space-y-2 text-lg text-slate-700 font-medium">
-                        <li>${q1}</li>
-                        <li>${q2}</li>
-                        <li>${q3}</li>
-                    </ul>
-                </div>
-            `;
-
             if(isCorrect) {
                 btnEl.classList.add('bg-green-100', 'border-green-500', 'text-green-800', 'font-bold', 'ring-2', 'ring-green-400');
             } else {
@@ -1337,9 +1129,8 @@
         }
 
         async function callGemini(userText, systemText) {
-            const apiKey = ""; // API Key is injected by the runtime environment
+            const apiKey = ""; 
             if (!apiKey) {
-                console.warn("API Key is missing. Simulation mode triggered.");
                 return "<p><i>Cảnh báo: Không tìm thấy API Key. Xin vui lòng kiểm tra lại môi trường chạy.</i></p>";
             }
             
@@ -1357,19 +1148,18 @@
                 });
                 return data.candidates?.[0]?.content?.parts?.[0]?.text || "Không có phản hồi từ AI.";
             } catch (error) {
-                return `<p class="text-red-600 font-bold">Lỗi kết nối API: ${error.message}. Vui lòng thử lại sau.</p>`;
+                return `<p class="text-red-600 font-bold">Lỗi kết nối API: ${error.message}</p>`;
             }
         }
 
-        // Format Gemini raw markdown output to basic HTML for safe display
         function formatAIOutput(text) {
-            let html = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>'); // bold
-            html = html.replace(/\*(.*?)\*/g, '<em>$1</em>'); // italics
-            html = html.replace(/^### (.*$)/gim, '<h3>$1</h3>'); // headers
+            let html = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+            html = html.replace(/\*(.*?)\*/g, '<em>$1</em>');
+            html = html.replace(/^### (.*$)/gim, '<h3>$1</h3>');
             html = html.replace(/^## (.*$)/gim, '<h3>$1</h3>');
-            html = html.replace(/^- (.*$)/gim, '<ul><li>$1</li></ul>'); // bullets
-            html = html.replace(/<\/ul>\n<ul>/gim, ''); // merge lists
-            html = html.replace(/\n\n/g, '<br><br>'); // paragraph breaks
+            html = html.replace(/^- (.*$)/gim, '<ul><li>$1</li></ul>');
+            html = html.replace(/<\/ul>\n<ul>/gim, '');
+            html = html.replace(/\n\n/g, '<br><br>');
             return html;
         }
 
@@ -1389,16 +1179,11 @@
             btn.disabled = true;
             btn.classList.add('opacity-50');
 
-            const systemPrompt = `Bạn là một chuyên gia Kỹ sư trưởng hệ thống BMS và HVAC với 15 năm kinh nghiệm. Dựa vào mô tả hiện tượng sự cố của người dùng, hãy đưa ra hướng dẫn khắc phục sự cố (Troubleshooting) MỘT CÁCH SÚC TÍCH, DỄ HIỂU.
-Yêu cầu bắt buộc phải chia thành 4 bước theo "Nguyên tắc 4 bước vàng":
-Bước 1: Kiểm tra thực tế hiện trường (kiểm tra phần cứng, cơ khí)
-Bước 2: So sánh Tín hiệu I/O (dùng VOM đo tại tủ MCC/DDC)
-Bước 3: Khoanh vùng lỗi (điện, cơ, hay BMS)
-Bước 4: Kiểm tra Logic phần mềm (nếu phần cứng đã OK).
-Sử dụng các thẻ HTML cơ bản (<h3>, <strong>, <ul>, <li>, <br>) để trình bày kết quả cho đẹp mắt. Không dùng cú pháp Markdown.`;
+            const systemPrompt = `Bạn là chuyên gia Kỹ sư trưởng hệ thống BMS/HVAC với 15 năm kinh nghiệm. Dựa vào mô tả hiện tượng sự cố, hãy đưa ra hướng dẫn khắc phục MỘT CÁCH SÚC TÍCH, DỄ HIỂU.
+Chia thành 4 bước "Nguyên tắc 4 bước vàng": 1. Kiểm tra hiện trường. 2. Đo I/O. 3. Khoanh vùng. 4. Check logic phần mềm.
+Sử dụng thẻ HTML <h3>, <strong>, <ul>, <li>, <br>. Không dùng Markdown.`;
 
             const result = await callGemini(input, systemPrompt);
-            
             output.innerHTML = `<div class="ai-output-content">${formatAIOutput(result)}</div>`;
             output.classList.remove('hidden');
             loading.classList.add('hidden');
@@ -1422,16 +1207,12 @@ Sử dụng các thẻ HTML cơ bản (<h3>, <strong>, <ul>, <li>, <br>) để t
             btn.disabled = true;
             btn.classList.add('opacity-50');
 
-            const systemPrompt = `Bạn là chuyên gia về Tự động hóa và BMS. Nhiệm vụ của bạn là đọc một đoạn tài liệu Sequence of Operation (Nguyên lý hoạt động - SOO) do kỹ sư hoặc nhà thầu viết (thường bằng tiếng Anh hoặc rất dài dòng).
-Bạn hãy DỊCH SANG TIẾNG VIỆT (nếu là tiếng Anh) và TÓM TẮT LẠI thành các gạch đầu dòng súc tích, dễ hiểu nhất cho công nhân và kỹ sư bảo trì đọc hiểu nhanh.
-Tập trung vào:
-- Điều kiện chạy (Start/Stop conditions)
-- Điều kiện an toàn/khóa chéo (Interlocks / Safeties)
-- Các vòng lặp PID hoặc kiểm soát (Setpoint control).
-Sử dụng các thẻ HTML cơ bản (<h3>, <strong>, <ul>, <li>, <br>) để trình bày kết quả cho đẹp mắt. Không dùng cú pháp Markdown.`;
+            const systemPrompt = `Bạn là chuyên gia Tự động hóa và BMS kinh nghiệm 15 năm. Nhiệm vụ của bạn là đọc đoạn tài liệu Sequence of Operation (SOO).
+DỊCH SANG TIẾNG VIỆT (nếu là tiếng Anh) và TÓM TẮT thành các gạch đầu dòng súc tích nhất cho công nhân/kỹ sư bảo trì.
+Tập trung vào: Điều kiện chạy (Start/Stop), Khóa chéo (Interlocks/Safeties), Điều khiển PID (Setpoint).
+Sử dụng thẻ HTML <h3>, <strong>, <ul>, <li>, <br>. Không dùng Markdown.`;
 
             const result = await callGemini(input, systemPrompt);
-            
             output.innerHTML = `<div class="ai-output-content">${formatAIOutput(result)}</div>`;
             output.classList.remove('hidden');
             loading.classList.add('hidden');
@@ -1444,6 +1225,14 @@ Sử dụng các thẻ HTML cơ bản (<h3>, <strong>, <ul>, <li>, <br>) để t
             renderMenu();
             updateUI();
             setTimeout(initChart, 200);
+            
+            if (window.innerWidth < 768) {
+                const sidebar = document.getElementById('sidebar');
+                const overlay = document.getElementById('sidebar-overlay');
+                sidebar.classList.remove('force-show');
+                sidebar.classList.add('force-hide');
+                if(overlay) overlay.classList.add('hidden');
+            }
         }
     </script>
 </body>
