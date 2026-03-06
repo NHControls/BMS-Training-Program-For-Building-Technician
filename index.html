@@ -52,7 +52,10 @@
                         secondary: '#0ea5e9', /* Sky Blue */
                         accent: '#eab308', /* Yellow */
                         danger: '#ef4444',
-                        dark: '#0f172a'
+                        dark: '#0f172a',
+                        nhTeal: '#0d9488',
+                        nhNavy: '#1e3a8a',
+                        nhGold: '#eab308'
                     }
                 }
             }
@@ -80,9 +83,21 @@
         
         <!-- HeaderBar -->
         <header class="h-16 bg-white shadow-sm flex items-center justify-between px-8 shrink-0 z-10 border-b border-slate-200">
-            <h2 id="header-title" class="text-2xl font-black text-primary uppercase tracking-wide">Đang tải...</h2>
-            <div class="text-sm font-medium text-slate-500 bg-slate-100 px-3 py-1 rounded-full border border-slate-200">
-                Thực chiến 15 năm kinh nghiệm
+            <h2 id="header-title" class="text-2xl font-black text-primary uppercase tracking-wide truncate pr-4">Đang tải...</h2>
+            
+            <div class="flex items-center gap-3 shrink-0">
+                <div class="flex items-end gap-[3px] h-10 pb-1">
+                    <div class="w-2 h-4 bg-nhTeal"></div>
+                    <div class="w-2 h-6 bg-nhTeal"></div>
+                    <div class="w-2 h-8 bg-nhNavy"></div>
+                    <div class="w-2 h-10 bg-nhGold"></div>
+                    <div class="w-2 h-7 bg-nhNavy"></div>
+                </div>
+                
+                <div class="hidden md:block">
+                    <h1 class="text-xl font-bold text-slate-800 tracking-tighter leading-none mb-1">NAM HOÀNG CONTROLS</h1>
+                    <p class="text-[10px] text-slate-500 font-bold tracking-widest leading-none">EST. 15 YEARS IN BMS & T&C</p>
+                </div>
             </div>
         </header>
 
@@ -122,7 +137,7 @@
                         </div>
                         <div class="flex items-center gap-6 p-4 bg-slate-50 rounded-lg">
                             <div class="w-16 h-16 bg-accent text-primary rounded-full flex items-center justify-center text-2xl font-bold shrink-0 shadow-lg">2</div>
-                            <div><h4 class="text-2xl font-bold text-amber-600">Lớp Tự động hóa (Automation / DDC)</h4><p class="text-lg text-slate-600">Chạy logic tự động (Stand-alone). Lỗi hay gặp: Hết pin CMOS mất code, cháy bo mạch.</p></div>
+                            <div><h4 class="text-2xl font-bold text-amber-600">Lớp Tự động hóa (Automation / DDC)</h4><p class="text-lg text-slate-600">Chạy logic tự động (Stand-alone). Tích hợp sẵn truyền thông IP. Lỗi hay gặp: Hết pin CMOS mất code, cháy bo mạch.</p></div>
                         </div>
                         <div class="flex items-center gap-6 p-4 bg-slate-50 rounded-lg">
                             <div class="w-16 h-16 bg-slate-400 text-white rounded-full flex items-center justify-center text-2xl font-bold shrink-0 shadow-lg">3</div>
@@ -132,10 +147,8 @@
                 </div>
 
                 <div id="p1-2" class="page-content">
-                    <div class="img-placeholder-large">
-                        <span class="text-6xl mb-4">🖼️</span>
-                        <span class="text-3xl font-black"></span>
-                        <span class="text-xl mt-4 font-normal text-sky-700 max-w-2xl">Ghi chú cho Giảng viên: Chèn sơ đồ Network Architecture 3 Lớp thực tế của dự án vào đây. Yêu cầu thiết kế tối giản, màu sắc tươi sáng, hiển thị rõ máy chủ nối thẳng xuống tủ DDC Automation.</span>
+                    <div class="flex justify-center items-center h-full min-h-[500px] bg-white rounded-2xl shadow-sm border border-slate-200 p-4">
+                        <img src="images/1.jpg" alt="Sơ đồ Kiến trúc BMS 3 Lớp Hiện đại" class="max-w-full max-h-[75vh] object-contain rounded-xl" onerror="this.onerror=null; this.src='https://placehold.co/1200x600/f1f5f9/0ea5e9?text=Vui+long+them+anh+vao+duong+dan:+images/1.jpg'">
                     </div>
                 </div>
 
@@ -257,6 +270,52 @@
                 </div>
 
                 <div id="p2-3" class="page-content">
+                    <h3 class="text-4xl font-extrabold text-primary mb-8 border-l-8 border-accent pl-4">Nhận Diện & Phân Loại Thiết Bị Trường</h3>
+                    <p class="text-xl text-slate-700 mb-8">Hiểu đúng chức năng của thiết bị để tra cứu bản vẽ và xác định tín hiệu tương ứng.</p>
+
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                        <!-- Sensors -->
+                        <div class="bg-white p-8 rounded-2xl border-t-8 border-primary shadow-sm">
+                            <div class="text-5xl mb-4">🌡️</div>
+                            <h4 class="font-black text-2xl text-primary mb-4 uppercase">1. Cảm Biến (Sensors)</h4>
+                            <p class="text-lg font-bold text-slate-500 mb-4">Loại tín hiệu: AI / AO</p>
+                            <ul class="text-lg space-y-3 text-slate-700">
+                                <li>• <strong>Ví dụ:</strong> Cảm biến Nhiệt độ, Độ ẩm, Khí CO2, Cảm biến Chênh áp gió (DPS).</li>
+                                <li>• <strong>Mục đích:</strong> Đo lường giá trị môi trường thay đổi liên tục để hệ thống chạy thuật toán (PID) điều chỉnh công suất thiết bị.</li>
+                            </ul>
+                        </div>
+
+                        <!-- Switches -->
+                        <div class="bg-white p-8 rounded-2xl border-t-8 border-secondary shadow-sm">
+                            <div class="text-5xl mb-4">🎚️</div>
+                            <h4 class="font-black text-2xl text-secondary mb-4 uppercase">2. Công Tắc (Switches)</h4>
+                            <p class="text-lg font-bold text-slate-500 mb-4">Loại tín hiệu: DI / DO</p>
+                            <ul class="text-lg space-y-3 text-slate-700">
+                                <li>• <strong>Ví dụ:</strong> Công tắc dòng chảy (Flow switch), Công tắc áp suất (DPS báo dơ màng lọc), Rơ-le.</li>
+                                <li>• <strong>Mục đích:</strong> Báo trạng thái Bật/Tắt, Lỗi, hoặc dùng làm tiếp điểm cho vòng khóa chéo bảo vệ cứng (Hardware Interlock).</li>
+                            </ul>
+                        </div>
+
+                        <!-- Meters -->
+                        <div class="bg-white p-8 rounded-2xl border-t-8 border-accent shadow-sm">
+                            <div class="text-5xl mb-4">⏱️</div>
+                            <h4 class="font-black text-2xl text-amber-600 mb-4 uppercase">3. Đo Đếm (Meters)</h4>
+                            <p class="text-lg font-bold text-slate-500 mb-4">Loại tín hiệu: RS485 / Modbus / Xung</p>
+                            <ul class="text-lg space-y-3 text-slate-700">
+                                <li>• <strong>Ví dụ:</strong> Đồng hồ điện (Power Meter), Đồng hồ nước lạnh (BTU Meter), Đồng hồ lưu lượng.</li>
+                                <li>• <strong>Mục đích:</strong> Đo đếm năng lượng tiêu thụ, phục vụ tính tiền và phân tích hiệu suất (PUE) của tòa nhà.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="p2-4" class="page-content">
+                    <div class="flex justify-center items-center h-full min-h-[500px] bg-white rounded-2xl shadow-sm border border-slate-200 p-4">
+                        <img src="images/2.jpg" alt="Các nhóm thiết bị trường thường gặp" class="max-w-full max-h-[75vh] object-contain rounded-xl" onerror="this.onerror=null; this.src='https://placehold.co/1200x600/f1f5f9/0ea5e9?text=Vui+long+them+anh+vao+duong+dan:+images/2.jpg'">
+                    </div>
+                </div>
+
+                <div id="p2-5" class="page-content">
                     <h3 class="text-4xl font-extrabold text-primary mb-8 border-l-8 border-accent pl-4">Loại Cáp Tín Hiệu & Cách Bóc Tách Khối Lượng</h3>
                     
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
@@ -311,7 +370,7 @@
                     </div>
                 </div>
 
-                <div id="p2-4" class="page-content">
+                <div id="p2-6" class="page-content">
                     <h3 class="text-4xl font-extrabold text-primary mb-8 border-l-8 border-accent pl-4">Thực Hành: Tín Hiệu & Cáp I/O</h3>
                     
                     <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
@@ -399,10 +458,8 @@
                 </div>
 
                 <div id="p3-2" class="page-content">
-                    <div class="img-placeholder-large">
-                        <span class="text-6xl mb-4">🖼️</span>
-                        <span class="text-3xl font-black"></span>
-                        <span class="text-xl mt-4 font-normal text-sky-700 max-w-2xl">Ghi chú cho Giảng viên: Chèn ảnh đồ họa rõ nét so sánh 3 mô hình Topology. Vẽ minh họa cụ thể nếu đứt cáp ở giữa thì mô hình Bus sẽ chết hàng loạt như thế nào, và mô hình Ring sẽ đảo chiều ra sao. Dùng hình ảnh thiết kế phẳng (Flat design) hiện đại.</span>
+                    <div class="flex justify-center items-center h-full min-h-[500px] bg-white rounded-2xl shadow-sm border border-slate-200 p-4">
+                        <img src="images/3.jpg" alt="Mô Phỏng Topology Mạng Thực Tế" class="max-w-full max-h-[75vh] object-contain rounded-xl" onerror="this.onerror=null; this.src='https://placehold.co/1200x600/f1f5f9/0ea5e9?text=Vui+long+them+anh+vao+duong+dan:+images/3.jpg'">
                     </div>
                 </div>
 
@@ -485,10 +542,8 @@
                 </div>
 
                 <div id="p3-5" class="page-content">
-                    <div class="img-placeholder-large">
-                        <span class="text-6xl mb-4">🖼️</span>
-                        <span class="text-3xl font-black"></span>
-                        <span class="text-xl mt-4 font-normal text-sky-700 max-w-2xl">Ghi chú cho Giảng viên: Chèn sơ đồ đi dây Bus thực tế của Modbus, có vẽ rõ điện trở 120 Ohm ở thiết bị cuối cùng và Switch Gateway ở đầu mạch. Hình ảnh mảng khối rõ ràng.</span>
+                    <div class="flex justify-center items-center h-full min-h-[500px] bg-white rounded-2xl shadow-sm border border-slate-200 p-4">
+                        <img src="images/4.jpg" alt="Đấu Nối Điện Trở Cuối Tuyến (EOL)" class="max-w-full max-h-[75vh] object-contain rounded-xl" onerror="this.onerror=null; this.src='https://placehold.co/1200x600/f1f5f9/0ea5e9?text=Vui+long+them+anh+vao+duong+dan:+images/4.jpg'">
                     </div>
                 </div>
 
@@ -623,14 +678,18 @@
                 </div>
 
                 <div id="p4-3" class="page-content">
-                    <div class="img-placeholder-large">
-                        <span class="text-6xl mb-4">🖼️</span>
-                        <span class="text-3xl font-black"></span>
-                        <span class="text-xl mt-4 font-normal text-sky-700 max-w-2xl">Ghi chú cho Giảng viên: Chèn Flowchart dạng Yes/No phân tích lỗi AHU không lạnh. (Ví dụ: Có điện áp 10V chưa? -> Yes -> Kiểm tra ty van. No -> Kiểm tra bo mạch DDC). Trình bày to rõ.</span>
+                    <div class="flex justify-center items-center h-full min-h-[500px] bg-white rounded-2xl shadow-sm border border-slate-200 p-4">
+                        <img src="images/5.jpg" alt="Sơ đồ Lưu đồ Troubleshooting 4 Bước" class="max-w-full max-h-[75vh] object-contain rounded-xl" onerror="this.onerror=null; this.src='https://placehold.co/1200x600/f1f5f9/0ea5e9?text=Vui+long+them+anh+vao+duong+dan:+images/5.jpg'">
                     </div>
                 </div>
 
                 <div id="p4-4" class="page-content">
+                    <div class="flex justify-center items-center h-full min-h-[500px] bg-white rounded-2xl shadow-sm border border-slate-200 p-4">
+                        <img src="images/6.jpg" alt="Kỹ thuật viên đo kiểm bằng đồng hồ VOM" class="max-w-full max-h-[75vh] object-contain rounded-xl" onerror="this.onerror=null; this.src='https://placehold.co/1200x600/f1f5f9/0ea5e9?text=Vui+long+them+anh+vao+duong+dan:+images/6.jpg'">
+                    </div>
+                </div>
+
+                <div id="p4-5" class="page-content">
                     <h3 class="text-4xl font-extrabold text-primary mb-8 border-l-8 border-accent pl-4">Thực Hành: Troubleshooting HVAC</h3>
                     
                     <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
@@ -715,58 +774,116 @@
                 </div>
 
                 <div id="p5-2" class="page-content">
-                    <h3 class="text-4xl font-extrabold text-primary mb-8 border-l-8 border-accent pl-4">Chống Vendor Lock-in (Ép giá bảo trì)</h3>
-                    <p class="text-xl text-slate-700 mb-8 leading-relaxed">Nếu lúc nghiệm thu bạn không lấy 4 tài liệu cốt lõi này, nhà thầu sẽ nắm đằng chuôi. Tương lai tòa nhà phải thuê bảo trì với giá cắt cổ vì "không ai khác có mật khẩu".</p>
+                    <h3 class="text-4xl font-extrabold text-primary mb-8 border-l-8 border-accent pl-4">Hồ Sơ Bàn Giao & Chống Vendor Lock-in</h3>
+                    <p class="text-xl text-slate-700 mb-8 leading-relaxed">Để tránh tình trạng "đem con bỏ chợ" hoặc bị ép giá bảo trì cắt cổ do phụ thuộc độc quyền, đội ngũ vận hành <strong>BẮT BUỘC</strong> phải nắm giữ đầy đủ 2 nhóm hồ sơ sau trước khi ký Biên bản nghiệm thu hoàn thành (TAC).</p>
                     
-                    <div class="bg-white p-10 rounded-2xl border border-red-200 shadow-lg relative overflow-hidden">
-                        <div class="absolute top-0 right-0 bg-danger text-white font-bold py-1 px-4 rounded-bl-lg">BẮT BUỘC</div>
-                        <h4 class="font-black text-3xl text-slate-800 mb-8 border-b pb-4">Checklist Mềm (Hard-core Data)</h4>
-                        
-                        <div class="space-y-6">
-                            <label class="flex items-center p-5 bg-red-50 border-2 border-red-200 rounded-xl cursor-pointer hover:bg-red-100 transition shadow-sm group">
-                                <input type="checkbox" class="w-8 h-8 accent-danger rounded text-danger focus:ring-danger">
-                                <div class="ml-6">
-                                    <p class="font-black text-2xl text-slate-800 group-hover:text-danger transition">Tài khoản Admin / Root System</p>
-                                    <p class="text-slate-600 mt-1">Phải có quyền cao nhất để tạo user mới, đổi IP máy tính.</p>
-                                </div>
-                            </label>
+                    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                        <!-- Cột 1: Tài liệu Kỹ thuật -->
+                        <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm relative overflow-hidden">
+                            <div class="absolute top-0 right-0 bg-blue-100 text-primary font-bold py-1 px-4 rounded-bl-lg text-sm">HARD-COPY / PDF</div>
+                            <h4 class="font-black text-2xl text-slate-800 mb-6 border-b border-slate-100 pb-4 flex items-center gap-3">
+                                <span class="text-3xl">📘</span> Tài liệu Kỹ thuật & Vận hành
+                            </h4>
+                            
+                            <ul class="space-y-4 text-lg text-slate-700">
+                                <li class="bg-slate-50 p-4 rounded-xl border border-slate-100 hover:border-secondary transition">
+                                    <strong class="text-secondary block mb-1">1. Bản vẽ hoàn công (As-built Drawing)</strong>
+                                    Phải thể hiện chính xác tuyến cáp thực tế đi trên trần, sơ đồ nguyên lý (P&ID) và tủ điện điều khiển DDC.
+                                </li>
+                                <li class="bg-slate-50 p-4 rounded-xl border border-slate-100 hover:border-secondary transition">
+                                    <strong class="text-secondary block mb-1">2. Ma trận Nguyên lý điều khiển (SOO)</strong>
+                                    Sequence of Operation: Mô tả chi tiết bằng chữ cách hệ thống chạy tự động, thông số PID, và logic khóa chéo báo cháy.
+                                </li>
+                                <li class="bg-slate-50 p-4 rounded-xl border border-slate-100 hover:border-secondary transition">
+                                    <strong class="text-secondary block mb-1">3. Cẩm nang Vận hành (O&M Manual)</strong>
+                                    Tài liệu hướng dẫn sử dụng phần mềm, cách xử lý các cảnh báo (Troubleshooting guide) do chính nhà thầu biên soạn.
+                                </li>
+                            </ul>
+                        </div>
 
-                            <label class="flex items-center p-5 bg-slate-50 border-2 border-slate-200 rounded-xl cursor-pointer hover:bg-sky-50 transition shadow-sm group">
-                                <input type="checkbox" class="w-8 h-8 accent-primary rounded">
-                                <div class="ml-6">
-                                    <p class="font-black text-2xl text-slate-800 group-hover:text-primary transition">File Source Code lập trình DDC (USB)</p>
-                                    <p class="text-slate-600 mt-1">Tài sản trí tuệ. DDC cháy có code này mua vỏ mới đổ vào là chạy.</p>
-                                </div>
-                            </label>
-
-                            <label class="flex items-center p-5 bg-slate-50 border-2 border-slate-200 rounded-xl cursor-pointer hover:bg-sky-50 transition shadow-sm group">
-                                <input type="checkbox" class="w-8 h-8 accent-primary rounded">
-                                <div class="ml-6">
-                                    <p class="font-black text-2xl text-slate-800 group-hover:text-primary transition">File Backup Database Server</p>
-                                    <p class="text-slate-600 mt-1">Chứa toàn bộ giao diện màn hình vẽ (Graphics) và cấu hình Trendlog.</p>
-                                </div>
-                            </label>
-
-                            <label class="flex items-center p-5 bg-slate-50 border-2 border-slate-200 rounded-xl cursor-pointer hover:bg-sky-50 transition shadow-sm group">
-                                <input type="checkbox" class="w-8 h-8 accent-primary rounded">
-                                <div class="ml-6">
-                                    <p class="font-black text-2xl text-slate-800 group-hover:text-primary transition">Bản mềm Point List (Excel) & Tool</p>
-                                    <p class="text-slate-600 mt-1">Có ghi rõ IP, MAC, Baud rate để sau này kỹ thuật dễ dò cáp truyền thông.</p>
-                                </div>
-                            </label>
+                        <!-- Cột 2: Hard-core Data -->
+                        <div class="bg-red-50 p-8 rounded-2xl border border-red-200 shadow-sm relative overflow-hidden">
+                            <div class="absolute top-0 right-0 bg-danger text-white font-bold py-1 px-4 rounded-bl-lg text-sm">USB / BẢN MỀM</div>
+                            <h4 class="font-black text-2xl text-slate-800 mb-6 border-b border-red-100 pb-4 flex items-center gap-3">
+                                <span class="text-3xl">🔑</span> Dữ liệu Hệ thống (Hard-core Data)
+                            </h4>
+                            
+                            <ul class="space-y-4 text-lg text-slate-700">
+                                <li class="bg-white p-4 rounded-xl border border-red-100 hover:border-danger transition shadow-sm">
+                                    <strong class="text-danger block mb-1">1. Mật khẩu Root / Admin System</strong>
+                                    Quyền cao nhất để can thiệp hệ thống. Yêu cầu bàn giao trong phong bì niêm phong.
+                                </li>
+                                <li class="bg-white p-4 rounded-xl border border-red-100 hover:border-danger transition shadow-sm">
+                                    <strong class="text-danger block mb-1">2. Source Code DDC & Backup Database</strong>
+                                    Bản sao lưu chương trình thuật toán tải xuống tủ DDC và giao diện đồ họa Server. Thiếu cái này, nếu hỏng thiết bị, hệ thống bị tê liệt hoàn toàn.
+                                </li>
+                                <li class="bg-white p-4 rounded-xl border border-red-100 hover:border-danger transition shadow-sm">
+                                    <strong class="text-danger block mb-1">3. Bảng danh sách điểm (Point List & IP)</strong>
+                                    File Excel chốt cuối cùng, ghi rõ địa chỉ MAC, IP, Slave ID của từng thiết bị để tiện bảo trì, thay thế sau này.
+                                </li>
+                            </ul>
                         </div>
                     </div>
                 </div>
 
                 <div id="p5-3" class="page-content">
-                    <div class="img-placeholder-large">
-                        <span class="text-6xl mb-4">🖼️</span>
-                        <span class="text-3xl font-black"></span>
-                        <span class="text-xl mt-4 font-normal text-sky-700 max-w-2xl">Ghi chú cho Giảng viên: Chèn ảnh chụp một mẫu Biên bản bàn giao liệt kê rõ việc bàn giao USB chứa Source Code, Database và phong bì niêm phong Password Admin cấp cao nhất.</span>
+                    <div class="flex justify-center items-center h-full min-h-[500px] bg-white rounded-2xl shadow-sm border border-slate-200 p-4">
+                        <img src="images/8.jpg" alt="Danh mục Bộ Hồ Sơ Bàn Giao BMS Tiêu Chuẩn" class="max-w-full max-h-[75vh] object-contain rounded-xl" onerror="this.onerror=null; this.src='https://placehold.co/1200x600/f1f5f9/0ea5e9?text=Vui+long+them+anh+vao+duong+dan:+images/8.jpg'">
                     </div>
                 </div>
 
                 <div id="p5-4" class="page-content">
+                    <h3 class="text-4xl font-extrabold text-primary mb-8 border-l-8 border-accent pl-4">Bảo Hành & Bảo Trì Phòng Ngừa (Preventive)</h3>
+                    <p class="text-xl text-slate-700 mb-8 leading-relaxed">Hệ thống BMS không chỉ để bật/tắt thiết bị, mà là công cụ cốt lõi để chuẩn đoán "bệnh" từ sớm và bảo vệ quyền lợi pháp lý trong bảo hành.</p>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-10 mb-8">
+                        <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm border-t-8 border-primary">
+                            <h4 class="font-black text-2xl text-primary mb-4 flex items-center gap-2"><span>📂</span> BMS là "Hộp đen" Bằng Chứng</h4>
+                            <ul class="text-lg space-y-3 text-slate-700">
+                                <li>• Dữ liệu lịch sử (Trendlog) lưu trữ 24/7 không biết nói dối. Nó giúp giải quyết tranh chấp đổ lỗi giữa các nhà thầu Cơ, Điện, BMS.</li>
+                                <li>• <strong>Ví dụ:</strong> BMS ra lệnh (Command ON) nhưng 5 phút sau thiết bị mới Trip. Bằng chứng này xác định lỗi do thiết bị động lực hoặc quá tải cơ khí, loại trừ hoàn toàn lỗi BMS cấp lệnh sai.</li>
+                            </ul>
+                        </div>
+
+                        <div class="bg-white p-8 rounded-2xl border border-slate-200 shadow-sm border-t-8 border-secondary">
+                            <h4 class="font-black text-2xl text-secondary mb-4 flex items-center gap-2"><span>🔍</span> Bảo Trì Phòng Ngừa</h4>
+                            <ul class="text-lg space-y-3 text-slate-700">
+                                <li>• <strong>Chênh áp (DPS):</strong> Giám sát áp suất tăng dần báo hiệu màng lọc dơ -> Báo vệ sinh trước khi nghẹt cứng gây sập dàn lạnh.</li>
+                                <li>• <strong>Giờ chạy (Run Hour):</strong> Đếm chính xác số giờ chạy của bơm/quạt để hệ thống tự động xuất cảnh báo lên lịch bảo dưỡng định kỳ (thay dầu mỡ, phớt).</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="bg-slate-800 p-8 rounded-2xl shadow-md text-slate-200">
+                        <h4 class="font-black text-2xl text-accent mb-6 uppercase tracking-wider">🚨 Khi Nào Mới Cần Gọi Nhà Thầu BMS?</h4>
+                        <p class="text-lg mb-4 text-slate-300">Đội vận hành cần hiểu kiến trúc và tự xử lý (khoanh vùng, kiểm tra I/O) các lỗi cơ bản. Chỉ phối hợp, gọi nhà thầu BMS (Escalation) trong các trường hợp sau:</p>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div class="bg-slate-700 p-5 rounded-xl border border-slate-600">
+                                <span class="text-3xl block mb-2">🧠</span>
+                                <strong class="text-sky-400 text-xl block mb-1">Lỗi Logic Phức Tạp</strong>
+                                <span class="text-sm">Vòng lặp PID chạy không ổn định, van nhấp nhô (Hunting) liên tục, thuật toán chạy không mượt.</span>
+                            </div>
+                            <div class="bg-slate-700 p-5 rounded-xl border border-slate-600">
+                                <span class="text-3xl block mb-2">🌐</span>
+                                <strong class="text-sky-400 text-xl block mb-1">Mất Mạng Diện Rộng</strong>
+                                <span class="text-sm">Mất kết nối cả một trục nhánh (Nhiều tủ DDC cùng lúc) mà không rõ nguyên nhân đứt cáp vật lý.</span>
+                            </div>
+                            <div class="bg-slate-700 p-5 rounded-xl border border-slate-600">
+                                <span class="text-3xl block mb-2">⚙️</span>
+                                <strong class="text-sky-400 text-xl block mb-1">Cần Chỉnh Đổi SOO</strong>
+                                <span class="text-sm">CĐT yêu cầu thay đổi hẳn nguyên lý hoạt động, nâng cấp/mở rộng hệ thống. Cần sửa Source code.</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="p5-5" class="page-content">
+                    <div class="flex justify-center items-center h-full min-h-[500px] bg-white rounded-2xl shadow-sm border border-slate-200 p-4">
+                        <img src="images/7.jpg" alt="Mẫu Biên Bản Bàn Giao Soft-copy BMS" class="max-w-full max-h-[75vh] object-contain rounded-xl" onerror="this.onerror=null; this.src='https://placehold.co/1200x600/f1f5f9/0ea5e9?text=Vui+long+them+anh+vao+duong+dan:+images/7.jpg'">
+                    </div>
+                </div>
+
+                <div id="p5-6" class="page-content">
                     <h3 class="text-4xl font-extrabold text-primary mb-8 border-l-8 border-accent pl-4">Thực Hành: Bàn Giao & Vận Hành An Toàn</h3>
                     
                     <div class="bg-white rounded-2xl shadow-sm border border-slate-200 overflow-hidden">
@@ -826,7 +943,7 @@
                 <div class="w-64 h-4 bg-slate-200 rounded-full overflow-hidden shadow-inner">
                     <div id="progress-bar" class="h-full bg-accent transition-all duration-300 w-0"></div>
                 </div>
-                <span id="page-indicator" class="font-black text-xl text-primary bg-slate-100 px-4 py-1 rounded-lg border border-slate-200">1 / 20</span>
+                <span id="page-indicator" class="font-black text-xl text-primary bg-slate-100 px-4 py-1 rounded-lg border border-slate-200">1 / 26</span>
             </div>
 
             <button onclick="navigate(1)" id="btn-next" class="px-8 py-4 bg-primary text-white font-bold rounded-xl hover:bg-blue-800 disabled:opacity-40 shadow-md transition text-xl">Trang sau →</button>
@@ -843,8 +960,10 @@
             
             { id: 'p2-1', title: '2.1 Bản chất Tín hiệu Số (DI/DO)', module: '2. Tín Hiệu & Cáp I/O' },
             { id: 'p2-2', title: '2.2 Tín hiệu Tương tự (AI/AO)', module: '2. Tín Hiệu & Cáp I/O' },
-            { id: 'p2-3', title: '2.3 Loại Cáp & Bóc Tách Khối Lượng', module: '2. Tín Hiệu & Cáp I/O' },
-            { id: 'p2-4', title: '2.4 Thực hành: Tín hiệu & Cáp', module: '2. Tín Hiệu & Cáp I/O' },
+            { id: 'p2-3', title: '2.3 Phân Loại Thiết Bị Trường', module: '2. Tín Hiệu & Cáp I/O' },
+            { id: 'p2-4', title: '2.4 Hình Ảnh: Thiết Bị Trường', module: '2. Tín Hiệu & Cáp I/O' },
+            { id: 'p2-5', title: '2.5 Loại Cáp & Bóc Tách Khối Lượng', module: '2. Tín Hiệu & Cáp I/O' },
+            { id: 'p2-6', title: '2.6 Thực hành: Tín hiệu & Cáp', module: '2. Tín Hiệu & Cáp I/O' },
             
             { id: 'p3-1', title: '3.1 Topology Mạng (Bus/Star/Ring)', module: '3. Mạng Truyền Thông' },
             { id: 'p3-2', title: '3.2 Hình Ảnh: Sơ đồ Topology', module: '3. Mạng Truyền Thông' },
@@ -856,12 +975,15 @@
             { id: 'p4-1', title: '4.1 Nguyên tắc 4 bước Vàng', module: '4. Troubleshooting HVAC' },
             { id: 'p4-2', title: '4.2 Downtime & Alarm giả', module: '4. Troubleshooting HVAC' },
             { id: 'p4-3', title: '4.3 Hình Ảnh: Lưu đồ xử lý lỗi', module: '4. Troubleshooting HVAC' },
-            { id: 'p4-4', title: '4.4 Thực hành: Troubleshooting', module: '4. Troubleshooting HVAC' },
+            { id: 'p4-4', title: '4.4 Hình Ảnh: Kỹ năng đo VOM', module: '4. Troubleshooting HVAC' },
+            { id: 'p4-5', title: '4.5 Thực hành: Troubleshooting', module: '4. Troubleshooting HVAC' },
             
             { id: 'p5-1', title: '5.1 Vận hành & Phối hợp Nhà thầu', module: '5. Nhận Bàn Giao' },
-            { id: 'p5-2', title: '5.2 Checklist Chống Vendor Lock-in', module: '5. Nhận Bàn Giao' },
-            { id: 'p5-3', title: '5.3 Hình Ảnh: Mẫu Biên bản Data', module: '5. Nhận Bàn Giao' },
-            { id: 'p5-4', title: '5.4 Thực hành: Vận hành & Bàn giao', module: '5. Nhận Bàn Giao' }
+            { id: 'p5-2', title: '5.2 Hồ Sơ Bàn Giao & Vendor Lock-in', module: '5. Nhận Bàn Giao' },
+            { id: 'p5-3', title: '5.3 Hình Ảnh: Bộ Hồ Sơ Tiêu Chuẩn', module: '5. Nhận Bàn Giao' },
+            { id: 'p5-4', title: '5.4 Bảo Hành & Bảo Trì Phòng Ngừa', module: '5. Nhận Bàn Giao' },
+            { id: 'p5-5', title: '5.5 Hình Ảnh: Mẫu Biên bản Data', module: '5. Nhận Bàn Giao' },
+            { id: 'p5-6', title: '5.6 Thực hành: Vận hành & Bàn giao', module: '5. Nhận Bàn Giao' }
         ];
 
         let currentIndex = 0;
@@ -1094,3 +1216,4 @@
     </script>
 </body>
 </html>
+```
