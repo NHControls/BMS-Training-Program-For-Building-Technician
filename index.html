@@ -291,87 +291,53 @@
 
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         <!-- Group 1: Cảm Biến -->
-                        <div class="bg-white p-8 rounded-2xl border-t-8 border-primary shadow-sm flex flex-col">
-                            <div class="flex items-center gap-5 mb-5">
-                                <div class="w-20 h-20 shrink-0 bg-slate-100 rounded-xl border border-slate-200 overflow-hidden flex items-center justify-center">
-                                    <img src="https://placehold.co/150x150/eff6ff/1e3a8a?text=[Image+of+Cảm+Biến]" alt="Cảm biến" class="w-full h-full object-cover">
-                                </div>
-                                <div>
-                                    <h4 class="font-black text-2xl text-primary mb-2 uppercase">1. Cảm Biến</h4>
-                                    <span class="text-sm font-bold text-slate-600 bg-slate-100 px-3 py-1 rounded-md border border-slate-200">AI / AO</span>
-                                </div>
+                        <div class="bg-white p-6 md:p-8 rounded-2xl border-t-8 border-primary shadow-sm flex flex-col h-full hover:shadow-lg transition">
+                            <div class="w-full aspect-square bg-slate-50 rounded-xl mb-6 overflow-hidden flex items-center justify-center border border-slate-200">
+                                <img src="https://placehold.co/400x400/eff6ff/1e3a8a?text=[Image+of+Cảm+Biến]" alt="Cảm biến" class="w-full h-full object-cover">
                             </div>
-                            <p class="text-lg text-slate-700">Đo lường giá trị thay đổi liên tục (Nhiệt, Ẩm, Áp suất, CO2) phục vụ vòng lặp điều khiển PID.</p>
+                            <h4 class="font-black text-2xl text-primary mb-3 uppercase">1. Cảm Biến</h4>
+                            <div class="mb-4"><span class="text-sm font-bold text-slate-600 bg-slate-100 px-3 py-1.5 rounded-md border border-slate-200">Tín hiệu: AI / AO</span></div>
+                            <p class="text-lg text-slate-700 flex-1">Đo lường giá trị thay đổi liên tục (Nhiệt độ, Độ ẩm, Áp suất, CO2) cung cấp dữ liệu cho vòng lặp PID.</p>
                         </div>
 
                         <!-- Group 2: Công Tắc -->
-                        <div class="bg-white p-8 rounded-2xl border-t-8 border-secondary shadow-sm flex flex-col">
-                            <div class="flex items-center gap-5 mb-5">
-                                <div class="w-20 h-20 shrink-0 bg-slate-100 rounded-xl border border-slate-200 overflow-hidden flex items-center justify-center">
-                                    <img src="https://placehold.co/150x150/f0f9ff/0ea5e9?text=[Image+of+Công+Tắc]" alt="Công tắc" class="w-full h-full object-cover">
-                                </div>
-                                <div>
-                                    <h4 class="font-black text-2xl text-secondary mb-2 uppercase">2. Công Tắc</h4>
-                                    <span class="text-sm font-bold text-slate-600 bg-slate-100 px-3 py-1 rounded-md border border-slate-200">DI / DO</span>
-                                </div>
+                        <div class="bg-white p-6 md:p-8 rounded-2xl border-t-8 border-secondary shadow-sm flex flex-col h-full hover:shadow-lg transition">
+                            <div class="w-full aspect-square bg-slate-50 rounded-xl mb-6 overflow-hidden flex items-center justify-center border border-slate-200">
+                                <img src="https://placehold.co/400x400/f0f9ff/0ea5e9?text=[Image+of+Công+Tắc]" alt="Công tắc" class="w-full h-full object-cover">
                             </div>
-                            <p class="text-lg text-slate-700">Báo trạng thái Bật/Tắt (Flow switch, Công tắc chênh áp DPS) hoặc dùng làm điều kiện khóa chéo bảo vệ an toàn.</p>
+                            <h4 class="font-black text-2xl text-secondary mb-3 uppercase">2. Công Tắc</h4>
+                            <div class="mb-4"><span class="text-sm font-bold text-slate-600 bg-slate-100 px-3 py-1.5 rounded-md border border-slate-200">Tín hiệu: DI / DO</span></div>
+                            <p class="text-lg text-slate-700 flex-1">Báo trạng thái Bật/Tắt (Flow switch, DPS) hoặc dùng làm điều kiện khóa chéo (Interlock) bảo vệ cơ điện.</p>
                         </div>
 
                         <!-- Group 3: Đo Đếm -->
-                        <div class="bg-white p-8 rounded-2xl border-t-8 border-accent shadow-sm flex flex-col">
-                            <div class="flex items-center gap-5 mb-5">
-                                <div class="w-20 h-20 shrink-0 bg-slate-100 rounded-xl border border-slate-200 overflow-hidden flex items-center justify-center">
-                                    <img src="https://placehold.co/150x150/fefce8/eab308?text=[Image+of+Đồng+Hồ]" alt="Đo đếm" class="w-full h-full object-cover">
-                                </div>
-                                <div>
-                                    <h4 class="font-black text-2xl text-amber-600 mb-2 uppercase">3. Đo Đếm</h4>
-                                    <span class="text-sm font-bold text-slate-600 bg-slate-100 px-3 py-1 rounded-md border border-slate-200">RS485 / IP</span>
-                                </div>
+                        <div class="bg-white p-6 md:p-8 rounded-2xl border-t-8 border-accent shadow-sm flex flex-col h-full hover:shadow-lg transition">
+                            <div class="w-full aspect-square bg-slate-50 rounded-xl mb-6 overflow-hidden flex items-center justify-center border border-slate-200">
+                                <img src="https://placehold.co/400x400/fefce8/eab308?text=[Image+of+Đồng+Hồ+Đo+Đếm]" alt="Đo đếm" class="w-full h-full object-cover">
                             </div>
-                            <p class="text-lg text-slate-700">Đồng hồ điện năng, đồng hồ nước, BTU Meter phục vụ theo dõi năng lượng (chỉ số PUE của Data Center).</p>
+                            <h4 class="font-black text-2xl text-amber-600 mb-3 uppercase">3. Đo Đếm</h4>
+                            <div class="mb-4"><span class="text-sm font-bold text-slate-600 bg-slate-100 px-3 py-1.5 rounded-md border border-slate-200">Tín hiệu: RS485 / IP</span></div>
+                            <p class="text-lg text-slate-700 flex-1">Đồng hồ điện năng, đồng hồ nước, BTU Meter phục vụ theo dõi năng lượng (Chỉ số PUE).</p>
                         </div>
 
-                        <!-- Group 4: Van (Valve) -->
-                        <div class="bg-white p-8 rounded-2xl border-t-8 border-emerald-500 shadow-sm flex flex-col">
-                            <div class="flex items-center gap-5 mb-5">
-                                <div class="w-20 h-20 shrink-0 bg-slate-100 rounded-xl border border-slate-200 overflow-hidden flex items-center justify-center">
-                                    <img src="https://placehold.co/150x150/ecfdf5/10b981?text=[Image+of+Van]" alt="Van" class="w-full h-full object-cover">
-                                </div>
-                                <div>
-                                    <h4 class="font-black text-2xl text-emerald-600 mb-2 uppercase">4. Van (Valve)</h4>
-                                    <span class="text-sm font-bold text-slate-600 bg-slate-100 px-3 py-1 rounded-md border border-slate-200">AO / DO</span>
-                                </div>
+                        <!-- Group 4: Van & Actuator -->
+                        <div class="bg-white p-6 md:p-8 rounded-2xl border-t-8 border-emerald-500 shadow-sm flex flex-col h-full hover:shadow-lg transition">
+                            <div class="w-full aspect-square bg-slate-50 rounded-xl mb-6 overflow-hidden flex items-center justify-center border border-slate-200">
+                                <img src="https://placehold.co/400x400/ecfdf5/10b981?text=[Image+of+Van+và+Actuator]" alt="Van và Actuator" class="w-full h-full object-cover">
                             </div>
-                            <p class="text-lg text-slate-700">Điều tiết lưu lượng nước lạnh (CHW) hoặc nước nóng chảy qua các dàn trao đổi nhiệt AHU/FCU.</p>
+                            <h4 class="font-black text-2xl text-emerald-600 mb-3 uppercase">4. Van & Actuator</h4>
+                            <div class="mb-4"><span class="text-sm font-bold text-slate-600 bg-slate-100 px-3 py-1.5 rounded-md border border-slate-200">Tín hiệu: AO/DO, AI/DI</span></div>
+                            <p class="text-lg text-slate-700 flex-1">Thiết bị chấp hành. Actuator (phần điện) nhận lệnh xoay cơ khí để điều tiết Van nước (phần cơ) hoặc Đóng/Mở cánh gió AHU.</p>
                         </div>
 
-                        <!-- Group 5: Actuator -->
-                        <div class="bg-white p-8 rounded-2xl border-t-8 border-violet-500 shadow-sm flex flex-col">
-                            <div class="flex items-center gap-5 mb-5">
-                                <div class="w-20 h-20 shrink-0 bg-slate-100 rounded-xl border border-slate-200 overflow-hidden flex items-center justify-center">
-                                    <img src="https://placehold.co/150x150/f5f3ff/8b5cf6?text=[Image+of+Actuator]" alt="Actuator" class="w-full h-full object-cover">
-                                </div>
-                                <div>
-                                    <h4 class="font-black text-2xl text-violet-600 mb-2 uppercase">5. Actuator</h4>
-                                    <span class="text-sm font-bold text-slate-600 bg-slate-100 px-3 py-1 rounded-md border border-slate-200">AO/DO, AI/DI</span>
-                                </div>
+                        <!-- Group 5: Contactor & Relay -->
+                        <div class="bg-white p-6 md:p-8 rounded-2xl border-t-8 border-rose-500 shadow-sm flex flex-col h-full hover:shadow-lg transition">
+                            <div class="w-full aspect-square bg-slate-50 rounded-xl mb-6 overflow-hidden flex items-center justify-center border border-slate-200">
+                                <img src="https://placehold.co/400x400/fff1f2/f43f5e?text=[Image+of+Contactor+và+Relay]" alt="Contactor và Relay" class="w-full h-full object-cover">
                             </div>
-                            <p class="text-lg text-slate-700">Động cơ chấp hành (có motor bên trong) giúp đóng/mở cánh gió (Damper) hoặc xoay ty van cơ khí.</p>
-                        </div>
-
-                        <!-- Group 6: Contactor -->
-                        <div class="bg-white p-8 rounded-2xl border-t-8 border-rose-500 shadow-sm flex flex-col">
-                            <div class="flex items-center gap-5 mb-5">
-                                <div class="w-20 h-20 shrink-0 bg-slate-100 rounded-xl border border-slate-200 overflow-hidden flex items-center justify-center">
-                                    <img src="https://placehold.co/150x150/fff1f2/f43f5e?text=[Image+of+Contactor]" alt="Contactor" class="w-full h-full object-cover">
-                                </div>
-                                <div>
-                                    <h4 class="font-black text-2xl text-rose-600 mb-2 uppercase">6. Contactor</h4>
-                                    <span class="text-sm font-bold text-slate-600 bg-slate-100 px-3 py-1 rounded-md border border-slate-200">DO / DI</span>
-                                </div>
-                            </div>
-                            <p class="text-lg text-slate-700">Khởi động từ (nằm trong tủ MCC) dùng để đóng cắt nguồn điện động lực 3 pha cho Bơm, Quạt cấp/hút.</p>
+                            <h4 class="font-black text-2xl text-rose-600 mb-3 uppercase">5. Contactor & Relay</h4>
+                            <div class="mb-4"><span class="text-sm font-bold text-slate-600 bg-slate-100 px-3 py-1.5 rounded-md border border-slate-200">Tín hiệu: DO / DI</span></div>
+                            <p class="text-lg text-slate-700 flex-1">Nằm tại tủ điện MCC. DDC xuất DO kích Relay kiếng 24V, Relay đóng tiếp điểm cấp 220V cho cuộn hút Contactor để chạy Motor.</p>
                         </div>
                     </div>
                 </div>
@@ -537,6 +503,13 @@
                     <div class="mt-8 bg-amber-50 p-6 rounded-xl border border-amber-200 shadow-sm text-lg">
                         <strong class="text-amber-900 block mb-2 text-xl">💡 Rút ra:</strong>
                         <span class="text-amber-800">Chung sợi cáp RS485, nhưng Đồng hồ điện nói "Modbus" còn DDC cài "BACnet MS/TP" thì không thể giao tiếp nếu không qua bộ chuyển đổi (Gateway).</span>
+                    </div>
+                </div>
+
+                <!-- Thêm trang hình ảnh sau phần Chuẩn và Giao thức -->
+                <div id="p3-3b" class="page-content">
+                    <div class="flex justify-center items-center h-full min-h-[500px] bg-white rounded-2xl shadow-sm border border-slate-200 p-4">
+                        <img src="images/protocol-diagram.jpg" alt="Minh Họa Chuẩn Vật Lý và Giao Thức" class="max-w-full max-h-[75vh] object-contain rounded-xl" onerror="this.onerror=null; this.src='https://placehold.co/1200x600/f1f5f9/0ea5e9?text=[Image+of+Minh+Họa+Chuẩn+Vật+Lý+và+Giao+Thức]'">
                     </div>
                 </div>
 
@@ -954,9 +927,10 @@
             { id: 'p3-1', title: '3.1 Topology Mạng (Bus/Star/Ring)', module: '3. Mạng Truyền Thông' },
             { id: 'p3-2', title: '3.2 Hình Ảnh: Sơ đồ Topology', module: '3. Mạng Truyền Thông' },
             { id: 'p3-3', title: '3.3 Chuẩn Vật Lý vs Giao Thức', module: '3. Mạng Truyền Thông' },
-            { id: 'p3-4', title: '3.4 Cáp Modbus & BACnet', module: '3. Mạng Truyền Thông' },
-            { id: 'p3-5', title: '3.5 Hình Ảnh: Sơ đồ RS485 EOL', module: '3. Mạng Truyền Thông' },
-            { id: 'p3-6', title: '3.6 Thực hành: Truyền thông', module: '3. Mạng Truyền Thông' },
+            { id: 'p3-3b', title: '3.4 Hình Ảnh: Chuẩn & Giao Thức', module: '3. Mạng Truyền Thông' },
+            { id: 'p3-4', title: '3.5 Cáp Modbus & BACnet', module: '3. Mạng Truyền Thông' },
+            { id: 'p3-5', title: '3.6 Hình Ảnh: Sơ đồ RS485 EOL', module: '3. Mạng Truyền Thông' },
+            { id: 'p3-6', title: '3.7 Thực hành: Truyền thông', module: '3. Mạng Truyền Thông' },
             
             { id: 'p4-1', title: '4.1 Nguyên tắc 4 bước Vàng', module: '4. Troubleshooting HVAC' },
             { id: 'p4-2', title: '4.2 Downtime & Alarm giả', module: '4. Troubleshooting HVAC' },
@@ -965,9 +939,10 @@
             { id: 'p4-5', title: '4.5 Thực hành: Troubleshooting', module: '4. Troubleshooting HVAC' },
             { id: 'p4-6', title: '4.6 Trợ Lý AI Phân Tích Sự Cố ✨', module: '4. Troubleshooting HVAC' },
             
-            { id: 'p5-1', title: '5.1 Vận hành & Phối hợp Nhà thầu', module: '5. Nhận Bàn Giao' },
-            { id: 'p5-2', title: '5.2 Hồ Sơ Bàn Giao & Vendor Lock-in', module: '5. Nhận Bàn Giao' },
-            { id: 'p5-3', title: '5.3 Hình Ảnh: Bộ Hồ Sơ Tiêu Chuẩn', module: '5. Nhận Bàn Giao' },
+            // Đã đảo vị trí hiển thị: Hồ sơ bàn giao lên trước Vận hành an toàn
+            { id: 'p5-2', title: '5.1 Hồ Sơ Bàn Giao & Vendor Lock-in', module: '5. Nhận Bàn Giao' },
+            { id: 'p5-3', title: '5.2 Hình Ảnh: Bộ Hồ Sơ Tiêu Chuẩn', module: '5. Nhận Bàn Giao' },
+            { id: 'p5-1', title: '5.3 Vận hành & Phối hợp Nhà thầu', module: '5. Nhận Bàn Giao' },
             { id: 'p5-4', title: '5.4 Bảo Hành & Bảo Trì Phòng Ngừa', module: '5. Nhận Bàn Giao' },
             { id: 'p5-5', title: '5.5 Hình Ảnh: Mẫu Biên bản Data', module: '5. Nhận Bàn Giao' },
             { id: 'p5-6', title: '5.6 Thực hành: Vận hành & Bàn giao', module: '5. Nhận Bàn Giao' },
