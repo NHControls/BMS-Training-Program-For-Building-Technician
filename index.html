@@ -287,28 +287,91 @@
 
                 <div id="p2-3" class="page-content">
                     <h3 class="text-4xl font-extrabold text-primary mb-8 border-l-8 border-accent pl-4">Phân Loại Thiết Bị Trường</h3>
-                    <p class="text-xl text-slate-700 mb-8">Nhận diện chức năng thiết bị để tra cứu bản vẽ và xác định đúng loại tín hiệu I/O.</p>
+                    <p class="text-xl text-slate-700 mb-8">Nhận diện chức năng thiết bị để tra cứu bản vẽ và xác định đúng loại tín hiệu I/O đặc trưng.</p>
 
-                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                        <div class="bg-white p-8 rounded-2xl border-t-8 border-primary shadow-sm">
-                            <div class="text-5xl mb-4">🌡️</div>
-                            <h4 class="font-black text-2xl text-primary mb-4 uppercase">1. Cảm Biến</h4>
-                            <p class="text-lg font-bold text-slate-500 mb-4">Tín hiệu: AI / AO</p>
-                            <p class="text-lg text-slate-700">Đo lường giá trị thay đổi liên tục (Nhiệt, Ẩm, CO2) phục vụ vòng lặp PID.</p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <!-- Group 1: Cảm Biến -->
+                        <div class="bg-white p-8 rounded-2xl border-t-8 border-primary shadow-sm flex flex-col">
+                            <div class="flex items-center gap-5 mb-5">
+                                <div class="w-20 h-20 shrink-0 bg-slate-100 rounded-xl border border-slate-200 overflow-hidden flex items-center justify-center">
+                                    <img src="https://placehold.co/150x150/eff6ff/1e3a8a?text=[Image+of+Cảm+Biến]" alt="Cảm biến" class="w-full h-full object-cover">
+                                </div>
+                                <div>
+                                    <h4 class="font-black text-2xl text-primary mb-2 uppercase">1. Cảm Biến</h4>
+                                    <span class="text-sm font-bold text-slate-600 bg-slate-100 px-3 py-1 rounded-md border border-slate-200">AI / AO</span>
+                                </div>
+                            </div>
+                            <p class="text-lg text-slate-700">Đo lường giá trị thay đổi liên tục (Nhiệt, Ẩm, Áp suất, CO2) phục vụ vòng lặp điều khiển PID.</p>
                         </div>
 
-                        <div class="bg-white p-8 rounded-2xl border-t-8 border-secondary shadow-sm">
-                            <div class="text-5xl mb-4">🎚️</div>
-                            <h4 class="font-black text-2xl text-secondary mb-4 uppercase">2. Công Tắc</h4>
-                            <p class="text-lg font-bold text-slate-500 mb-4">Tín hiệu: DI / DO</p>
-                            <p class="text-lg text-slate-700">Báo trạng thái Bật/Tắt (Flow switch, DPS) hoặc dùng khóa chéo bảo vệ.</p>
+                        <!-- Group 2: Công Tắc -->
+                        <div class="bg-white p-8 rounded-2xl border-t-8 border-secondary shadow-sm flex flex-col">
+                            <div class="flex items-center gap-5 mb-5">
+                                <div class="w-20 h-20 shrink-0 bg-slate-100 rounded-xl border border-slate-200 overflow-hidden flex items-center justify-center">
+                                    <img src="https://placehold.co/150x150/f0f9ff/0ea5e9?text=[Image+of+Công+Tắc]" alt="Công tắc" class="w-full h-full object-cover">
+                                </div>
+                                <div>
+                                    <h4 class="font-black text-2xl text-secondary mb-2 uppercase">2. Công Tắc</h4>
+                                    <span class="text-sm font-bold text-slate-600 bg-slate-100 px-3 py-1 rounded-md border border-slate-200">DI / DO</span>
+                                </div>
+                            </div>
+                            <p class="text-lg text-slate-700">Báo trạng thái Bật/Tắt (Flow switch, Công tắc chênh áp DPS) hoặc dùng làm điều kiện khóa chéo bảo vệ an toàn.</p>
                         </div>
 
-                        <div class="bg-white p-8 rounded-2xl border-t-8 border-accent shadow-sm">
-                            <div class="text-5xl mb-4">⏱️</div>
-                            <h4 class="font-black text-2xl text-amber-600 mb-4 uppercase">3. Đo Đếm</h4>
-                            <p class="text-lg font-bold text-slate-500 mb-4">Tín hiệu: RS485 / IP</p>
-                            <p class="text-lg text-slate-700">Đồng hồ điện, nước, BTU Meter phục vụ theo dõi năng lượng (PUE).</p>
+                        <!-- Group 3: Đo Đếm -->
+                        <div class="bg-white p-8 rounded-2xl border-t-8 border-accent shadow-sm flex flex-col">
+                            <div class="flex items-center gap-5 mb-5">
+                                <div class="w-20 h-20 shrink-0 bg-slate-100 rounded-xl border border-slate-200 overflow-hidden flex items-center justify-center">
+                                    <img src="https://placehold.co/150x150/fefce8/eab308?text=[Image+of+Đồng+Hồ]" alt="Đo đếm" class="w-full h-full object-cover">
+                                </div>
+                                <div>
+                                    <h4 class="font-black text-2xl text-amber-600 mb-2 uppercase">3. Đo Đếm</h4>
+                                    <span class="text-sm font-bold text-slate-600 bg-slate-100 px-3 py-1 rounded-md border border-slate-200">RS485 / IP</span>
+                                </div>
+                            </div>
+                            <p class="text-lg text-slate-700">Đồng hồ điện năng, đồng hồ nước, BTU Meter phục vụ theo dõi năng lượng (chỉ số PUE của Data Center).</p>
+                        </div>
+
+                        <!-- Group 4: Van (Valve) -->
+                        <div class="bg-white p-8 rounded-2xl border-t-8 border-emerald-500 shadow-sm flex flex-col">
+                            <div class="flex items-center gap-5 mb-5">
+                                <div class="w-20 h-20 shrink-0 bg-slate-100 rounded-xl border border-slate-200 overflow-hidden flex items-center justify-center">
+                                    <img src="https://placehold.co/150x150/ecfdf5/10b981?text=[Image+of+Van]" alt="Van" class="w-full h-full object-cover">
+                                </div>
+                                <div>
+                                    <h4 class="font-black text-2xl text-emerald-600 mb-2 uppercase">4. Van (Valve)</h4>
+                                    <span class="text-sm font-bold text-slate-600 bg-slate-100 px-3 py-1 rounded-md border border-slate-200">AO / DO</span>
+                                </div>
+                            </div>
+                            <p class="text-lg text-slate-700">Điều tiết lưu lượng nước lạnh (CHW) hoặc nước nóng chảy qua các dàn trao đổi nhiệt AHU/FCU.</p>
+                        </div>
+
+                        <!-- Group 5: Actuator -->
+                        <div class="bg-white p-8 rounded-2xl border-t-8 border-violet-500 shadow-sm flex flex-col">
+                            <div class="flex items-center gap-5 mb-5">
+                                <div class="w-20 h-20 shrink-0 bg-slate-100 rounded-xl border border-slate-200 overflow-hidden flex items-center justify-center">
+                                    <img src="https://placehold.co/150x150/f5f3ff/8b5cf6?text=[Image+of+Actuator]" alt="Actuator" class="w-full h-full object-cover">
+                                </div>
+                                <div>
+                                    <h4 class="font-black text-2xl text-violet-600 mb-2 uppercase">5. Actuator</h4>
+                                    <span class="text-sm font-bold text-slate-600 bg-slate-100 px-3 py-1 rounded-md border border-slate-200">AO/DO, AI/DI</span>
+                                </div>
+                            </div>
+                            <p class="text-lg text-slate-700">Động cơ chấp hành (có motor bên trong) giúp đóng/mở cánh gió (Damper) hoặc xoay ty van cơ khí.</p>
+                        </div>
+
+                        <!-- Group 6: Contactor -->
+                        <div class="bg-white p-8 rounded-2xl border-t-8 border-rose-500 shadow-sm flex flex-col">
+                            <div class="flex items-center gap-5 mb-5">
+                                <div class="w-20 h-20 shrink-0 bg-slate-100 rounded-xl border border-slate-200 overflow-hidden flex items-center justify-center">
+                                    <img src="https://placehold.co/150x150/fff1f2/f43f5e?text=[Image+of+Contactor]" alt="Contactor" class="w-full h-full object-cover">
+                                </div>
+                                <div>
+                                    <h4 class="font-black text-2xl text-rose-600 mb-2 uppercase">6. Contactor</h4>
+                                    <span class="text-sm font-bold text-slate-600 bg-slate-100 px-3 py-1 rounded-md border border-slate-200">DO / DI</span>
+                                </div>
+                            </div>
+                            <p class="text-lg text-slate-700">Khởi động từ (nằm trong tủ MCC) dùng để đóng cắt nguồn điện động lực 3 pha cho Bơm, Quạt cấp/hút.</p>
                         </div>
                     </div>
                 </div>
