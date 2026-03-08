@@ -544,31 +544,43 @@
                 <div id="p3-1" class="page-content">
                     <h3 class="text-4xl font-extrabold text-primary mb-8 border-l-8 border-accent pl-4">Topology Mạng Truyền Thông</h3>
                     
-                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 h-auto md:h-[400px]">
-                        <div class="bg-white p-8 rounded-2xl border-t-8 border-primary shadow-sm flex flex-col items-center text-center">
-                            <div class="font-black text-6xl text-primary mb-6">═</div>
-                            <h4 class="font-bold text-2xl mb-4 text-slate-800">Mạng Tuyến (Bus)</h4>
-                            <p class="text-lg text-slate-600 mb-6">Nối tiếp (Vào-Ra). RS485.</p>
-                            <div class="mt-auto bg-red-50 p-4 rounded-lg w-full">
-                                <p class="font-bold text-red-700">Đứt giữa chừng mất toàn bộ phía sau.</p>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <!-- Mạng Tuyến (Bus) -->
+                        <div class="bg-white p-6 md:p-8 rounded-2xl border-t-8 border-primary shadow-sm flex flex-col h-full hover:shadow-lg transition">
+                            <div class="w-full aspect-square bg-slate-50 rounded-xl mb-6 overflow-hidden flex items-center justify-center border border-slate-200 relative group">
+                                <img src="images/24.png" alt="Mạng Bus" class="w-full h-full object-cover group-hover:scale-110 transition duration-300" onerror="this.onerror=null; this.src='https://placehold.co/400x400/eff6ff/1e3a8a?text=images/24.png'">
+                                <div class="absolute bottom-2 bg-white/90 px-2 py-1 text-[10px] font-mono text-slate-600 rounded shadow-sm border border-slate-200 backdrop-blur-sm">📌 images/24.png</div>
+                            </div>
+                            <h4 class="font-black text-2xl text-slate-800 mb-3 text-center uppercase">Mạng Tuyến (Bus)</h4>
+                            <p class="text-lg text-slate-600 mb-6 text-center flex-1">Nối tiếp (Daisy-chain) từ thiết bị này sang thiết bị khác (Vào-Ra). Thường dùng cho cáp chuẩn RS485.</p>
+                            <div class="mt-auto bg-red-50 p-4 rounded-lg w-full text-center border border-red-100">
+                                <p class="font-bold text-red-700">⚠ Đứt giữa chừng, mất kết nối toàn bộ thiết bị phía sau.</p>
                             </div>
                         </div>
                         
-                        <div class="bg-white p-8 rounded-2xl border-t-8 border-secondary shadow-sm flex flex-col items-center text-center">
-                            <div class="font-black text-6xl text-secondary mb-6">✯</div>
-                            <h4 class="font-bold text-2xl mb-4 text-slate-800">Hình Sao (Star)</h4>
-                            <p class="text-lg text-slate-600 mb-6">Cáp quang/LAN tập trung về Switch.</p>
-                            <div class="mt-auto bg-green-50 p-4 rounded-lg w-full">
-                                <p class="font-bold text-green-700">Lỗi điểm nào khoanh vùng điểm đó.</p>
+                        <!-- Hình Sao (Star) -->
+                        <div class="bg-white p-6 md:p-8 rounded-2xl border-t-8 border-secondary shadow-sm flex flex-col h-full hover:shadow-lg transition">
+                            <div class="w-full aspect-square bg-slate-50 rounded-xl mb-6 overflow-hidden flex items-center justify-center border border-slate-200 relative group">
+                                <img src="images/25.png" alt="Mạng Star" class="w-full h-full object-cover group-hover:scale-110 transition duration-300" onerror="this.onerror=null; this.src='https://placehold.co/400x400/f0f9ff/0ea5e9?text=images/25.png'">
+                                <div class="absolute bottom-2 bg-white/90 px-2 py-1 text-[10px] font-mono text-slate-600 rounded shadow-sm border border-slate-200 backdrop-blur-sm">📌 images/25.png</div>
+                            </div>
+                            <h4 class="font-black text-2xl text-slate-800 mb-3 text-center uppercase">Hình Sao (Star)</h4>
+                            <p class="text-lg text-slate-600 mb-6 text-center flex-1">Cáp mạng (Ethernet) hoặc Quang từ các tủ DDC tập trung hết về Switch mạng trung tâm.</p>
+                            <div class="mt-auto bg-green-50 p-4 rounded-lg w-full text-center border border-green-100">
+                                <p class="font-bold text-green-700">✔ Lỗi đứt cáp ở điểm nào, chỉ cô lập điểm đó. Dễ dò lỗi.</p>
                             </div>
                         </div>
 
-                        <div class="bg-white p-8 rounded-2xl border-t-8 border-accent shadow-sm flex flex-col items-center text-center">
-                            <div class="font-black text-6xl text-amber-500 mb-6">⭮</div>
-                            <h4 class="font-bold text-2xl mb-4 text-slate-800">Mạch Vòng (Ring)</h4>
-                            <p class="text-lg text-slate-600 mb-6">Dự phòng cao cho trục Backbone.</p>
-                            <div class="mt-auto bg-blue-50 p-4 rounded-lg w-full">
-                                <p class="font-bold text-blue-700">Đứt 1 điểm, mạng chạy vòng ngược lại.</p>
+                        <!-- Mạch Vòng (Ring) -->
+                        <div class="bg-white p-6 md:p-8 rounded-2xl border-t-8 border-accent shadow-sm flex flex-col h-full hover:shadow-lg transition">
+                            <div class="w-full aspect-square bg-slate-50 rounded-xl mb-6 overflow-hidden flex items-center justify-center border border-slate-200 relative group">
+                                <img src="images/26.png" alt="Mạng Ring" class="w-full h-full object-cover group-hover:scale-110 transition duration-300" onerror="this.onerror=null; this.src='https://placehold.co/400x400/fefce8/eab308?text=images/26.png'">
+                                <div class="absolute bottom-2 bg-white/90 px-2 py-1 text-[10px] font-mono text-slate-600 rounded shadow-sm border border-slate-200 backdrop-blur-sm">📌 images/26.png</div>
+                            </div>
+                            <h4 class="font-black text-2xl text-slate-800 mb-3 text-center uppercase">Mạch Vòng (Ring)</h4>
+                            <p class="text-lg text-slate-600 mb-6 text-center flex-1">Cấu trúc dự phòng cao cấp cho mạng cáp quang Backbone (Switch to Switch) trong Data Center.</p>
+                            <div class="mt-auto bg-blue-50 p-4 rounded-lg w-full text-center border border-blue-100">
+                                <p class="font-bold text-blue-700">🔄 Đứt cáp 1 điểm, dữ liệu tự động chạy vòng đường ngược lại.</p>
                             </div>
                         </div>
                     </div>
@@ -721,8 +733,8 @@
                                     <p class="mt-2 text-danger font-bold text-base bg-red-50 inline-block px-3 py-1 rounded">⚠ Mục đích: Tránh đi xử lý "sự cố ảo".</p>
                                 </div>
                                 <div class="shrink-0 w-full md:w-32 h-32 bg-slate-50 rounded-xl border border-slate-200 overflow-hidden relative group">
-                                    <img src="images/16.png" alt="Kiểm tra thực tế" class="w-full h-full object-cover group-hover:scale-110 transition duration-300" onerror="this.onerror=null; this.src='https://placehold.co/400x400/f8fafc/94a3b8?text=images/16.png'">
-                                    <div class="absolute bottom-1 right-1 bg-white/90 px-1.5 py-0.5 text-[9px] font-mono text-slate-500 rounded shadow border border-slate-100">📌 images/16.png</div>
+                                    <img src="images/16.png" alt="Kiểm tra thực tế" class="w-full h-full object-cover group-hover:scale-110 transition duration-300" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1581092160562-40aa08e78837?q=80&w=400&auto=format&fit=crop'">
+                                    <div class="absolute bottom-1 right-1 bg-white/90 px-1.5 py-0.5 text-[9px] font-mono text-slate-500 rounded shadow border border-slate-100 backdrop-blur-sm">📌 images/16.png</div>
                                 </div>
                             </div>
 
@@ -739,8 +751,8 @@
                                     <p class="mt-2 text-sky-700 font-bold text-base bg-sky-50 inline-block px-3 py-1 rounded">💡 BMS giúp nhìn nhanh toàn cảnh hệ thống.</p>
                                 </div>
                                 <div class="shrink-0 w-full md:w-32 h-32 bg-slate-50 rounded-xl border border-slate-200 overflow-hidden relative group">
-                                    <img src="images/17.png" alt="Kiểm tra trên BMS" class="w-full h-full object-cover group-hover:scale-110 transition duration-300" onerror="this.onerror=null; this.src='https://placehold.co/400x400/f0f9ff/0ea5e9?text=images/17.png'">
-                                    <div class="absolute bottom-1 right-1 bg-white/90 px-1.5 py-0.5 text-[9px] font-mono text-slate-500 rounded shadow border border-slate-100">📌 images/17.png</div>
+                                    <img src="images/17.png" alt="Kiểm tra trên BMS" class="w-full h-full object-cover group-hover:scale-110 transition duration-300" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=400&auto=format&fit=crop'">
+                                    <div class="absolute bottom-1 right-1 bg-white/90 px-1.5 py-0.5 text-[9px] font-mono text-slate-500 rounded shadow border border-slate-100 backdrop-blur-sm">📌 images/17.png</div>
                                 </div>
                             </div>
 
@@ -757,8 +769,8 @@
                                     </div>
                                 </div>
                                 <div class="shrink-0 w-full md:w-32 h-32 bg-slate-50 rounded-xl border border-slate-200 overflow-hidden relative group">
-                                    <img src="images/18.png" alt="Kiểm tra Tín hiệu I/O" class="w-full h-full object-cover group-hover:scale-110 transition duration-300" onerror="this.onerror=null; this.src='https://placehold.co/400x400/fefce8/eab308?text=images/18.png'">
-                                    <div class="absolute bottom-1 right-1 bg-white/90 px-1.5 py-0.5 text-[9px] font-mono text-slate-500 rounded shadow border border-slate-100">📌 images/18.png</div>
+                                    <img src="images/18.png" alt="Kiểm tra Tín hiệu I/O" class="w-full h-full object-cover group-hover:scale-110 transition duration-300" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?q=80&w=400&auto=format&fit=crop'">
+                                    <div class="absolute bottom-1 right-1 bg-white/90 px-1.5 py-0.5 text-[9px] font-mono text-slate-500 rounded shadow border border-slate-100 backdrop-blur-sm">📌 images/18.png</div>
                                 </div>
                             </div>
 
@@ -775,8 +787,8 @@
                                     <p class="mt-2 text-emerald-700 font-bold text-base bg-emerald-50 inline-block px-3 py-1 rounded">⚙ Logic đúng thì thiết bị mới được phép chạy.</p>
                                 </div>
                                 <div class="shrink-0 w-full md:w-32 h-32 bg-slate-50 rounded-xl border border-slate-200 overflow-hidden relative group">
-                                    <img src="images/19.png" alt="Kiểm tra Logic" class="w-full h-full object-cover group-hover:scale-110 transition duration-300" onerror="this.onerror=null; this.src='https://placehold.co/400x400/ecfdf5/10b981?text=images/19.png'">
-                                    <div class="absolute bottom-1 right-1 bg-white/90 px-1.5 py-0.5 text-[9px] font-mono text-slate-500 rounded shadow border border-slate-100">📌 images/19.png</div>
+                                    <img src="images/19.png" alt="Kiểm tra Logic" class="w-full h-full object-cover group-hover:scale-110 transition duration-300" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1555949963-aa79dcee981c?q=80&w=400&auto=format&fit=crop'">
+                                    <div class="absolute bottom-1 right-1 bg-white/90 px-1.5 py-0.5 text-[9px] font-mono text-slate-500 rounded shadow border border-slate-100 backdrop-blur-sm">📌 images/19.png</div>
                                 </div>
                             </div>
 
@@ -788,8 +800,8 @@
                                     <p class="text-lg text-slate-300">Tổng hợp dữ liệu từ 4 bước trên để xác định chính xác thiết bị hỏng ở phần Cơ, phần Điện hay phần Mềm, từ đó gọi đúng nhà thầu xử lý.</p>
                                 </div>
                                 <div class="shrink-0 w-full md:w-32 h-32 bg-slate-700 rounded-xl border border-slate-600 overflow-hidden relative group">
-                                    <img src="images/20.png" alt="Kết luận xử lý" class="w-full h-full object-cover group-hover:scale-110 transition duration-300" onerror="this.onerror=null; this.src='https://placehold.co/400x400/334155/eab308?text=images/20.png'">
-                                    <div class="absolute bottom-1 right-1 bg-white/90 px-1.5 py-0.5 text-[9px] font-mono text-slate-400 rounded shadow border border-slate-600">📌 images/20.png</div>
+                                    <img src="images/20.png" alt="Kết luận xử lý" class="w-full h-full object-cover group-hover:scale-110 transition duration-300" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=400&auto=format&fit=crop'">
+                                    <div class="absolute bottom-1 right-1 bg-white/90 px-1.5 py-0.5 text-[9px] font-mono text-slate-400 rounded shadow border border-slate-600 backdrop-blur-sm">📌 images/20.png</div>
                                 </div>
                             </div>
                         </div>
@@ -809,8 +821,8 @@
                                     <span class="text-sm font-bold text-slate-500 tracking-widest">(FIELD FAULT)</span>
                                 </div>
                                 <div class="shrink-0 w-20 h-20 bg-slate-50 rounded-xl border border-slate-200 overflow-hidden relative group">
-                                    <img src="images/21.png" alt="Lỗi Thiết Bị" class="w-full h-full object-cover group-hover:scale-110 transition duration-300" onerror="this.onerror=null; this.src='https://placehold.co/200x200/fff1f2/f43f5e?text=images/21.png'">
-                                    <div class="absolute bottom-1 right-1 bg-white/90 px-1 py-0.5 text-[8px] font-mono text-slate-500 rounded shadow">📌 21.png</div>
+                                    <img src="images/21.png" alt="Lỗi Thiết Bị" class="w-full h-full object-cover group-hover:scale-110 transition duration-300" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1581092335397-9583eb92d232?q=80&w=400&auto=format&fit=crop'">
+                                    <div class="absolute bottom-1 right-1 bg-white/90 px-1 py-0.5 text-[8px] font-mono text-slate-500 rounded shadow backdrop-blur-sm">📌 21.png</div>
                                 </div>
                             </div>
                             <div class="text-lg text-slate-700 flex-1 space-y-4">
@@ -834,8 +846,8 @@
                                     <span class="text-sm font-bold text-slate-500 tracking-widest">(SIGNAL FAULT)</span>
                                 </div>
                                 <div class="shrink-0 w-20 h-20 bg-slate-50 rounded-xl border border-slate-200 overflow-hidden relative group">
-                                    <img src="images/22.png" alt="Lỗi Tín Hiệu" class="w-full h-full object-cover group-hover:scale-110 transition duration-300" onerror="this.onerror=null; this.src='https://placehold.co/200x200/fefce8/eab308?text=images/22.png'">
-                                    <div class="absolute bottom-1 right-1 bg-white/90 px-1 py-0.5 text-[8px] font-mono text-slate-500 rounded shadow">📌 22.png</div>
+                                    <img src="images/22.png" alt="Lỗi Tín Hiệu" class="w-full h-full object-cover group-hover:scale-110 transition duration-300" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1562408590-e32931084e23?q=80&w=400&auto=format&fit=crop'">
+                                    <div class="absolute bottom-1 right-1 bg-white/90 px-1 py-0.5 text-[8px] font-mono text-slate-500 rounded shadow backdrop-blur-sm">📌 22.png</div>
                                 </div>
                             </div>
                             <div class="text-lg text-slate-700 flex-1 space-y-4">
@@ -859,8 +871,8 @@
                                     <span class="text-sm font-bold text-slate-500 tracking-widest">(CONTROL FAULT)</span>
                                 </div>
                                 <div class="shrink-0 w-20 h-20 bg-slate-50 rounded-xl border border-slate-200 overflow-hidden relative group">
-                                    <img src="images/23.png" alt="Lỗi Logic" class="w-full h-full object-cover group-hover:scale-110 transition duration-300" onerror="this.onerror=null; this.src='https://placehold.co/200x200/eff6ff/1e3a8a?text=images/23.png'">
-                                    <div class="absolute bottom-1 right-1 bg-white/90 px-1 py-0.5 text-[8px] font-mono text-slate-500 rounded shadow">📌 23.png</div>
+                                    <img src="images/23.png" alt="Lỗi Logic" class="w-full h-full object-cover group-hover:scale-110 transition duration-300" onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=400&auto=format&fit=crop'">
+                                    <div class="absolute bottom-1 right-1 bg-white/90 px-1 py-0.5 text-[8px] font-mono text-slate-500 rounded shadow backdrop-blur-sm">📌 23.png</div>
                                 </div>
                             </div>
                             <div class="text-lg text-slate-700 flex-1 space-y-4">
