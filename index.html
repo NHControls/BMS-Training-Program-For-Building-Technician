@@ -622,42 +622,75 @@
                 <!-- MODULE 4: TROUBLESHOOTING -->
                 <!-- ========================================== -->
                 <div id="p4-1" class="page-content">
-                    <h3 class="text-4xl font-extrabold text-primary mb-8 border-l-8 border-accent pl-4">Nguyên Tắc 4 Bước Vàng Khắc Phục Lỗi</h3>
-                    <p class="text-xl text-slate-700 mb-10">Trình tự "Cứng trước - Mềm sau" giúp bắt đúng bệnh, giảm Downtime.</p>
+                    <h3 class="text-4xl font-extrabold text-primary mb-8 border-l-8 border-accent pl-4">Quy Trình 5 Bước Chuẩn</h3>
+                    <p class="text-xl text-slate-700 mb-10">Trình tự bắt bệnh "Cứng trước - Mềm sau" giúp xác định đúng nguyên nhân, giảm tối đa thời gian Downtime hệ thống.</p>
                     
-                    <div class="relative max-w-4xl mx-auto">
+                    <div class="relative max-w-5xl mx-auto">
                         <div class="absolute left-10 md:left-1/2 top-0 bottom-0 w-1 bg-slate-200 md:-translate-x-1/2"></div>
 
-                        <div class="space-y-8 relative">
+                        <div class="space-y-6 relative">
+                            <!-- Bước 1 -->
                             <div class="flex flex-col md:flex-row items-center gap-6 bg-white p-6 rounded-2xl shadow-sm border border-slate-200 z-10 relative">
                                 <div class="bg-primary text-white w-20 h-20 rounded-2xl flex items-center justify-center font-black text-4xl shadow-lg shrink-0 z-10">1</div>
-                                <div class="text-left">
-                                    <h4 class="font-bold text-2xl text-slate-800 mb-2">Kiểm tra thực tế hiện trường</h4>
-                                    <p class="text-lg text-slate-600">Van kẹt? Quạt rung lắc? Không xem phần mềm vội.</p>
+                                <div class="text-left flex-1">
+                                    <h4 class="font-bold text-2xl text-slate-800 mb-2 uppercase">Xác nhận sự cố thực tế</h4>
+                                    <ul class="text-lg text-slate-600 space-y-1">
+                                        <li>• Thiết bị có thực sự đang KHÔNG chạy?</li>
+                                        <li>• Bật chế độ Local / MCC có chạy không?</li>
+                                        <li>• Có đang bị khóa LOTO (Lock-out/Tag-out) bảo trì không?</li>
+                                    </ul>
+                                    <p class="mt-2 text-danger font-bold text-base bg-red-50 inline-block px-3 py-1 rounded">⚠ Mục đích: Tránh đi xử lý "sự cố ảo".</p>
                                 </div>
                             </div>
 
+                            <!-- Bước 2 -->
                             <div class="flex flex-col md:flex-row items-center gap-6 bg-white p-6 rounded-2xl shadow-sm border border-slate-200 z-10 relative">
                                 <div class="bg-secondary text-white w-20 h-20 rounded-2xl flex items-center justify-center font-black text-4xl shadow-lg shrink-0 z-10">2</div>
-                                <div class="text-left">
-                                    <h4 class="font-bold text-2xl text-slate-800 mb-2">Đo đạc Tín hiệu I/O</h4>
-                                    <p class="text-lg text-slate-600">Dùng VOM đo điện áp, thông mạch tại tủ MCC/DDC.</p>
+                                <div class="text-left flex-1">
+                                    <h4 class="font-bold text-2xl text-slate-800 mb-2 uppercase">Kiểm tra trên BMS</h4>
+                                    <ul class="text-lg text-slate-600 space-y-1">
+                                        <li>• Alarm đang Active hay chỉ là History?</li>
+                                        <li>• So sánh Command (Lệnh ON/OFF) vs Status (Trạng thái Run/Trip).</li>
+                                        <li>• Giá trị cảm biến (AI) đọc về có hợp lý không?</li>
+                                    </ul>
+                                    <p class="mt-2 text-sky-700 font-bold text-base bg-sky-50 inline-block px-3 py-1 rounded">💡 BMS giúp nhìn nhanh toàn cảnh hệ thống.</p>
                                 </div>
                             </div>
 
+                            <!-- Bước 3 -->
                             <div class="flex flex-col md:flex-row items-center gap-6 bg-white p-6 rounded-2xl shadow-sm border border-slate-200 z-10 relative">
                                 <div class="bg-accent text-primary w-20 h-20 rounded-2xl flex items-center justify-center font-black text-4xl shadow-lg shrink-0 z-10">3</div>
-                                <div class="text-left">
-                                    <h4 class="font-bold text-2xl text-slate-800 mb-2">Khoanh vùng Lỗi</h4>
-                                    <p class="text-lg text-slate-600">Quyết định do Cơ điện lực hay do bo mạch tự động hóa?</p>
+                                <div class="text-left flex-1">
+                                    <h4 class="font-bold text-2xl text-slate-800 mb-2 uppercase">Kiểm tra Tín hiệu I/O (Tại DDC)</h4>
+                                    <div class="grid grid-cols-2 gap-2 text-lg text-slate-600">
+                                        <p><strong>DI:</strong> Run/Trip báo về đúng thực tế chưa?</p>
+                                        <p><strong>DO:</strong> DDC có thực sự xuất áp ra Relay?</p>
+                                        <p><strong>AI:</strong> Số liệu có logic với môi trường?</p>
+                                        <p><strong>AO:</strong> Điện áp xuất ra có đủ dải 0-10V?</p>
+                                    </div>
                                 </div>
                             </div>
 
-                            <div class="flex flex-col md:flex-row items-center gap-6 bg-white p-6 rounded-2xl shadow-sm border border-slate-200 border-b-8 border-b-slate-400 z-10 relative">
-                                <div class="bg-slate-500 text-white w-20 h-20 rounded-2xl flex items-center justify-center font-black text-4xl shadow-lg shrink-0 z-10">4</div>
-                                <div class="text-left">
-                                    <h4 class="font-bold text-2xl text-slate-800 mb-2">Phân tích Logic Phần mềm</h4>
-                                    <p class="text-lg text-slate-600">Kiểm tra PID, giới hạn Setpoint, Alarm thresholds.</p>
+                            <!-- Bước 4 -->
+                            <div class="flex flex-col md:flex-row items-center gap-6 bg-white p-6 rounded-2xl shadow-sm border border-slate-200 z-10 relative">
+                                <div class="bg-emerald-500 text-white w-20 h-20 rounded-2xl flex items-center justify-center font-black text-4xl shadow-lg shrink-0 z-10">4</div>
+                                <div class="text-left flex-1">
+                                    <h4 class="font-bold text-2xl text-slate-800 mb-2 uppercase">Kiểm tra Logic điều khiển</h4>
+                                    <ul class="text-lg text-slate-600 space-y-1">
+                                        <li>• <strong>Interlock:</strong> Có khóa chéo an toàn nào đang chặn thiết bị? (VD: Báo cháy).</li>
+                                        <li>• <strong>Enable:</strong> Đã đủ điều kiện cho phép chạy chưa?</li>
+                                        <li>• <strong>Chế độ:</strong> Đang ở Auto, Manual, Schedule hay Safety Mode?</li>
+                                    </ul>
+                                    <p class="mt-2 text-emerald-700 font-bold text-base bg-emerald-50 inline-block px-3 py-1 rounded">⚙ Logic đúng thì thiết bị mới được phép chạy.</p>
+                                </div>
+                            </div>
+
+                            <!-- Bước 5 -->
+                            <div class="flex flex-col md:flex-row items-center gap-6 bg-slate-800 p-6 rounded-2xl shadow-sm border-b-8 border-b-accent z-10 relative text-white">
+                                <div class="bg-slate-600 text-white w-20 h-20 rounded-2xl flex items-center justify-center font-black text-4xl shadow-lg shrink-0 z-10">5</div>
+                                <div class="text-left flex-1">
+                                    <h4 class="font-bold text-2xl text-accent mb-2 uppercase">Kết luận Nguyên nhân & Xử lý</h4>
+                                    <p class="text-lg text-slate-300">Tổng hợp dữ liệu từ 4 bước trên để xác định chính xác thiết bị hỏng ở phần Cơ, phần Điện hay phần Mềm, từ đó gọi đúng nhà thầu xử lý.</p>
                                 </div>
                             </div>
                         </div>
@@ -665,23 +698,71 @@
                 </div>
 
                 <div id="p4-2" class="page-content">
-                    <h3 class="text-4xl font-extrabold text-primary mb-8 border-l-8 border-accent pl-4">Downtime & Báo Động Giả</h3>
+                    <h3 class="text-4xl font-extrabold text-primary mb-8 border-l-8 border-accent pl-4">Phân Loại 3 Nhóm Lỗi</h3>
+                    <p class="text-xl text-slate-700 mb-8">Sự cố HVAC thường rơi vào 3 nhóm. Phân loại đúng giúp bạn xử lý cực kỳ nhanh chóng.</p>
                     
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-                        <div class="bg-red-50 p-8 rounded-2xl border-t-8 border-danger shadow-sm">
-                            <h4 class="font-black text-3xl text-danger mb-6 uppercase">⛔ Tăng Downtime</h4>
-                            <div class="space-y-4 text-lg">
-                                <p class="flex gap-3 items-start"><span class="text-danger font-bold text-2xl">❌</span> Nhảy cóc bước, ép Force phần mềm làm cháy thiết bị cơ.</p>
-                                <p class="flex gap-3 items-start"><span class="text-danger font-bold text-2xl">❌</span> Bỏ qua Trendlog phân tích chu kỳ sập điều hòa.</p>
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-8">
+                        <!-- Nhóm 1 -->
+                        <div class="bg-white p-8 rounded-2xl border-t-8 border-rose-500 shadow-sm flex flex-col h-full hover:shadow-lg transition">
+                            <h4 class="font-black text-3xl text-rose-600 mb-4 uppercase">01. Lỗi Thiết Bị</h4>
+                            <span class="text-sm font-bold text-slate-500 mb-4 tracking-widest">(FIELD FAULT)</span>
+                            <div class="text-lg text-slate-700 flex-1 space-y-4">
+                                <p class="bg-rose-50 p-3 rounded-lg border border-rose-100"><strong>Đặc điểm:</strong> BMS điều khiển đúng (xuất lệnh chuẩn) nhưng thiết bị hiện trường KHÔNG đáp ứng.</p>
+                                <ul class="list-disc pl-5 space-y-1">
+                                    <li>Motor cháy / kẹt bạc đạn.</li>
+                                    <li>Van kẹt ty cơ khí.</li>
+                                    <li>Cánh gió (Damper) gãy nhông.</li>
+                                </ul>
+                            </div>
+                            <div class="mt-6 pt-4 border-t border-slate-200">
+                                <p class="text-rose-700 font-bold text-lg flex items-center gap-2"><span>🔍</span> Thử Force tín hiệu (100%) trên BMS thiết bị vẫn nằm im.</p>
                             </div>
                         </div>
 
-                        <div class="bg-slate-800 p-8 rounded-2xl border-t-8 border-secondary shadow-sm text-slate-200">
-                            <h4 class="font-black text-3xl text-accent mb-6 uppercase">🔍 Xử lý False Alarm</h4>
-                            <ul class="space-y-4 text-lg font-medium">
-                                <li class="bg-slate-700 p-4 rounded-lg flex items-center gap-3"><span class="text-secondary font-bold">1.</span> Xem lại vị trí Sensor vật lý.</li>
-                                <li class="bg-slate-700 p-4 rounded-lg flex items-center gap-3"><span class="text-secondary font-bold">2.</span> Tăng tham số Time Delay.</li>
-                                <li class="bg-slate-700 p-4 rounded-lg flex items-center gap-3"><span class="text-secondary font-bold">3.</span> Nới lỏng Limit Alarm đồ thị.</li>
+                        <!-- Nhóm 2 -->
+                        <div class="bg-white p-8 rounded-2xl border-t-8 border-amber-500 shadow-sm flex flex-col h-full hover:shadow-lg transition">
+                            <h4 class="font-black text-3xl text-amber-600 mb-4 uppercase">02. Lỗi Tín Hiệu</h4>
+                            <span class="text-sm font-bold text-slate-500 mb-4 tracking-widest">(SIGNAL FAULT)</span>
+                            <div class="text-lg text-slate-700 flex-1 space-y-4">
+                                <p class="bg-amber-50 p-3 rounded-lg border border-amber-100"><strong>Đặc điểm:</strong> Thiết bị hiện trường vẫn chạy bình thường nhưng màn hình BMS ĐỌC SAI.</p>
+                                <ul class="list-disc pl-5 space-y-1">
+                                    <li>Mất kết nối / Đứt dây cáp.</li>
+                                    <li>Đấu sai dây (đảo cực Âm/Dương).</li>
+                                    <li>Cảm biến hỏng (báo 0°C hoặc 100°C).</li>
+                                </ul>
+                            </div>
+                            <div class="mt-6 pt-4 border-t border-slate-200">
+                                <p class="text-amber-700 font-bold text-lg flex items-center gap-2"><span>🔍</span> Đo VOM tại tủ DDC để xác định do cáp hay do hỏng I/O Card.</p>
+                            </div>
+                        </div>
+
+                        <!-- Nhóm 3 -->
+                        <div class="bg-white p-8 rounded-2xl border-t-8 border-primary shadow-sm flex flex-col h-full hover:shadow-lg transition">
+                            <h4 class="font-black text-3xl text-primary mb-4 uppercase">03. Lỗi Logic</h4>
+                            <span class="text-sm font-bold text-slate-500 mb-4 tracking-widest">(CONTROL LOGIC FAULT)</span>
+                            <div class="text-lg text-slate-700 flex-1 space-y-4">
+                                <p class="bg-blue-50 p-3 rounded-lg border border-blue-100"><strong>Đặc điểm:</strong> Thiết bị tốt, Tín hiệu tốt, nhưng hệ thống NHẤT QUYẾT KHÔNG CHẠY tự động.</p>
+                                <ul class="list-disc pl-5 space-y-1">
+                                    <li>Chưa thỏa mãn Interlock khóa chéo.</li>
+                                    <li>Thông số PID sai (gây dao động).</li>
+                                    <li>Thiếu điều kiện Enable trong Code.</li>
+                                </ul>
+                            </div>
+                            <div class="mt-6 pt-4 border-t border-slate-200">
+                                <p class="text-blue-800 font-bold text-lg flex items-center gap-2"><span>🔍</span> Thường gặp nhất ở giai đoạn mới Commissioning hoặc vừa sửa lại SOO.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Banner Dùng BMS -->
+                    <div class="bg-slate-800 p-8 rounded-2xl shadow-lg flex flex-col md:flex-row items-center gap-6">
+                        <div class="shrink-0 text-7xl">🖥️</div>
+                        <div class="text-white">
+                            <h4 class="font-black text-3xl text-accent mb-3 uppercase">Dùng BMS để khoanh vùng nguyên nhân</h4>
+                            <ul class="text-xl space-y-2 text-slate-200">
+                                <li class="flex gap-3">👉 <strong>Xem Trendlog:</strong> Nhìn đồ thị để phát hiện điểm bất thường theo thời gian.</li>
+                                <li class="flex gap-3">👉 <strong>Xem Alarm Chain:</strong> Chuỗi cảnh báo giúp truy vết ra "lỗi gốc" (Root cause).</li>
+                                <li class="flex gap-3">👉 <strong>Command vs Status:</strong> Nếu lệch nhau quá số phút Delay → Chắc chắn lỗi từ hiện trường.</li>
                             </ul>
                         </div>
                     </div>
@@ -983,8 +1064,8 @@
             { id: 'p3-5', title: '3.6 Hình Ảnh: Sơ đồ RS485 EOL', module: '3. Mạng Truyền Thông' },
             { id: 'p3-6', title: '3.7 Thực hành: Truyền thông', module: '3. Mạng Truyền Thông' },
             
-            { id: 'p4-1', title: '4.1 Nguyên tắc 4 bước Vàng', module: '4. Troubleshooting HVAC' },
-            { id: 'p4-2', title: '4.2 Downtime & Alarm giả', module: '4. Troubleshooting HVAC' },
+            { id: 'p4-1', title: '4.1 Quy trình 5 Bước Chuẩn', module: '4. Troubleshooting HVAC' },
+            { id: 'p4-2', title: '4.2 Phân Loại 3 Nhóm Lỗi', module: '4. Troubleshooting HVAC' },
             { id: 'p4-3', title: '4.3 Hình Ảnh: Lưu đồ xử lý lỗi', module: '4. Troubleshooting HVAC' },
             { id: 'p4-4', title: '4.4 Hình Ảnh: Kỹ năng đo VOM', module: '4. Troubleshooting HVAC' },
             { id: 'p4-5', title: '4.5 Thực hành: Troubleshooting', module: '4. Troubleshooting HVAC' },
@@ -1171,7 +1252,7 @@
 
                 'm4-easy': "✅ <strong>Đúng!</strong> Bước 1 luôn phải xuống tận nơi xem thiết bị (Van) có kẹt hay hỏng hóc cơ khí không.",
                 'm4-med': "✅ <strong>Chính xác!</strong> Time Delay giúp phần mềm chờ quá trình khởi động cơ học của quạt trước khi so sánh với lệnh bật.",
-                'm4-hard': "✅ <strong>Rất chính xác!</strong> Ép phần mềm chạy 100% khi van đang bị kẹt cứng làm mô tơ cố quay, sinh nhiệt và cháy cuộn điện.",
+                'm4-hard': "✅ <strong>Rất chính xác!</strong> Đây là 'Lỗi Thiết Bị'. Ép phần mềm chạy 100% khi van đang bị kẹt cứng làm mô tơ cố quay, sinh nhiệt và cháy cuộn điện.",
 
                 'm5-easy': "✅ <strong>Đúng!</strong> Nhà thầu hay bàn giao thiếu tài khoản. Bắt buộc yêu cầu giao Account quyền Root/Admin hệ thống.",
                 'm5-med': "✅ <strong>Chuẩn!</strong> Nguyên tắc vàng là file Backup Database không được để chung với ổ vật lý của Server đang chạy.",
@@ -1325,7 +1406,7 @@
             btn.classList.add('opacity-50');
 
             const systemPrompt = `Bạn là chuyên gia Kỹ sư trưởng hệ thống BMS/HVAC với 15 năm kinh nghiệm. Dựa vào mô tả hiện tượng sự cố, hãy đưa ra hướng dẫn khắc phục MỘT CÁCH SÚC TÍCH, DỄ HIỂU.
-Chia thành 4 bước "Nguyên tắc 4 bước vàng": 1. Kiểm tra hiện trường. 2. Đo I/O. 3. Khoanh vùng. 4. Check logic phần mềm.
+Chia thành 5 bước "Quy trình chuẩn": 1. Xác nhận thực tế. 2. Check BMS. 3. Đo I/O. 4. Check logic. 5. Kết luận. Xác định lỗi thuộc nhóm nào (Thiết bị, Tín hiệu, Logic).
 Sử dụng thẻ HTML <h3>, <strong>, <ul>, <li>, <br>. Không dùng Markdown.`;
 
             try {
