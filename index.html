@@ -76,14 +76,21 @@
 
     <!-- Sidebar LMS Menu -->
     <aside id="sidebar" class="w-80 bg-dark text-slate-300 flex-col h-full shrink-0 shadow-2xl z-50 absolute md:relative transition-all duration-300">
-        <div class="p-5 border-b border-slate-700 bg-primary flex justify-between items-center">
-            <div>
-                <h1 class="font-black text-2xl text-white tracking-tight flex items-center gap-2">
-                    <span class="bg-accent text-primary px-2 rounded">BMS</span> TRAINING
-                </h1>
-                <p class="text-xs text-sky-200 mt-2">Dành cho Kỹ thuật Bảo trì & Vận hành</p>
+        <div class="p-5 border-b border-slate-700 bg-primary flex flex-col gap-4">
+            <div class="flex justify-between items-center">
+                <div>
+                    <h1 class="font-black text-2xl text-white tracking-tight flex items-center gap-2">
+                        <span class="bg-accent text-primary px-2 rounded">BMS</span> TRAINING
+                    </h1>
+                    <p class="text-xs text-sky-200 mt-2">Dành cho Kỹ thuật Bảo trì & Vận hành</p>
+                </div>
+                <button onclick="toggleMenu()" class="text-slate-400 hover:text-white text-4xl focus:outline-none transition-colors md:hidden">&times;</button>
             </div>
-            <button onclick="toggleMenu()" class="text-slate-400 hover:text-white text-4xl focus:outline-none transition-colors">&times;</button>
+            
+            <!-- Nút cấu hình API Key -->
+            <button onclick="openApiModal()" class="flex items-center justify-center gap-2 w-full py-2.5 bg-slate-800 hover:bg-slate-700 text-slate-200 text-sm font-bold rounded-lg border border-slate-600 shadow transition">
+                <span>🔑 Cấu hình Gemini API Key</span>
+            </button>
         </div>
 
         <nav class="flex-1 overflow-y-auto py-4" id="lms-menu">
@@ -163,8 +170,9 @@
                 </div>
 
                 <div id="p1-2" class="page-content">
-                    <div class="flex justify-center items-center h-full min-h-[500px] bg-white rounded-2xl shadow-sm border border-slate-200 p-4">
-                        <img src="images/1.jpg" alt="Sơ đồ Kiến trúc BMS 3 Lớp Hiện đại" class="max-w-full max-h-[75vh] object-contain rounded-xl" onerror="this.onerror=null; this.src='https://placehold.co/1200x600/f1f5f9/0ea5e9?text=[Image+of+S%C6%A1+%C4%91%E1%BB%93+Ki%E1%BA%BFn+tr%C3%BAc+BMS+3+L%E1%BB%9Bp]'">
+                    <div class="flex justify-center items-center h-full min-h-[500px] bg-white rounded-2xl shadow-sm border border-slate-200 p-4 relative">
+                        <img src="images/1.png" alt="Sơ đồ Kiến trúc BMS 3 Lớp Hiện đại" class="max-w-full max-h-[75vh] object-contain rounded-xl" onerror="this.onerror=null; this.src='https://placehold.co/1200x600/f1f5f9/0ea5e9?text=images/1.png'">
+                        <div class="absolute bottom-6 bg-white/90 backdrop-blur px-3 py-1.5 text-xs font-mono text-slate-600 rounded shadow border border-slate-200">📌 File: images/1.png</div>
                     </div>
                 </div>
 
@@ -292,8 +300,9 @@
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                         <!-- Group 1: Cảm Biến -->
                         <div class="bg-white p-6 md:p-8 rounded-2xl border-t-8 border-primary shadow-sm flex flex-col h-full hover:shadow-lg transition">
-                            <div class="w-full aspect-square bg-slate-50 rounded-xl mb-6 overflow-hidden flex items-center justify-center border border-slate-200">
-                                <img src="https://placehold.co/400x400/eff6ff/1e3a8a?text=[Image+of+Cảm+Biến]" alt="Cảm biến" class="w-full h-full object-cover">
+                            <div class="w-full aspect-square bg-slate-50 rounded-xl mb-6 overflow-hidden flex items-center justify-center border border-slate-200 relative">
+                                <img src="images/2.png" alt="Cảm biến" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://placehold.co/400x400/eff6ff/1e3a8a?text=images/2.png'">
+                                <div class="absolute bottom-2 bg-white/90 px-2 py-1 text-[10px] font-mono text-slate-600 rounded shadow-sm border border-slate-200">📌 images/2.png</div>
                             </div>
                             <h4 class="font-black text-2xl text-primary mb-3 uppercase">1. Cảm Biến</h4>
                             <div class="mb-4"><span class="text-sm font-bold text-slate-600 bg-slate-100 px-3 py-1.5 rounded-md border border-slate-200">Tín hiệu: AI / AO</span></div>
@@ -302,8 +311,9 @@
 
                         <!-- Group 2: Công Tắc -->
                         <div class="bg-white p-6 md:p-8 rounded-2xl border-t-8 border-secondary shadow-sm flex flex-col h-full hover:shadow-lg transition">
-                            <div class="w-full aspect-square bg-slate-50 rounded-xl mb-6 overflow-hidden flex items-center justify-center border border-slate-200">
-                                <img src="https://placehold.co/400x400/f0f9ff/0ea5e9?text=[Image+of+Công+Tắc]" alt="Công tắc" class="w-full h-full object-cover">
+                            <div class="w-full aspect-square bg-slate-50 rounded-xl mb-6 overflow-hidden flex items-center justify-center border border-slate-200 relative">
+                                <img src="images/3.png" alt="Công tắc" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://placehold.co/400x400/f0f9ff/0ea5e9?text=images/3.png'">
+                                <div class="absolute bottom-2 bg-white/90 px-2 py-1 text-[10px] font-mono text-slate-600 rounded shadow-sm border border-slate-200">📌 images/3.png</div>
                             </div>
                             <h4 class="font-black text-2xl text-secondary mb-3 uppercase">2. Công Tắc</h4>
                             <div class="mb-4"><span class="text-sm font-bold text-slate-600 bg-slate-100 px-3 py-1.5 rounded-md border border-slate-200">Tín hiệu: DI / DO</span></div>
@@ -312,8 +322,9 @@
 
                         <!-- Group 3: Đo Đếm -->
                         <div class="bg-white p-6 md:p-8 rounded-2xl border-t-8 border-accent shadow-sm flex flex-col h-full hover:shadow-lg transition">
-                            <div class="w-full aspect-square bg-slate-50 rounded-xl mb-6 overflow-hidden flex items-center justify-center border border-slate-200">
-                                <img src="https://placehold.co/400x400/fefce8/eab308?text=[Image+of+Đồng+Hồ+Đo+Đếm]" alt="Đo đếm" class="w-full h-full object-cover">
+                            <div class="w-full aspect-square bg-slate-50 rounded-xl mb-6 overflow-hidden flex items-center justify-center border border-slate-200 relative">
+                                <img src="images/4.png" alt="Đo đếm" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://placehold.co/400x400/fefce8/eab308?text=images/4.png'">
+                                <div class="absolute bottom-2 bg-white/90 px-2 py-1 text-[10px] font-mono text-slate-600 rounded shadow-sm border border-slate-200">📌 images/4.png</div>
                             </div>
                             <h4 class="font-black text-2xl text-amber-600 mb-3 uppercase">3. Đo Đếm</h4>
                             <div class="mb-4"><span class="text-sm font-bold text-slate-600 bg-slate-100 px-3 py-1.5 rounded-md border border-slate-200">Tín hiệu: RS485 / IP</span></div>
@@ -322,8 +333,9 @@
 
                         <!-- Group 4: Van & Actuator -->
                         <div class="bg-white p-6 md:p-8 rounded-2xl border-t-8 border-emerald-500 shadow-sm flex flex-col h-full hover:shadow-lg transition">
-                            <div class="w-full aspect-square bg-slate-50 rounded-xl mb-6 overflow-hidden flex items-center justify-center border border-slate-200">
-                                <img src="https://placehold.co/400x400/ecfdf5/10b981?text=[Image+of+Van+và+Actuator]" alt="Van và Actuator" class="w-full h-full object-cover">
+                            <div class="w-full aspect-square bg-slate-50 rounded-xl mb-6 overflow-hidden flex items-center justify-center border border-slate-200 relative">
+                                <img src="images/5.png" alt="Van và Actuator" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://placehold.co/400x400/ecfdf5/10b981?text=images/5.png'">
+                                <div class="absolute bottom-2 bg-white/90 px-2 py-1 text-[10px] font-mono text-slate-600 rounded shadow-sm border border-slate-200">📌 images/5.png</div>
                             </div>
                             <h4 class="font-black text-2xl text-emerald-600 mb-3 uppercase">4. Van & Actuator</h4>
                             <div class="mb-4"><span class="text-sm font-bold text-slate-600 bg-slate-100 px-3 py-1.5 rounded-md border border-slate-200">Tín hiệu: AO/DO, AI/DI</span></div>
@@ -332,19 +344,32 @@
 
                         <!-- Group 5: Contactor & Relay -->
                         <div class="bg-white p-6 md:p-8 rounded-2xl border-t-8 border-rose-500 shadow-sm flex flex-col h-full hover:shadow-lg transition">
-                            <div class="w-full aspect-square bg-slate-50 rounded-xl mb-6 overflow-hidden flex items-center justify-center border border-slate-200">
-                                <img src="https://placehold.co/400x400/fff1f2/f43f5e?text=[Image+of+Contactor+và+Relay]" alt="Contactor và Relay" class="w-full h-full object-cover">
+                            <div class="w-full aspect-square bg-slate-50 rounded-xl mb-6 overflow-hidden flex items-center justify-center border border-slate-200 relative">
+                                <img src="images/6.png" alt="Contactor và Relay" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://placehold.co/400x400/fff1f2/f43f5e?text=images/6.png'">
+                                <div class="absolute bottom-2 bg-white/90 px-2 py-1 text-[10px] font-mono text-slate-600 rounded shadow-sm border border-slate-200">📌 images/6.png</div>
                             </div>
                             <h4 class="font-black text-2xl text-rose-600 mb-3 uppercase">5. Contactor & Relay</h4>
                             <div class="mb-4"><span class="text-sm font-bold text-slate-600 bg-slate-100 px-3 py-1.5 rounded-md border border-slate-200">Tín hiệu: DO / DI</span></div>
                             <p class="text-lg text-slate-700 flex-1">Nằm tại tủ điện MCC. DDC xuất DO kích Relay kiếng 24V, Relay đóng tiếp điểm cấp 220V cho cuộn hút Contactor để chạy Motor.</p>
                         </div>
+
+                        <!-- Group 6: Biến Tần (VFD) -->
+                        <div class="bg-white p-6 md:p-8 rounded-2xl border-t-8 border-teal-500 shadow-sm flex flex-col h-full hover:shadow-lg transition">
+                            <div class="w-full aspect-square bg-slate-50 rounded-xl mb-6 overflow-hidden flex items-center justify-center border border-slate-200 relative">
+                                <img src="images/7.png" alt="Biến tần" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://placehold.co/400x400/ccfbf1/0f766e?text=images/7.png'">
+                                <div class="absolute bottom-2 bg-white/90 px-2 py-1 text-[10px] font-mono text-slate-600 rounded shadow-sm border border-slate-200">📌 images/7.png</div>
+                            </div>
+                            <h4 class="font-black text-2xl text-teal-600 mb-3 uppercase">6. Biến Tần (VFD)</h4>
+                            <div class="mb-4"><span class="text-sm font-bold text-slate-600 bg-slate-100 px-3 py-1.5 rounded-md border border-slate-200">Tín hiệu: RS485, AI/AO, DI/DO</span></div>
+                            <p class="text-lg text-slate-700 flex-1">Điều khiển thay đổi tốc độ vòng quay (Hz) của Bơm/Quạt giúp tiết kiệm năng lượng. Giao tiếp với DDC qua cáp I/O cứng hoặc cáp mạng truyền thông.</p>
+                        </div>
                     </div>
                 </div>
 
                 <div id="p2-4" class="page-content">
-                    <div class="flex justify-center items-center h-full min-h-[500px] bg-white rounded-2xl shadow-sm border border-slate-200 p-4">
-                        <img src="images/2.jpg" alt="Các nhóm thiết bị trường thường gặp" class="max-w-full max-h-[75vh] object-contain rounded-xl" onerror="this.onerror=null; this.src='https://placehold.co/1200x600/f1f5f9/0ea5e9?text=[Image+of+C%C3%A1c+Nh%C3%B3m+Thi%E1%BA%BFt+B%E1%BB%8B+Tr%C6%B0%E1%BB%9Dng]'">
+                    <div class="flex justify-center items-center h-full min-h-[500px] bg-white rounded-2xl shadow-sm border border-slate-200 p-4 relative">
+                        <img src="images/8.png" alt="Các nhóm thiết bị trường thường gặp" class="max-w-full max-h-[75vh] object-contain rounded-xl" onerror="this.onerror=null; this.src='https://placehold.co/1200x600/f1f5f9/0ea5e9?text=images/8.png'">
+                        <div class="absolute bottom-6 bg-white/90 backdrop-blur px-3 py-1.5 text-xs font-mono text-slate-600 rounded shadow border border-slate-200">📌 File: images/8.png</div>
                     </div>
                 </div>
 
@@ -471,8 +496,9 @@
                 </div>
 
                 <div id="p3-2" class="page-content">
-                    <div class="flex justify-center items-center h-full min-h-[500px] bg-white rounded-2xl shadow-sm border border-slate-200 p-4">
-                        <img src="images/3.jpg" alt="Mô Phỏng Topology Mạng Thực Tế" class="max-w-full max-h-[75vh] object-contain rounded-xl" onerror="this.onerror=null; this.src='https://placehold.co/1200x600/f1f5f9/0ea5e9?text=[Image+of+C%C3%A1c+Ki%E1%BB%83u+M%E1%BA%A1ng+Topology]'">
+                    <div class="flex justify-center items-center h-full min-h-[500px] bg-white rounded-2xl shadow-sm border border-slate-200 p-4 relative">
+                        <img src="images/9.png" alt="Mô Phỏng Topology Mạng Thực Tế" class="max-w-full max-h-[75vh] object-contain rounded-xl" onerror="this.onerror=null; this.src='https://placehold.co/1200x600/f1f5f9/0ea5e9?text=images/9.png'">
+                        <div class="absolute bottom-6 bg-white/90 backdrop-blur px-3 py-1.5 text-xs font-mono text-slate-600 rounded shadow border border-slate-200">📌 File: images/9.png</div>
                     </div>
                 </div>
 
@@ -508,8 +534,9 @@
 
                 <!-- Thêm trang hình ảnh sau phần Chuẩn và Giao thức -->
                 <div id="p3-3b" class="page-content">
-                    <div class="flex justify-center items-center h-full min-h-[500px] bg-white rounded-2xl shadow-sm border border-slate-200 p-4">
-                        <img src="images/protocol-diagram.jpg" alt="Minh Họa Chuẩn Vật Lý và Giao Thức" class="max-w-full max-h-[75vh] object-contain rounded-xl" onerror="this.onerror=null; this.src='https://placehold.co/1200x600/f1f5f9/0ea5e9?text=[Image+of+Minh+Họa+Chuẩn+Vật+Lý+và+Giao+Thức]'">
+                    <div class="flex justify-center items-center h-full min-h-[500px] bg-white rounded-2xl shadow-sm border border-slate-200 p-4 relative">
+                        <img src="images/10.png" alt="Minh Họa Chuẩn Vật Lý và Giao Thức" class="max-w-full max-h-[75vh] object-contain rounded-xl" onerror="this.onerror=null; this.src='https://placehold.co/1200x600/f1f5f9/0ea5e9?text=images/10.png'">
+                        <div class="absolute bottom-6 bg-white/90 backdrop-blur px-3 py-1.5 text-xs font-mono text-slate-600 rounded shadow border border-slate-200">📌 File: images/10.png</div>
                     </div>
                 </div>
 
@@ -544,8 +571,9 @@
                 </div>
 
                 <div id="p3-5" class="page-content">
-                    <div class="flex justify-center items-center h-full min-h-[500px] bg-white rounded-2xl shadow-sm border border-slate-200 p-4">
-                        <img src="images/4.jpg" alt="Đấu Nối Điện Trở Cuối Tuyến (EOL)" class="max-w-full max-h-[75vh] object-contain rounded-xl" onerror="this.onerror=null; this.src='https://placehold.co/1200x600/f1f5f9/0ea5e9?text=[Image+of+S%C6%A1+%C4%91%E1%BB%93+M%E1%BA%A1ng+v%C3%A0+%C4%90i%E1%BB%87n+tr%E1%BB%9F+EOL]'">
+                    <div class="flex justify-center items-center h-full min-h-[500px] bg-white rounded-2xl shadow-sm border border-slate-200 p-4 relative">
+                        <img src="images/11.png" alt="Đấu Nối Điện Trở Cuối Tuyến (EOL)" class="max-w-full max-h-[75vh] object-contain rounded-xl" onerror="this.onerror=null; this.src='https://placehold.co/1200x600/f1f5f9/0ea5e9?text=images/11.png'">
+                        <div class="absolute bottom-6 bg-white/90 backdrop-blur px-3 py-1.5 text-xs font-mono text-slate-600 rounded shadow border border-slate-200">📌 File: images/11.png</div>
                     </div>
                 </div>
 
@@ -660,14 +688,16 @@
                 </div>
 
                 <div id="p4-3" class="page-content">
-                    <div class="flex justify-center items-center h-full min-h-[500px] bg-white rounded-2xl shadow-sm border border-slate-200 p-4">
-                        <img src="images/5.jpg" alt="Sơ đồ Lưu đồ Troubleshooting 4 Bước" class="max-w-full max-h-[75vh] object-contain rounded-xl" onerror="this.onerror=null; this.src='https://placehold.co/1200x600/f1f5f9/0ea5e9?text=[Image+of+L%C6%B0u+%C4%91%E1%BB%93+Troubleshooting]'">
+                    <div class="flex justify-center items-center h-full min-h-[500px] bg-white rounded-2xl shadow-sm border border-slate-200 p-4 relative">
+                        <img src="images/12.png" alt="Sơ đồ Lưu đồ Troubleshooting 4 Bước" class="max-w-full max-h-[75vh] object-contain rounded-xl" onerror="this.onerror=null; this.src='https://placehold.co/1200x600/f1f5f9/0ea5e9?text=images/12.png'">
+                        <div class="absolute bottom-6 bg-white/90 backdrop-blur px-3 py-1.5 text-xs font-mono text-slate-600 rounded shadow border border-slate-200">📌 File: images/12.png</div>
                     </div>
                 </div>
 
                 <div id="p4-4" class="page-content">
-                    <div class="flex justify-center items-center h-full min-h-[500px] bg-white rounded-2xl shadow-sm border border-slate-200 p-4">
-                        <img src="images/6.jpg" alt="Kỹ thuật viên đo kiểm bằng đồng hồ VOM" class="max-w-full max-h-[75vh] object-contain rounded-xl" onerror="this.onerror=null; this.src='https://placehold.co/1200x600/f1f5f9/0ea5e9?text=[Image+of+Ki%E1%BB%83m+tra+t%C3%ADn+hi%E1%BB%87u+b%E1%BA%B1ng+VOM]'">
+                    <div class="flex justify-center items-center h-full min-h-[500px] bg-white rounded-2xl shadow-sm border border-slate-200 p-4 relative">
+                        <img src="images/13.png" alt="Kỹ thuật viên đo kiểm bằng đồng hồ VOM" class="max-w-full max-h-[75vh] object-contain rounded-xl" onerror="this.onerror=null; this.src='https://placehold.co/1200x600/f1f5f9/0ea5e9?text=images/13.png'">
+                        <div class="absolute bottom-6 bg-white/90 backdrop-blur px-3 py-1.5 text-xs font-mono text-slate-600 rounded shadow border border-slate-200">📌 File: images/13.png</div>
                     </div>
                 </div>
 
@@ -798,8 +828,9 @@
                 </div>
 
                 <div id="p5-3" class="page-content">
-                    <div class="flex justify-center items-center h-full min-h-[500px] bg-white rounded-2xl shadow-sm border border-slate-200 p-4">
-                        <img src="images/8.jpg" alt="Danh mục Bộ Hồ Sơ Bàn Giao BMS Tiêu Chuẩn" class="max-w-full max-h-[75vh] object-contain rounded-xl" onerror="this.onerror=null; this.src='https://placehold.co/1200x600/f1f5f9/0ea5e9?text=[Image+of+B%E1%BB%99+H%E1%BB%93+S%C6%A1+B%C3%A0n+Giao]'">
+                    <div class="flex justify-center items-center h-full min-h-[500px] bg-white rounded-2xl shadow-sm border border-slate-200 p-4 relative">
+                        <img src="images/14.png" alt="Danh mục Bộ Hồ Sơ Bàn Giao BMS Tiêu Chuẩn" class="max-w-full max-h-[75vh] object-contain rounded-xl" onerror="this.onerror=null; this.src='https://placehold.co/1200x600/f1f5f9/0ea5e9?text=images/14.png'">
+                        <div class="absolute bottom-6 bg-white/90 backdrop-blur px-3 py-1.5 text-xs font-mono text-slate-600 rounded shadow border border-slate-200">📌 File: images/14.png</div>
                     </div>
                 </div>
 
@@ -824,8 +855,9 @@
                 </div>
 
                 <div id="p5-5" class="page-content">
-                    <div class="flex justify-center items-center h-full min-h-[500px] bg-white rounded-2xl shadow-sm border border-slate-200 p-4">
-                        <img src="images/7.jpg" alt="Mẫu Biên Bản Bàn Giao Soft-copy BMS" class="max-w-full max-h-[75vh] object-contain rounded-xl" onerror="this.onerror=null; this.src='https://placehold.co/1200x600/f1f5f9/0ea5e9?text=[Image+of+Bi%C3%AAn+b%E1%BA%A3n+b%C3%A0n+giao]'">
+                    <div class="flex justify-center items-center h-full min-h-[500px] bg-white rounded-2xl shadow-sm border border-slate-200 p-4 relative">
+                        <img src="images/15.png" alt="Mẫu Biên Bản Bàn Giao Soft-copy BMS" class="max-w-full max-h-[75vh] object-contain rounded-xl" onerror="this.onerror=null; this.src='https://placehold.co/1200x600/f1f5f9/0ea5e9?text=images/15.png'">
+                        <div class="absolute bottom-6 bg-white/90 backdrop-blur px-3 py-1.5 text-xs font-mono text-slate-600 rounded shadow border border-slate-200">📌 File: images/15.png</div>
                     </div>
                 </div>
 
@@ -909,6 +941,25 @@
         </footer>
 
     </main>
+
+    <!-- Modal Cấu hình API Key -->
+    <div id="api-key-modal" class="fixed inset-0 bg-slate-900/80 z-[100] hidden items-center justify-center backdrop-blur-sm transition-opacity">
+        <div class="bg-white rounded-2xl shadow-2xl w-full max-w-lg p-8 transform transition-all scale-95 opacity-0 duration-300" id="api-modal-content">
+            <div class="flex justify-between items-center mb-6">
+                <h3 class="text-2xl font-black text-primary flex items-center gap-2">🔑 Cấu Hình Gemini AI</h3>
+                <button onclick="closeApiModal()" class="text-slate-400 hover:text-danger text-4xl leading-none focus:outline-none">&times;</button>
+            </div>
+            <div class="mb-6">
+                <p class="text-slate-600 mb-4 text-lg">Để sử dụng AI trên GitHub, vui lòng nhập API Key. Key được lưu an toàn tại máy của bạn (Local Storage) và KHÔNG gửi đi đâu khác.</p>
+                <input type="password" id="api-key-input" class="w-full p-4 border-2 border-slate-200 rounded-xl focus:border-accent focus:outline-none text-lg font-mono shadow-inner" placeholder="Nhập API Key (Bắt đầu bằng AIza...)">
+                <p class="text-base text-sky-600 mt-3 font-medium"><a href="https://aistudio.google.com/app/apikey" target="_blank" class="hover:underline flex items-center gap-1">👉 Nhấn vào đây để lấy API Key miễn phí từ Google</a></p>
+            </div>
+            <div class="flex justify-end gap-4">
+                <button onclick="closeApiModal()" class="px-6 py-3 bg-slate-200 text-slate-700 font-bold rounded-xl hover:bg-slate-300 transition text-lg">Đóng</button>
+                <button onclick="saveApiKey()" class="px-6 py-3 bg-primary text-white font-bold rounded-xl hover:bg-blue-800 transition shadow-lg text-lg">Lưu API Key</button>
+            </div>
+        </div>
+    </div>
 
     <script>
         // Data Structure for LMS Navigation
@@ -1147,6 +1198,54 @@
             feedbackBox.innerHTML = feedbackHTML;
         }
 
+        // --- API KEY MODAL LOGIC ---
+        function openApiModal() {
+            const modal = document.getElementById('api-key-modal');
+            const content = document.getElementById('api-modal-content');
+            const input = document.getElementById('api-key-input');
+            input.value = localStorage.getItem('bms_gemini_api_key') || '';
+            
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            // Timeout để trigger CSS transition
+            setTimeout(() => {
+                content.classList.remove('scale-95', 'opacity-0');
+                content.classList.add('scale-100', 'opacity-100');
+            }, 10);
+        }
+
+        function closeApiModal() {
+            const modal = document.getElementById('api-key-modal');
+            const content = document.getElementById('api-modal-content');
+            
+            content.classList.remove('scale-100', 'opacity-100');
+            content.classList.add('scale-95', 'opacity-0');
+            setTimeout(() => {
+                modal.classList.add('hidden');
+                modal.classList.remove('flex');
+            }, 300);
+        }
+
+        function saveApiKey() {
+            const input = document.getElementById('api-key-input').value.trim();
+            if (input) {
+                localStorage.setItem('bms_gemini_api_key', input);
+                closeApiModal();
+                // Thông báo thay cho alert thông thường để UI mượt hơn
+                const btn = document.querySelector('button[onclick="openApiModal()"] span');
+                const oldText = btn.innerText;
+                btn.innerText = "✅ Đã lưu Key thành công!";
+                btn.parentElement.classList.add('bg-green-700', 'border-green-500');
+                setTimeout(() => {
+                    btn.innerText = oldText;
+                    btn.parentElement.classList.remove('bg-green-700', 'border-green-500');
+                }, 3000);
+            } else {
+                localStorage.removeItem('bms_gemini_api_key');
+                closeApiModal();
+            }
+        }
+
         // --- GEMINI API INTEGRATION ---
         
         async function fetchWithRetry(url, options, maxRetries = 5) {
@@ -1167,9 +1266,12 @@
         }
 
         async function callGemini(userText, systemText) {
-            const apiKey = ""; 
+            // Lấy Key từ Local Storage của người dùng
+            const apiKey = localStorage.getItem('bms_gemini_api_key'); 
+            
             if (!apiKey) {
-                return "<p><i>Cảnh báo: Không tìm thấy API Key. Xin vui lòng kiểm tra lại môi trường chạy.</i></p>";
+                openApiModal();
+                throw new Error("Vui lòng cấu hình API Key trước khi sử dụng tính năng AI.");
             }
             
             const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
@@ -1184,9 +1286,14 @@
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify(payload)
                 });
+                
+                if(data.error) {
+                    throw new Error(data.error.message || "Lỗi xác thực API Key. Vui lòng kiểm tra lại.");
+                }
+                
                 return data.candidates?.[0]?.content?.parts?.[0]?.text || "Không có phản hồi từ AI.";
             } catch (error) {
-                return `<p class="text-red-600 font-bold">Lỗi kết nối API: ${error.message}</p>`;
+                throw error;
             }
         }
 
@@ -1221,12 +1328,18 @@
 Chia thành 4 bước "Nguyên tắc 4 bước vàng": 1. Kiểm tra hiện trường. 2. Đo I/O. 3. Khoanh vùng. 4. Check logic phần mềm.
 Sử dụng thẻ HTML <h3>, <strong>, <ul>, <li>, <br>. Không dùng Markdown.`;
 
-            const result = await callGemini(input, systemPrompt);
-            output.innerHTML = `<div class="ai-output-content">${formatAIOutput(result)}</div>`;
-            output.classList.remove('hidden');
-            loading.classList.add('hidden');
-            btn.disabled = false;
-            btn.classList.remove('opacity-50');
+            try {
+                const result = await callGemini(input, systemPrompt);
+                output.innerHTML = `<div class="ai-output-content">${formatAIOutput(result)}</div>`;
+                output.classList.remove('hidden');
+            } catch (error) {
+                output.innerHTML = `<div class="bg-red-50 p-6 rounded-lg border-l-8 border-danger"><p class="text-danger font-bold text-xl mb-2">⚠ Lỗi kết nối AI</p><p class="text-slate-700 text-lg">${error.message}</p></div>`;
+                output.classList.remove('hidden');
+            } finally {
+                loading.classList.add('hidden');
+                btn.disabled = false;
+                btn.classList.remove('opacity-50');
+            }
         }
 
         async function runAISOO() {
@@ -1250,12 +1363,18 @@ DỊCH SANG TIẾNG VIỆT (nếu là tiếng Anh) và TÓM TẮT thành các g�
 Tập trung vào: Điều kiện chạy (Start/Stop), Khóa chéo (Interlocks/Safeties), Điều khiển PID (Setpoint).
 Sử dụng thẻ HTML <h3>, <strong>, <ul>, <li>, <br>. Không dùng Markdown.`;
 
-            const result = await callGemini(input, systemPrompt);
-            output.innerHTML = `<div class="ai-output-content">${formatAIOutput(result)}</div>`;
-            output.classList.remove('hidden');
-            loading.classList.add('hidden');
-            btn.disabled = false;
-            btn.classList.remove('opacity-50');
+            try {
+                const result = await callGemini(input, systemPrompt);
+                output.innerHTML = `<div class="ai-output-content">${formatAIOutput(result)}</div>`;
+                output.classList.remove('hidden');
+            } catch (error) {
+                output.innerHTML = `<div class="bg-red-50 p-6 rounded-lg border-l-8 border-danger"><p class="text-danger font-bold text-xl mb-2">⚠ Lỗi kết nối AI</p><p class="text-slate-700 text-lg">${error.message}</p></div>`;
+                output.classList.remove('hidden');
+            } finally {
+                loading.classList.add('hidden');
+                btn.disabled = false;
+                btn.classList.remove('opacity-50');
+            }
         }
 
         // Init
