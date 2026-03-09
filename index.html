@@ -1481,7 +1481,8 @@
                 throw new Error("Vui lòng cấu hình API Key trước khi sử dụng tính năng AI.");
             }
             
-            const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
+            // Đã đổi sang model gemini-1.5-flash (Bản public ổn định và tương thích với mọi API Key)
+            const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
             const payload = {
                 contents: [{ parts: [{ text: userText }] }],
                 systemInstruction: { parts: [{ text: systemText }] }
